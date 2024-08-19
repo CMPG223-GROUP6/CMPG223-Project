@@ -58,6 +58,12 @@
     <Compile Include="frmEmployees.Designer.cs">
       <DependentUpon>frmEmployees.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMovieRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovieRoom.Designer.cs">
+      <DependentUpon>frmMovieRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMovies.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmployees.resx">
       <DependentUpon>frmEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovieRoom.resx">
+      <DependentUpon>frmMovieRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMovies.resx">
       <DependentUpon>frmMovies.cs</DependentUpon>

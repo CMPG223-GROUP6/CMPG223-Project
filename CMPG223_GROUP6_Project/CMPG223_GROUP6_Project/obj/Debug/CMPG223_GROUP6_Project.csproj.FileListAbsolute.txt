@@ -21,3 +21,17 @@ C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Projec
 C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.exe.config
 C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.exe
 C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.pdb
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.exe.config
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.exe
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\bin\Debug\CMPG223_GROUP6_Project.pdb
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.csproj.AssemblyReference.cache
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.frmSellTicket.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\MaintainEmployees.frmMaintainEmployees.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.frmMovieRoom.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.frmMovies.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.frmTimeSlot.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.Properties.Resources.resources
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.csproj.GenerateResource.cache
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.csproj.CoreCompileInputs.cache
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.exe
+C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.pdb
