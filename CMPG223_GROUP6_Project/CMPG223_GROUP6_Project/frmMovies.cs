@@ -171,5 +171,10 @@ namespace CMPG223_GROUP6_Project
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
+        private void textBoxMovieDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
