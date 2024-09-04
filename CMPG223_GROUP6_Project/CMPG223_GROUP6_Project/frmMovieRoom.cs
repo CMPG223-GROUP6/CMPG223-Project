@@ -15,54 +15,136 @@ namespace CMPG223_GROUP6_Project
     {
         // Connection string for LocalDB database
         string connectionString = @"";
+        private bool isUpdating = false; // Track if the operation is an update or an add
+        ToolTip toolTip;
         public frmMovieRoom()
         {
             InitializeComponent();
+
+            // Initialize the ToolTip control
+            toolTip = new ToolTip();
+
+            // Set up the delays for the ToolTip
+            toolTip.AutoPopDelay = 5000; // How long the tooltip stays visible
+            toolTip.InitialDelay = 1000; // Delay before tooltip appears
+            toolTip.ReshowDelay = 500;   // Delay before tooltip reappears
+            toolTip.ShowAlways = true;   // Force the tooltip to show even if the form is not active
+
+            // Assign ToolTips to controls
+            toolTip.SetToolTip(this.cmbMovieID, "Select the Movie ID from the list.");
+            toolTip.SetToolTip(this.cmbRoomID, "Select the Room ID from the list.");
+            toolTip.SetToolTip(this.txtRoomNum, "Enter the room number.");
+            toolTip.SetToolTip(this.txtNumSeats, "This is a read-only field.");
+            toolTip.SetToolTip(this.btnAdd, "Click to add a new movie room.");
+            toolTip.SetToolTip(this.btnUpdate, "Click to update the selected movie room.");
+            toolTip.SetToolTip(this.btnDelete, "Click to delete the selected movie room.");
+            toolTip.SetToolTip(this.btnShow, "Click to display all movie rooms.");
+            toolTip.SetToolTip(this.btnMakeChanges, "Click to apply the changes.");
+
+            // Hide the Room Details controls and MakeChanges button initially
+            ToggleRoomDetailsControls(false, false);
+
+            // Populate ComboBoxes when the form loads
+            PopulateMovieComboBox();
+            PopulateRoomComboBox();
+        }
+        private void PopulateMovieComboBox()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT Movie_ID FROM dbo.MOVIE", conn);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cmbMovieID.Items.Add(reader["Movie_ID"].ToString());
+                }
+
+                conn.Close();
+            }
+        }
+
+        private void PopulateRoomComboBox()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT Room_ID FROM dbo.MOVIE_ROOM", conn);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cmbRoomID.Items.Add(reader["Room_ID"].ToString());
+                }
+
+                conn.Close();
+            }
+        }
+
+        private void ToggleRoomDetailsControls(bool isVisible, bool showRoomID = false)
+        {
+            lbID.Visible = isVisible;
+            cmbMovieID.Visible = isVisible;
+            lbNumber.Visible = isVisible;
+            txtRoomNum.Visible = isVisible;
+            lbSeats.Visible = isVisible;
+            txtNumSeats.Visible = isVisible;
+            btnMakeChanges.Visible = isVisible;
+
+            lbRoomID.Visible = showRoomID;
+            cmbRoomID.Visible = showRoomID;
         }
 
         // Add a new movie room
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand command = new SqlCommand("Add_MovieRoom", conn);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Movie_ID", int.Parse(txtMovieID.Text));
-                    command.Parameters.AddWithValue("@Room_Num", int.Parse(txtRoomNum.Text));
-                    command.Parameters.AddWithValue("@Num_Seats", int.Parse(txtNumSeats.Text));
+            isUpdating = false; // add operation
+            ToggleRoomDetailsControls(true, false);
 
-                    command.ExecuteNonQuery();
-                    lbStatus.Text = "A new movie room was added successfully!";
-                    lbStatus.ForeColor = System.Drawing.Color.Green;
-                }
-                catch (Exception ex)
-                {
-                    lbStatus.Text = "Error: " + ex.Message;
-                    lbStatus.ForeColor = System.Drawing.Color.Red;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
+            // Clear fields for new input
+            cmbRoomID.SelectedIndex = -1;
+            cmbMovieID.SelectedIndex = -1;
+            txtRoomNum.Clear();
+            txtNumSeats.Clear();
+
+            // Set txtNumSeats to editable since it's an add operation
+            txtNumSeats.ReadOnly = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                // Display error message via errorProvider1
+                errorProvider1.SetError(dataGridView1, "Please select a row to delete.");
+                return;
+            }
+
+            // Clear previous error
+            errorProvider1.SetError(dataGridView1, string.Empty);
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 SqlCommand command = new SqlCommand("Delete_MovieRoom", conn);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Room_ID", int.Parse(txtRoomID.Text));
+
+                int roomId = int.Parse(dataGridView1.SelectedRows[0].Cells["Room_ID"].Value.ToString());
+                command.Parameters.AddWithValue("@Room_ID", roomId);
 
                 command.ExecuteNonQuery();
-                MessageBox.Show("The movie room was deleted!");
+
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+
+                // Display success message via lbStatus
+                lbStatus.Text = "The movie room was deleted!";
+                lbStatus.ForeColor = Color.Green;
+
                 conn.Close();
             }
+
+            ToggleRoomDetailsControls(false);
         }
 
         // Show all movie rooms in the DataGridView
@@ -98,32 +180,148 @@ namespace CMPG223_GROUP6_Project
         // Update an existing movie room
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                conn.Open();
-                SqlCommand command = new SqlCommand("Update_MovieRoom", conn);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Room_ID", int.Parse(txtRoomID.Text));
-                command.Parameters.AddWithValue("@Movie_ID", int.Parse(txtMovieID.Text));
-                command.Parameters.AddWithValue("@Room_Num", int.Parse(txtRoomNum.Text));
-                command.Parameters.AddWithValue("@Num_Seats", int.Parse(txtNumSeats.Text));
-
-                command.ExecuteNonQuery();
-                MessageBox.Show("The movie room was updated!");
-                conn.Close();
+                // Display error message via errorProvider1
+                errorProvider1.SetError(dataGridView1, "Please select a row in the grid to update.");
+                return;
             }
+
+            // Clear previous error
+            errorProvider1.SetError(dataGridView1, string.Empty);
+
+            // Update operation
+            isUpdating = true;
+            ToggleRoomDetailsControls(true, true);
+            txtNumSeats.ReadOnly = true;
+
+            // Auto-fill the controls with the selected row's data
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            cmbRoomID.Text = selectedRow.Cells["Room_ID"].Value.ToString();
+            cmbMovieID.Text = selectedRow.Cells["Movie_ID"].Value.ToString();
+            txtRoomNum.Text = selectedRow.Cells["Room_Num"].Value.ToString();
+            txtNumSeats.Text = selectedRow.Cells["Num_Seats"].Value.ToString();
         }
+
         //Handling DataGridView row selection to fill fields
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count - 1) // Ensure a valid row is selected and not the empty new row
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                txtRoomID.Text = row.Cells["Room_ID"].Value.ToString();
-                txtMovieID.Text = row.Cells["Movie_ID"].Value.ToString();
+                cmbRoomID.Text = row.Cells["Room_ID"].Value.ToString();
+                cmbMovieID.Text = row.Cells["Movie_ID"].Value.ToString();
                 txtRoomNum.Text = row.Cells["Room_Num"].Value.ToString();
                 txtNumSeats.Text = row.Cells["Num_Seats"].Value.ToString();
+
+                ToggleRoomDetailsControls(true);
             }
+        }
+
+        private void btnMakeChanges_Click(object sender, EventArgs e)
+        {
+            // Validate if the fields are filled
+            if (string.IsNullOrEmpty(cmbMovieID.Text))
+            {
+                errorProvider1.SetError(cmbMovieID, "Please select a Movie ID.");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(cmbMovieID, string.Empty); // Clear previous error
+            }
+
+            if (string.IsNullOrEmpty(txtRoomNum.Text) || !int.TryParse(txtRoomNum.Text, out int roomNum))
+            {
+                errorProvider1.SetError(txtRoomNum, "Please enter a valid room number.");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtRoomNum, string.Empty); // Clear previous error
+            }
+
+            if (string.IsNullOrEmpty(txtNumSeats.Text) || !int.TryParse(txtNumSeats.Text, out int numSeats))
+            {
+                errorProvider1.SetError(txtNumSeats, "Please enter a valid number of seats.");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtNumSeats, string.Empty); // Clear previous error
+            }
+
+            // If it's an update operation
+            if (isUpdating)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("Update_MovieRoom", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Use parsed integer values (roomNum, numSeats)
+                    command.Parameters.AddWithValue("@Room_ID", int.Parse(cmbRoomID.Text));
+                    command.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
+                    command.Parameters.AddWithValue("@Room_Num", roomNum);
+                    command.Parameters.AddWithValue("@Num_Seats", numSeats);
+
+                    command.ExecuteNonQuery();
+
+                    // Update the data grid and clear fields
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    selectedRow.Cells["Movie_ID"].Value = cmbMovieID.Text;
+                    selectedRow.Cells["Room_Num"].Value = roomNum.ToString();
+                    selectedRow.Cells["Num_Seats"].Value = numSeats.ToString();
+
+                    // Display success message via lbStatus
+                    lbStatus.Text = "The movie room was updated successfully!";
+                    lbStatus.ForeColor = Color.Green;
+
+                    conn.Close();
+                    ToggleRoomDetailsControls(false);
+                }
+            }
+            else
+            {
+                // Add a new movie room
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("Add_MovieRoom", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Use parsed integer values (roomNum, numSeats)
+                    command.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
+                    command.Parameters.AddWithValue("@Room_Num", roomNum);
+                    command.Parameters.AddWithValue("@Num_Seats", numSeats);
+
+                    command.ExecuteNonQuery();
+
+                    // Refresh the data grid to show the newly added room
+                    btnShow_Click(sender, e);
+
+                    // Display success message via lbStatus
+                    lbStatus.Text = "A new movie room was added successfully!";
+                    lbStatus.ForeColor = Color.Green;
+
+                    conn.Close();
+                    ToggleRoomDetailsControls(false);
+                }
+            }
+        }
+        private bool ValidateRoomDetails()
+        {
+            return !string.IsNullOrEmpty(cmbMovieID.SelectedItem?.ToString()) &&
+                   !string.IsNullOrEmpty(txtRoomNum.Text) &&
+                   !string.IsNullOrEmpty(txtNumSeats.Text);
+        }
+
+        private void ResetRoomDetailsControls()
+        {
+            cmbMovieID.SelectedIndex = -1;
+            txtRoomNum.Clear();
+            txtNumSeats.Clear();
         }
     }
 }
