@@ -14,7 +14,7 @@ namespace CMPG223_GROUP6_Project
     public partial class frmMovieRoom : Form
     {
         // Connection string for LocalDB database
-        string connectionString = @"";
+        string connectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public frmMovieRoom()
         {
             InitializeComponent();
@@ -124,6 +124,11 @@ namespace CMPG223_GROUP6_Project
                 txtRoomNum.Text = row.Cells["Room_Num"].Value.ToString();
                 txtNumSeats.Text = row.Cells["Num_Seats"].Value.ToString();
             }
+        }
+
+        private void txtMovieID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
