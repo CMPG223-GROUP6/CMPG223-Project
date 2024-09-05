@@ -128,7 +128,7 @@ namespace CMPG223_GROUP6_Project
             this.txtMovieID.Name = "txtMovieID";
             this.txtMovieID.Size = new System.Drawing.Size(76, 20);
             this.txtMovieID.TabIndex = 3;
-            this.txtMovieID.TextChanged += new System.EventHandler(this.txtMovieID_TextChanged);
+            
             // 
             // txtRoomID
             // 

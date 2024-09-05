@@ -1,37 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\nicole\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\markram kellerman\\desktop\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmmovieroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmmovieroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\nicole\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\nicole\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmemployees.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmemployees.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmemployees.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\nicole\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmmovies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmmovieroom.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmmovieroom.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmmovies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmmovies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\nicole\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\frmtimeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,94 +46,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 254,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmEmployees.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
-              "ViewState": "AQIAAHkAAAAAAAAAAAAnwI8AAAAAAAAA",
+              "Title": "frmMovieRoom.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovieRoom.Designer.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmMovieRoom.Designer.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovieRoom.Designer.cs",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmMovieRoom.Designer.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAqwIIAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:59:07.135Z",
+              "WhenOpened": "2024-09-05T20:05:55.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmEmployees.cs",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAPEAAAAAAAAA",
+              "Title": "frmMovieRoom.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovieRoom.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmMovieRoom.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovieRoom.cs [Design]",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmMovieRoom.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:57:59.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T20:05:37.225Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmEmployees.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmEmployees.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs [Design]",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmEmployees.cs [Design]",
+              "Title": "frmEmployees.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmEmployees.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:57:28.713Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-19T19:59:07.135Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmMovies.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovies.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmMovies.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovies.cs [Design]",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmMovies.cs [Design]",
+              "Title": "frmEmployees.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmEmployees.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmEmployees.cs",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmEmployees.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:57:04.602Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmTimeslot.cs",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "ViewState": "AQIAAIcAAAAAAAAAAAAUwAoAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:35:54.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T19:57:59.794Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "frmTimeslot.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs [Design]",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmTimeslot.cs [Design]",
+              "Title": "frmMovies.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovies.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmMovies.cs",
+              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovies.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmMovies.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T19:35:18.146Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-19T19:57:04.602Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
+              "Title": "frmTimeslot.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAUwAoAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T19:35:54.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmTimeslot.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\frmTimeslot.cs",
+              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\frmTimeslot.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T19:35:18.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
               "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\Form1.cs",
-              "ToolTip": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
+              "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
               "RelativeToolTip": "CMPG223_GROUP6_Project\\Form1.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -137,36 +145,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nicole\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
               "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\Form1.cs",
               "ToolTip": "C:\\Users\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Markram Kellerman\\Desktop\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs [Design]",
+              "RelativeToolTip": "CMPG223_GROUP6_Project\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-19T16:00:51.76Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 146,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{f2e84780-2af1-11d1-a7fa-00a0c9110051}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{4a18f9d0-b838-11d0-93eb-00a0c90f2734}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{90243340-bd7a-11d0-93ef-00a0c90f2734}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0504ff91-9d61-11d0-a794-00a0c9110051}"
             }
           ]
         }
