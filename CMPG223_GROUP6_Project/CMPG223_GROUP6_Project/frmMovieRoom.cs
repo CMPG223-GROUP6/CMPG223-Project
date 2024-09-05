@@ -17,6 +17,7 @@ namespace CMPG223_GROUP6_Project
         string connectionString = @"";
         private bool isUpdating = false; // Track if the operation is an update or an add
         ToolTip toolTip;
+        string connectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public frmMovieRoom()
         {
             InitializeComponent();
@@ -322,6 +323,9 @@ namespace CMPG223_GROUP6_Project
             cmbMovieID.SelectedIndex = -1;
             txtRoomNum.Clear();
             txtNumSeats.Clear();
+        private void txtMovieID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

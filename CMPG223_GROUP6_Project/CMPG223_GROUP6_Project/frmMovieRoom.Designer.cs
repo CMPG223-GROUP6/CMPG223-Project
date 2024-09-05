@@ -56,9 +56,10 @@ namespace CMPG223_GROUP6_Project
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(172, 439);
+            this.lbStatus.Location = new System.Drawing.Point(129, 357);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(0, 17);
+            this.lbStatus.Size = new System.Drawing.Size(0, 13);
             this.lbStatus.TabIndex = 19;
             // 
             // lbHeading
@@ -67,7 +68,7 @@ namespace CMPG223_GROUP6_Project
             this.lbHeading.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHeading.Location = new System.Drawing.Point(105, 9);
             this.lbHeading.Name = "lbHeading";
-            this.lbHeading.Size = new System.Drawing.Size(448, 45);
+            this.lbHeading.Size = new System.Drawing.Size(371, 37);
             this.lbHeading.TabIndex = 18;
             this.lbHeading.Text = "Movie Rooms Management";
             // 
@@ -76,7 +77,7 @@ namespace CMPG223_GROUP6_Project
             this.lbRoomID.AutoSize = true;
             this.lbRoomID.Location = new System.Drawing.Point(110, 363);
             this.lbRoomID.Name = "lbRoomID";
-            this.lbRoomID.Size = new System.Drawing.Size(62, 17);
+            this.lbRoomID.Size = new System.Drawing.Size(49, 13);
             this.lbRoomID.TabIndex = 7;
             this.lbRoomID.Text = "Room ID";
             // 
@@ -85,7 +86,7 @@ namespace CMPG223_GROUP6_Project
             this.lbSeats.AutoSize = true;
             this.lbSeats.Location = new System.Drawing.Point(110, 335);
             this.lbSeats.Name = "lbSeats";
-            this.lbSeats.Size = new System.Drawing.Size(114, 17);
+            this.lbSeats.Size = new System.Drawing.Size(86, 13);
             this.lbSeats.TabIndex = 6;
             this.lbSeats.Text = "Number of Seats";
             // 
@@ -94,7 +95,7 @@ namespace CMPG223_GROUP6_Project
             this.lbNumber.AutoSize = true;
             this.lbNumber.Location = new System.Drawing.Point(110, 307);
             this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(99, 17);
+            this.lbNumber.Size = new System.Drawing.Size(75, 13);
             this.lbNumber.TabIndex = 5;
             this.lbNumber.Text = "Room Number";
             // 
@@ -103,7 +104,7 @@ namespace CMPG223_GROUP6_Project
             this.lbID.AutoSize = true;
             this.lbID.Location = new System.Drawing.Point(110, 279);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(62, 17);
+            this.lbID.Size = new System.Drawing.Size(50, 13);
             this.lbID.TabIndex = 4;
             this.lbID.Text = "Movie ID";
             // 
@@ -111,7 +112,7 @@ namespace CMPG223_GROUP6_Project
             // 
             this.txtNumSeats.Location = new System.Drawing.Point(246, 330);
             this.txtNumSeats.Name = "txtNumSeats";
-            this.txtNumSeats.Size = new System.Drawing.Size(101, 22);
+            this.txtNumSeats.Size = new System.Drawing.Size(77, 20);
             this.txtNumSeats.TabIndex = 1;
             // 
             // txtRoomNum
@@ -125,14 +126,15 @@ namespace CMPG223_GROUP6_Project
             // 
             this.txtMovieID.Location = new System.Drawing.Point(512, 274);
             this.txtMovieID.Name = "txtMovieID";
-            this.txtMovieID.Size = new System.Drawing.Size(100, 22);
+            this.txtMovieID.Size = new System.Drawing.Size(76, 20);
             this.txtMovieID.TabIndex = 3;
+            this.txtMovieID.TextChanged += new System.EventHandler(this.txtMovieID_TextChanged);
             // 
             // txtRoomID
             // 
             this.txtRoomID.Location = new System.Drawing.Point(512, 358);
             this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(100, 22);
+            this.txtRoomID.Size = new System.Drawing.Size(76, 20);
             this.txtRoomID.TabIndex = 0;
             // 
             // dataGridView1
@@ -216,7 +218,7 @@ namespace CMPG223_GROUP6_Project
             // 
             // frmMovieRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cmbRoomID);
@@ -237,6 +239,7 @@ namespace CMPG223_GROUP6_Project
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMovieRoom";
             this.Text = "frmMovieRoom";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -35,3 +35,5 @@ C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\C
 C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.csproj.CoreCompileInputs.cache
 C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.exe
 C:\Users\tanias\OneDrive - AfriForum\Pictures\Documents\GitHub\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.pdb
+C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\MaintainEmployees.frmMaintainEmployees.resources
+C:\Users\tracy\Documents\GitHub\New folder\CMPG223-Project\CMPG223_GROUP6_Project\CMPG223_GROUP6_Project\obj\Debug\CMPG223_GROUP6_Project.frmMovieRoom.resources

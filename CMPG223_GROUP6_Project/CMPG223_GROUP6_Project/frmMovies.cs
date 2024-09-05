@@ -13,21 +13,21 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmMovies : Form
     {
-        private const string ConnectionString = @"";
+        private const string ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        private ErrorProvider errorProvider;
 
         public frmMovies()
         {
             InitializeComponent();
+            errorProvider = new ErrorProvider();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // Validate input
-            if (string.IsNullOrWhiteSpace(textBoxMovieName.Text) ||
-                string.IsNullOrWhiteSpace(textBoxMovieDescription.Text) ||
-                !decimal.TryParse(textBoxPrice.Text, out decimal price))
+            // Validate input for Movie Name, Description, and Price
+            if (!ValidateInputs())
             {
-                MessageBox.Show("Please enter valid movie details.");
                 return;
             }
 
@@ -43,22 +43,14 @@ namespace CMPG223_GROUP6_Project
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
                         command.Parameters.AddWithValue("@Movie_Description", textBoxMovieDescription.Text);
-                        command.Parameters.AddWithValue("@Price", price);
+                        command.Parameters.AddWithValue("@Price", decimal.Parse(textBoxPrice.Text));
                         command.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("A new movie was added!");
 
-                    // Show all movies
-                    using (SqlCommand command = new SqlCommand("Show_Movies", conn))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        // Display records in DataGridView
-                        DataTable dt = new DataTable();
-                        dt.Load(command.ExecuteReader());
-                        dataGridView1.DataSource = dt;
-                    }
+                    // Refresh movie list
+                    ShowMovies();
                 }
             }
             catch (Exception ex)
@@ -78,11 +70,8 @@ namespace CMPG223_GROUP6_Project
             var selectedRow = dataGridView1.SelectedRows[0];
             int movieID = Convert.ToInt32(selectedRow.Cells["Movie_ID"].Value);
 
-            if (string.IsNullOrWhiteSpace(textBoxMovieName.Text) ||
-                string.IsNullOrWhiteSpace(textBoxMovieDescription.Text) ||
-                !decimal.TryParse(textBoxPrice.Text, out decimal price))
+            if (!ValidateInputs())
             {
-                MessageBox.Show("Please enter valid movie details.");
                 return;
             }
 
@@ -98,14 +87,13 @@ namespace CMPG223_GROUP6_Project
                         command.Parameters.AddWithValue("@Movie_ID", movieID);
                         command.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
                         command.Parameters.AddWithValue("@Movie_Description", textBoxMovieDescription.Text);
-                        command.Parameters.AddWithValue("@Price", price);
+                        command.Parameters.AddWithValue("@Price", decimal.Parse(textBoxPrice.Text));
                         command.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("Movie updated successfully!");
+                    ShowMovies(); // Refresh the DataGridView
                 }
-
-                ShowMovies(); // Refresh the DataGridView
             }
             catch (Exception ex)
             {
@@ -138,14 +126,54 @@ namespace CMPG223_GROUP6_Project
                     }
 
                     MessageBox.Show("Movie deleted successfully!");
+                    ShowMovies(); // Refresh DataGridView
                 }
-
-                ShowMovies(); // Refresh DataGridView
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
+        }
+
+        private bool ValidateInputs()
+        {
+            bool isValid = true;
+            errorProvider.Clear(); // Clear previous errors
+
+            // Validate Movie Name
+            if (string.IsNullOrWhiteSpace(textBoxMovieName.Text))
+            {
+                errorProvider.SetError(textBoxMovieName, "Movie name is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider.SetError(textBoxMovieName, ""); // Clear error if valid
+            }
+
+            // Validate Movie Description
+            if (string.IsNullOrWhiteSpace(textBoxMovieDescription.Text))
+            {
+                errorProvider.SetError(textBoxMovieDescription, "Movie description is required.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider.SetError(textBoxMovieDescription, ""); // Clear error if valid
+            }
+
+            // Validate Price
+            if (!decimal.TryParse(textBoxPrice.Text, out decimal price) || price < 0)
+            {
+                errorProvider.SetError(textBoxPrice, "Please enter a valid price.");
+                isValid = false;
+            }
+            else
+            {
+                errorProvider.SetError(textBoxPrice, ""); // Clear error if valid
+            }
+
+            return isValid;
         }
 
         private void ShowMovies()
@@ -173,6 +201,11 @@ namespace CMPG223_GROUP6_Project
         }
 
         private void textBoxMovieDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxMovieName_TextChanged(object sender, EventArgs e)
         {
 
         }

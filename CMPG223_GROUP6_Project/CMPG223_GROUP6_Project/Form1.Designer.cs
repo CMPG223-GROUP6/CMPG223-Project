@@ -93,6 +93,7 @@
             this.btnBookTicket.TabIndex = 27;
             this.btnBookTicket.Text = "Book ticket";
             this.btnBookTicket.UseVisualStyleBackColor = true;
+            this.btnBookTicket.Click += new System.EventHandler(this.btnBookTicket_Click);
             // 
             // lblSeat
             // 
