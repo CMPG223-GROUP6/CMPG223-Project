@@ -16,7 +16,7 @@ namespace CMPG223_GROUP6_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSellTicket());
+            Application.Run(new frmMovies());
         }
     }
 }

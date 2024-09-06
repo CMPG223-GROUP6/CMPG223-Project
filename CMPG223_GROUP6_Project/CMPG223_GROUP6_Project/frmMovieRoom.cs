@@ -14,7 +14,7 @@ namespace CMPG223_GROUP6_Project
     public partial class frmMovieRoom : Form
     {
         // Connection string for LocalDB database
-        string connectionString = @"";
+        string connectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private bool isUpdating = false; // Track if the operation is an update or an add
         ToolTip toolTip;
         
