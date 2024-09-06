@@ -209,5 +209,10 @@ namespace CMPG223_GROUP6_Project
         {
 
         }
+
+        private void frmMovies_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
