@@ -29,7 +29,7 @@ namespace MaintainEmployees
         private void showEmployees()
         {
             conn.Open();
-            //Sql run stored procedure
+            //Sql run stored procedure to display employees.
             comm = new SqlCommand("Show_Employees", conn);
             comm.CommandType = CommandType.StoredProcedure;
 
@@ -44,7 +44,7 @@ namespace MaintainEmployees
         {
             string sql;
 
-            //Populates the combobox
+            //Populates the combobox with employee IDs.
             DataSet ds = new DataSet();
             sql = "SELECT Employee_ID FROM EMPLOYEE";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
@@ -64,6 +64,7 @@ namespace MaintainEmployees
             string name, surname, cellNum, username, password;
             bool isError = false;
 
+            //Gets the user's input.
             name = txtNameAdd.Text;
             surname = txtSurnameAdd.Text;
             cellNum = txtCellNumAdd.Text;
@@ -101,7 +102,7 @@ namespace MaintainEmployees
             {
                 conn.Open();
 
-                //SQL run stored procedure
+                //SQL run stored procedure to add employees.
                 comm = new SqlCommand("Add_Employee", conn);
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
@@ -128,12 +129,14 @@ namespace MaintainEmployees
                 chkActiveAdd.Checked = false;
                 chkIsAdminAdd.Checked = false;
 
+                //Sets focus to the first component.
                 txtNameAdd.Focus();
             }
         }
 
         private void frmMaintainEmployees_Load(object sender, EventArgs e)
         {
+            //Displays the employees and populates the combobox with the employee IDs when the form loads.
             populateComboBox();
             showEmployees();
         }
@@ -143,6 +146,7 @@ namespace MaintainEmployees
             string name, surname, cellNum, username, password;
             bool isError = false;
 
+            //Gets the user's input.
             name = txtNameAdd.Text;
             surname = txtSurnameAdd.Text;
             cellNum = txtCellNumAdd.Text;
@@ -180,7 +184,7 @@ namespace MaintainEmployees
             {
                 conn.Open();
 
-                //SQL run stored procedure
+                //SQL run stored procedure to add employees.
                 comm = new SqlCommand("Add_Employee", conn);
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
@@ -195,10 +199,12 @@ namespace MaintainEmployees
                 MessageBox.Show("A new employee was added!");
 
                 conn.Close();
+
+                //Displays the employees and populates the combobox with the employee IDs.
                 showEmployees();
                 populateComboBox();
 
-                //Clears input
+                //Clears input.
                 txtNameAdd.Text = "";
                 txtSurnameAdd.Text = "";
                 txtUsernameAdd.Text = "";
@@ -207,13 +213,14 @@ namespace MaintainEmployees
                 chkActiveAdd.Checked = false;
                 chkIsAdminAdd.Checked = false;
 
+                //Sets focus to the first component.
                 txtNameAdd.Focus();
             }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            //Open dashboard form
+            //Open dashboard form.
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
@@ -225,6 +232,7 @@ namespace MaintainEmployees
             bool isError = false;
             int employeeID;
 
+            //Gets the user's input.
             name = txtNameUpdate.Text;
             surname = txtSurnameUpdate.Text;
             employeeID = int.Parse(cmbEmployeeIDUpdate.SelectedValue.ToString());
@@ -232,7 +240,7 @@ namespace MaintainEmployees
             username = txtUsernameUpdate.Text;
             password = txtPasswordUpdate.Text;
 
-            //Validates the input
+            //Validates the input.
             if (name == "")
             {
                 MessageBox.Show("Enter a name.");
@@ -264,7 +272,7 @@ namespace MaintainEmployees
             {
                 conn.Open();
 
-                //SQL run stored procedure
+                //SQL run stored procedure to update the selected employee.
                 comm = new SqlCommand("Update_Employee", conn);
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminUpdate.Checked);
@@ -281,9 +289,10 @@ namespace MaintainEmployees
 
                 conn.Close();
 
+                //Displays the employees.
                 showEmployees();
 
-                //Clears the input
+                //Clears the input.
                 txtNameUpdate.Text = "";
                 txtSurnameUpdate.Text = "";
                 txtUsernameUpdate.Text = "";
@@ -292,17 +301,19 @@ namespace MaintainEmployees
                 chkIsActiveUpdate.Checked = false;
                 chkIsAdminUpdate.Checked = false;
 
+                //Sets the focus to the first component.
                 cmbEmployeeIDUpdate.Focus();
             }
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
+            //Gets the user's input.
             int employeeID = int.Parse(cmbEmployeeIDDelete.SelectedValue.ToString());
 
             conn.Open();
 
-            //SQL run stored procedure
+            //SQL run stored procedure to delete the selected employee.
             comm = new SqlCommand("Delete_Employee", conn);
             comm.CommandType = CommandType.StoredProcedure;
             comm.Parameters.AddWithValue("@Employee_ID", employeeID);
@@ -312,10 +323,28 @@ namespace MaintainEmployees
 
             conn.Close();
 
+            //Displays the employees and populates the combobox with the employee IDs.
             showEmployees();
             populateComboBox();
 
+            //Sets the focus to the first component.
             cmbEmployeeIDDelete.Focus();
+        }
+
+        private void btnBackUpdate_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form.
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
+
+        private void btnBackDelete_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form.
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
         }
     }
 
