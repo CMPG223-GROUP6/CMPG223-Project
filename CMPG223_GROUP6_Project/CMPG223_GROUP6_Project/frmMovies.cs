@@ -16,12 +16,25 @@ namespace CMPG223_GROUP6_Project
         private const string ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private ErrorProvider errorProvider;
+        private ToolTip toolTip;
 
         public frmMovies()
         {
             InitializeComponent();
             errorProvider = new ErrorProvider();
+            toolTip = new ToolTip();
+
+            // Set ToolTip properties (optional)
+            toolTip.AutoPopDelay = 5000;
+            toolTip.InitialDelay = 1000;
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+
+            // Add tooltips
+            AddTooltips();
+            ShowMovies();
         }
+
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -61,9 +74,11 @@ namespace CMPG223_GROUP6_Project
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            labelError.Text = ""; // Clear previous error
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a movie from the list to update.");
+                labelError.Text = "Please select a movie from the list to update.";
                 return;
             }
 
@@ -97,15 +112,17 @@ namespace CMPG223_GROUP6_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}";
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            labelError.Text = ""; // Clear previous error
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a movie from the list to delete.");
+                labelError.Text = "Please select a movie from the list to delete.";
                 return;
             }
 
@@ -131,7 +148,7 @@ namespace CMPG223_GROUP6_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}";
             }
         }
 
@@ -200,27 +217,23 @@ namespace CMPG223_GROUP6_Project
             }
         }
 
-        private void textBoxMovieDescription_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxMovieName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmMovies_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
+        }
+
+        private void AddTooltips()
+        {
+            toolTip.SetToolTip(textBoxMovieName, "Enter the name of the movie.");
+            toolTip.SetToolTip(textBoxMovieDescription, "Enter a description for the movie.");
+            toolTip.SetToolTip(textBoxPrice, "Enter the price of the movie. It must be a positive decimal number.");
+            toolTip.SetToolTip(buttonAdd, "Click to add a new movie.");
+            toolTip.SetToolTip(buttonUpdate, "Click to update the selected movie.");
+            toolTip.SetToolTip(buttonDelete, "Click to delete the selected movie.");
+            toolTip.SetToolTip(btnDashboard, "Click to go back to the dashboard.");
         }
     }
 }

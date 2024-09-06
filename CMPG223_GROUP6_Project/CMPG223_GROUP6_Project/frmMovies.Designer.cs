@@ -45,6 +45,8 @@ namespace CMPG223_GROUP6_Project
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -125,7 +127,6 @@ namespace CMPG223_GROUP6_Project
             this.textBoxMovieDescription.Name = "textBoxMovieDescription";
             this.textBoxMovieDescription.Size = new System.Drawing.Size(100, 26);
             this.textBoxMovieDescription.TabIndex = 12;
-            this.textBoxMovieDescription.TextChanged += new System.EventHandler(this.textBoxMovieDescription_TextChanged);
             // 
             // textBoxMovieName
             // 
@@ -133,14 +134,13 @@ namespace CMPG223_GROUP6_Project
             this.textBoxMovieName.Name = "textBoxMovieName";
             this.textBoxMovieName.Size = new System.Drawing.Size(100, 26);
             this.textBoxMovieName.TabIndex = 11;
-            this.textBoxMovieName.TextChanged += new System.EventHandler(this.textBoxMovieName_TextChanged);
             // 
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonAdd.Location = new System.Drawing.Point(331, 314);
+            this.buttonAdd.Location = new System.Drawing.Point(328, 314);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(155, 59);
             this.buttonAdd.TabIndex = 10;
@@ -184,14 +184,27 @@ namespace CMPG223_GROUP6_Project
             // btnDashboard
             // 
             this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDashboard.Location = new System.Drawing.Point(328, 392);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(160, 40);
             this.btnDashboard.TabIndex = 22;
             this.btnDashboard.Text = "Back to dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.Color.Red;
+            this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelError.Location = new System.Drawing.Point(324, 281);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 20);
+            this.labelError.TabIndex = 23;
             // 
             // frmMovies
             // 
@@ -201,6 +214,7 @@ namespace CMPG223_GROUP6_Project
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
@@ -210,7 +224,6 @@ namespace CMPG223_GROUP6_Project
             this.Controls.Add(this.buttonAdd);
             this.Name = "frmMovies";
             this.Text = "frmMovies";
-            this.Load += new System.EventHandler(this.frmMovies_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -236,5 +249,7 @@ namespace CMPG223_GROUP6_Project
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
