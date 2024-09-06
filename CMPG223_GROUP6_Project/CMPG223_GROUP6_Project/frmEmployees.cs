@@ -138,7 +138,88 @@ namespace MaintainEmployees
             showEmployees();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string name, surname, cellNum, username, password;
+            bool isError = false;
+
+            name = txtNameAdd.Text;
+            surname = txtSurnameAdd.Text;
+            cellNum = txtCellNumAdd.Text;
+            username = txtUsernameAdd.Text;
+            password = txtPasswordAdd.Text;
+
+            //Validates the input.
+            if (name == "")
+            {
+                MessageBox.Show("Enter a name.");
+                isError = true;
+            }
+            else if (surname == "")
+            {
+                MessageBox.Show("Enter a surname.");
+                isError = true;
+            }
+            else if (cellNum == "")
+            {
+                MessageBox.Show("Enter a cell number.");
+                isError = true;
+            }
+            else if (username == "")
+            {
+                MessageBox.Show("Enter a username.");
+                isError = true;
+            }
+            else if (password == "")
+            {
+                MessageBox.Show("Enter a password.");
+                isError = true;
+            }
+
+            if (isError == false)
+            {
+                conn.Open();
+
+                //SQL run stored procedure
+                comm = new SqlCommand("Add_Employee", conn);
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
+                comm.Parameters.AddWithValue("@Is_Active", chkActiveAdd.Checked);
+                comm.Parameters.AddWithValue("@Employee_Name", name);
+                comm.Parameters.AddWithValue("@Employee_Surname", surname);
+                comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
+                comm.Parameters.AddWithValue("@Username", username);
+                comm.Parameters.AddWithValue("@Password", password);
+                comm.ExecuteNonQuery();
+
+                MessageBox.Show("A new employee was added!");
+
+                conn.Close();
+                showEmployees();
+                populateComboBox();
+
+                //Clears input
+                txtNameAdd.Text = "";
+                txtSurnameAdd.Text = "";
+                txtUsernameAdd.Text = "";
+                txtPasswordAdd.Text = "";
+                txtCellNumAdd.Text = "";
+                chkActiveAdd.Checked = false;
+                chkIsAdminAdd.Checked = false;
+
+                txtNameAdd.Focus();
+            }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             string name, surname, cellNum, username, password;
             bool isError = false;
@@ -213,10 +294,9 @@ namespace MaintainEmployees
 
                 cmbEmployeeIDUpdate.Focus();
             }
-
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             int employeeID = int.Parse(cmbEmployeeIDDelete.SelectedValue.ToString());
 
@@ -237,85 +317,9 @@ namespace MaintainEmployees
 
             cmbEmployeeIDDelete.Focus();
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            string name, surname, cellNum, username, password;
-            bool isError = false;
-
-            name = txtNameAdd.Text;
-            surname = txtSurnameAdd.Text;
-            cellNum = txtCellNumAdd.Text;
-            username = txtUsernameAdd.Text;
-            password = txtPasswordAdd.Text;
-
-            //Validates the input.
-            if (name == "")
-            {
-                MessageBox.Show("Enter a name.");
-                isError = true;
-            }
-            else if (surname == "")
-            {
-                MessageBox.Show("Enter a surname.");
-                isError = true;
-            }
-            else if (cellNum == "")
-            {
-                MessageBox.Show("Enter a cell number.");
-                isError = true;
-            }
-            else if (username == "")
-            {
-                MessageBox.Show("Enter a username.");
-                isError = true;
-            }
-            else if (password == "")
-            {
-                MessageBox.Show("Enter a password.");
-                isError = true;
-            }
-
-            if (isError == false)
-            {
-                conn.Open();
-
-                //SQL run stored procedure
-                comm = new SqlCommand("Add_Employee", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
-                comm.Parameters.AddWithValue("@Is_Active", chkActiveAdd.Checked);
-                comm.Parameters.AddWithValue("@Employee_Name", name);
-                comm.Parameters.AddWithValue("@Employee_Surname", surname);
-                comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
-                comm.Parameters.AddWithValue("@Username", username);
-                comm.Parameters.AddWithValue("@Password", password);
-                comm.ExecuteNonQuery();
-
-                MessageBox.Show("A new employee was added!");
-
-                conn.Close();
-                showEmployees();
-                populateComboBox();
-
-                //Clears input
-                txtNameAdd.Text = "";
-                txtSurnameAdd.Text = "";
-                txtUsernameAdd.Text = "";
-                txtPasswordAdd.Text = "";
-                txtCellNumAdd.Text = "";
-                chkActiveAdd.Checked = false;
-                chkIsAdminAdd.Checked = false;
-
-                txtNameAdd.Focus();
-            }
-
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            //Open dashboard form
-            this.Close();
-            frmDashboard AdministratorDashboard = new frmDashboard();
-            AdministratorDashboard.Show();
-        }
     }
+
 }
+
+        
+    

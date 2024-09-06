@@ -30,20 +30,23 @@
         {
             this.tabControlMaintainEmployees = new System.Windows.Forms.TabControl();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNameAdd = new System.Windows.Forms.Label();
+            this.lblSurnameAdd = new System.Windows.Forms.Label();
+            this.lblCellNumAdd = new System.Windows.Forms.Label();
             this.chkActiveAdd = new System.Windows.Forms.CheckBox();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblUsernameAdd = new System.Windows.Forms.Label();
+            this.lblPasswordAdd = new System.Windows.Forms.Label();
             this.txtCellNumAdd = new System.Windows.Forms.MaskedTextBox();
+            this.chkIsAdminAdd = new System.Windows.Forms.CheckBox();
             this.txtPasswordAdd = new System.Windows.Forms.TextBox();
+            this.txtNameAdd = new System.Windows.Forms.TextBox();
             this.txtUsernameAdd = new System.Windows.Forms.TextBox();
             this.txtSurnameAdd = new System.Windows.Forms.TextBox();
-            this.txtNameAdd = new System.Windows.Forms.TextBox();
-            this.chkIsAdminAdd = new System.Windows.Forms.CheckBox();
-            this.lblPasswordAdd = new System.Windows.Forms.Label();
-            this.lblUsernameAdd = new System.Windows.Forms.Label();
-            this.lblCellNumAdd = new System.Windows.Forms.Label();
-            this.lblSurnameAdd = new System.Windows.Forms.Label();
-            this.lblNameAdd = new System.Windows.Forms.Label();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tabPageUpdate = new System.Windows.Forms.TabPage();
             this.txtUsernameUpdate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,9 +71,9 @@
             this.lblEmployeeIDDelete = new System.Windows.Forms.Label();
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.dgvView = new System.Windows.Forms.DataGridView();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPageUpdate.SuspendLayout();
             this.tabPageDelete.SuspendLayout();
             this.tabPageView.SuspendLayout();
@@ -91,21 +94,11 @@
             // 
             // tabPageAdd
             // 
+            this.tabPageAdd.Controls.Add(this.label5);
+            this.tabPageAdd.Controls.Add(this.panel1);
             this.tabPageAdd.Controls.Add(this.btnDashboard);
             this.tabPageAdd.Controls.Add(this.label1);
-            this.tabPageAdd.Controls.Add(this.chkActiveAdd);
             this.tabPageAdd.Controls.Add(this.btnAdd);
-            this.tabPageAdd.Controls.Add(this.txtCellNumAdd);
-            this.tabPageAdd.Controls.Add(this.txtPasswordAdd);
-            this.tabPageAdd.Controls.Add(this.txtUsernameAdd);
-            this.tabPageAdd.Controls.Add(this.txtSurnameAdd);
-            this.tabPageAdd.Controls.Add(this.txtNameAdd);
-            this.tabPageAdd.Controls.Add(this.chkIsAdminAdd);
-            this.tabPageAdd.Controls.Add(this.lblPasswordAdd);
-            this.tabPageAdd.Controls.Add(this.lblUsernameAdd);
-            this.tabPageAdd.Controls.Add(this.lblCellNumAdd);
-            this.tabPageAdd.Controls.Add(this.lblSurnameAdd);
-            this.tabPageAdd.Controls.Add(this.lblNameAdd);
             this.tabPageAdd.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdd.Name = "tabPageAdd";
             this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
@@ -114,127 +107,181 @@
             this.tabPageAdd.Text = "Add";
             this.tabPageAdd.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(315, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Add a new employee";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label5.Location = new System.Drawing.Point(282, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(276, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Please enter the details of the new employee.";
             // 
-            // chkActiveAdd
+            // panel1
             // 
-            this.chkActiveAdd.AutoSize = true;
-            this.chkActiveAdd.Location = new System.Drawing.Point(264, 250);
-            this.chkActiveAdd.Name = "chkActiveAdd";
-            this.chkActiveAdd.Size = new System.Drawing.Size(140, 17);
-            this.chkActiveAdd.TabIndex = 12;
-            this.chkActiveAdd.Text = "Is this employee Active?";
-            this.chkActiveAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(168, 288);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 41);
-            this.btnAdd.TabIndex = 11;
-            this.btnAdd.Text = "&Add new employee";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtCellNumAdd
-            // 
-            this.txtCellNumAdd.Location = new System.Drawing.Point(426, 113);
-            this.txtCellNumAdd.Mask = "9990000000";
-            this.txtCellNumAdd.Name = "txtCellNumAdd";
-            this.txtCellNumAdd.Size = new System.Drawing.Size(100, 20);
-            this.txtCellNumAdd.TabIndex = 10;
-            // 
-            // txtPasswordAdd
-            // 
-            this.txtPasswordAdd.Location = new System.Drawing.Point(426, 181);
-            this.txtPasswordAdd.Name = "txtPasswordAdd";
-            this.txtPasswordAdd.Size = new System.Drawing.Size(100, 20);
-            this.txtPasswordAdd.TabIndex = 9;
-            this.txtPasswordAdd.UseSystemPasswordChar = true;
-            // 
-            // txtUsernameAdd
-            // 
-            this.txtUsernameAdd.Location = new System.Drawing.Point(426, 145);
-            this.txtUsernameAdd.Name = "txtUsernameAdd";
-            this.txtUsernameAdd.Size = new System.Drawing.Size(100, 20);
-            this.txtUsernameAdd.TabIndex = 8;
-            // 
-            // txtSurnameAdd
-            // 
-            this.txtSurnameAdd.Location = new System.Drawing.Point(426, 80);
-            this.txtSurnameAdd.Name = "txtSurnameAdd";
-            this.txtSurnameAdd.Size = new System.Drawing.Size(100, 20);
-            this.txtSurnameAdd.TabIndex = 7;
-            // 
-            // txtNameAdd
-            // 
-            this.txtNameAdd.Location = new System.Drawing.Point(426, 47);
-            this.txtNameAdd.Name = "txtNameAdd";
-            this.txtNameAdd.Size = new System.Drawing.Size(100, 20);
-            this.txtNameAdd.TabIndex = 6;
-            // 
-            // chkIsAdminAdd
-            // 
-            this.chkIsAdminAdd.AutoSize = true;
-            this.chkIsAdminAdd.Location = new System.Drawing.Point(264, 218);
-            this.chkIsAdminAdd.Name = "chkIsAdminAdd";
-            this.chkIsAdminAdd.Size = new System.Drawing.Size(154, 17);
-            this.chkIsAdminAdd.TabIndex = 5;
-            this.chkIsAdminAdd.Text = "Is this employee an Admin?";
-            this.chkIsAdminAdd.UseVisualStyleBackColor = true;
-            // 
-            // lblPasswordAdd
-            // 
-            this.lblPasswordAdd.AutoSize = true;
-            this.lblPasswordAdd.Location = new System.Drawing.Point(261, 181);
-            this.lblPasswordAdd.Name = "lblPasswordAdd";
-            this.lblPasswordAdd.Size = new System.Drawing.Size(53, 13);
-            this.lblPasswordAdd.TabIndex = 4;
-            this.lblPasswordAdd.Text = "Password";
-            // 
-            // lblUsernameAdd
-            // 
-            this.lblUsernameAdd.AutoSize = true;
-            this.lblUsernameAdd.Location = new System.Drawing.Point(261, 148);
-            this.lblUsernameAdd.Name = "lblUsernameAdd";
-            this.lblUsernameAdd.Size = new System.Drawing.Size(58, 13);
-            this.lblUsernameAdd.TabIndex = 3;
-            this.lblUsernameAdd.Text = "Username:";
-            // 
-            // lblCellNumAdd
-            // 
-            this.lblCellNumAdd.AutoSize = true;
-            this.lblCellNumAdd.Location = new System.Drawing.Point(261, 116);
-            this.lblCellNumAdd.Name = "lblCellNumAdd";
-            this.lblCellNumAdd.Size = new System.Drawing.Size(95, 13);
-            this.lblCellNumAdd.TabIndex = 2;
-            this.lblCellNumAdd.Text = "Cellphone number:";
-            // 
-            // lblSurnameAdd
-            // 
-            this.lblSurnameAdd.AutoSize = true;
-            this.lblSurnameAdd.Location = new System.Drawing.Point(261, 83);
-            this.lblSurnameAdd.Name = "lblSurnameAdd";
-            this.lblSurnameAdd.Size = new System.Drawing.Size(52, 13);
-            this.lblSurnameAdd.TabIndex = 1;
-            this.lblSurnameAdd.Text = "Surname:";
+            this.panel1.Controls.Add(this.lblNameAdd);
+            this.panel1.Controls.Add(this.lblSurnameAdd);
+            this.panel1.Controls.Add(this.lblCellNumAdd);
+            this.panel1.Controls.Add(this.chkActiveAdd);
+            this.panel1.Controls.Add(this.lblUsernameAdd);
+            this.panel1.Controls.Add(this.lblPasswordAdd);
+            this.panel1.Controls.Add(this.txtCellNumAdd);
+            this.panel1.Controls.Add(this.chkIsAdminAdd);
+            this.panel1.Controls.Add(this.txtPasswordAdd);
+            this.panel1.Controls.Add(this.txtNameAdd);
+            this.panel1.Controls.Add(this.txtUsernameAdd);
+            this.panel1.Controls.Add(this.txtSurnameAdd);
+            this.panel1.Location = new System.Drawing.Point(285, 84);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 239);
+            this.panel1.TabIndex = 16;
             // 
             // lblNameAdd
             // 
             this.lblNameAdd.AutoSize = true;
-            this.lblNameAdd.Location = new System.Drawing.Point(261, 50);
+            this.lblNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblNameAdd.Location = new System.Drawing.Point(3, 12);
             this.lblNameAdd.Name = "lblNameAdd";
-            this.lblNameAdd.Size = new System.Drawing.Size(38, 13);
+            this.lblNameAdd.Size = new System.Drawing.Size(47, 16);
             this.lblNameAdd.TabIndex = 0;
             this.lblNameAdd.Text = "Name:";
+            // 
+            // lblSurnameAdd
+            // 
+            this.lblSurnameAdd.AutoSize = true;
+            this.lblSurnameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblSurnameAdd.Location = new System.Drawing.Point(3, 45);
+            this.lblSurnameAdd.Name = "lblSurnameAdd";
+            this.lblSurnameAdd.Size = new System.Drawing.Size(64, 16);
+            this.lblSurnameAdd.TabIndex = 1;
+            this.lblSurnameAdd.Text = "Surname:";
+            // 
+            // lblCellNumAdd
+            // 
+            this.lblCellNumAdd.AutoSize = true;
+            this.lblCellNumAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblCellNumAdd.Location = new System.Drawing.Point(3, 78);
+            this.lblCellNumAdd.Name = "lblCellNumAdd";
+            this.lblCellNumAdd.Size = new System.Drawing.Size(119, 16);
+            this.lblCellNumAdd.TabIndex = 2;
+            this.lblCellNumAdd.Text = "Cellphone number:";
+            // 
+            // chkActiveAdd
+            // 
+            this.chkActiveAdd.AutoSize = true;
+            this.chkActiveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.chkActiveAdd.Location = new System.Drawing.Point(6, 212);
+            this.chkActiveAdd.Name = "chkActiveAdd";
+            this.chkActiveAdd.Size = new System.Drawing.Size(170, 20);
+            this.chkActiveAdd.TabIndex = 6;
+            this.chkActiveAdd.Text = "Is this employee Active?";
+            this.chkActiveAdd.UseVisualStyleBackColor = true;
+            // 
+            // lblUsernameAdd
+            // 
+            this.lblUsernameAdd.AutoSize = true;
+            this.lblUsernameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblUsernameAdd.Location = new System.Drawing.Point(3, 110);
+            this.lblUsernameAdd.Name = "lblUsernameAdd";
+            this.lblUsernameAdd.Size = new System.Drawing.Size(73, 16);
+            this.lblUsernameAdd.TabIndex = 3;
+            this.lblUsernameAdd.Text = "Username:";
+            // 
+            // lblPasswordAdd
+            // 
+            this.lblPasswordAdd.AutoSize = true;
+            this.lblPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblPasswordAdd.Location = new System.Drawing.Point(3, 143);
+            this.lblPasswordAdd.Name = "lblPasswordAdd";
+            this.lblPasswordAdd.Size = new System.Drawing.Size(67, 16);
+            this.lblPasswordAdd.TabIndex = 4;
+            this.lblPasswordAdd.Text = "Password";
+            // 
+            // txtCellNumAdd
+            // 
+            this.txtCellNumAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtCellNumAdd.Location = new System.Drawing.Point(168, 75);
+            this.txtCellNumAdd.Mask = "9990000000";
+            this.txtCellNumAdd.Name = "txtCellNumAdd";
+            this.txtCellNumAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtCellNumAdd.TabIndex = 2;
+            // 
+            // chkIsAdminAdd
+            // 
+            this.chkIsAdminAdd.AutoSize = true;
+            this.chkIsAdminAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.chkIsAdminAdd.Location = new System.Drawing.Point(6, 180);
+            this.chkIsAdminAdd.Name = "chkIsAdminAdd";
+            this.chkIsAdminAdd.Size = new System.Drawing.Size(189, 20);
+            this.chkIsAdminAdd.TabIndex = 5;
+            this.chkIsAdminAdd.Text = "Is this employee an Admin?";
+            this.chkIsAdminAdd.UseVisualStyleBackColor = true;
+            // 
+            // txtPasswordAdd
+            // 
+            this.txtPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtPasswordAdd.Location = new System.Drawing.Point(168, 143);
+            this.txtPasswordAdd.Name = "txtPasswordAdd";
+            this.txtPasswordAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtPasswordAdd.TabIndex = 4;
+            this.txtPasswordAdd.UseSystemPasswordChar = true;
+            // 
+            // txtNameAdd
+            // 
+            this.txtNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtNameAdd.Location = new System.Drawing.Point(168, 9);
+            this.txtNameAdd.Name = "txtNameAdd";
+            this.txtNameAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtNameAdd.TabIndex = 0;
+            // 
+            // txtUsernameAdd
+            // 
+            this.txtUsernameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtUsernameAdd.Location = new System.Drawing.Point(168, 107);
+            this.txtUsernameAdd.Name = "txtUsernameAdd";
+            this.txtUsernameAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtUsernameAdd.TabIndex = 3;
+            // 
+            // txtSurnameAdd
+            // 
+            this.txtSurnameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtSurnameAdd.Location = new System.Drawing.Point(168, 42);
+            this.txtSurnameAdd.Name = "txtSurnameAdd";
+            this.txtSurnameAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtSurnameAdd.TabIndex = 1;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(439, 348);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
+            this.btnDashboard.TabIndex = 8;
+            this.btnDashboard.Text = "&Back to dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(278, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(286, 37);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Add a new employee";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnAdd.Location = new System.Drawing.Point(239, 348);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(160, 40);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "&Add new employee";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabPageUpdate
             // 
@@ -316,6 +363,7 @@
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "&Update details";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // txtCellNumUpdate
             // 
@@ -431,6 +479,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // cmbEmployeeIDDelete
             // 
@@ -468,18 +517,6 @@
             this.dgvView.Size = new System.Drawing.Size(781, 419);
             this.dgvView.TabIndex = 0;
             // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(368, 288);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
-            this.btnDashboard.TabIndex = 15;
-            this.btnDashboard.Text = "Back to dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
             // frmMaintainEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,6 +528,8 @@
             this.tabControlMaintainEmployees.ResumeLayout(false);
             this.tabPageAdd.ResumeLayout(false);
             this.tabPageAdd.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPageUpdate.ResumeLayout(false);
             this.tabPageUpdate.PerformLayout();
             this.tabPageDelete.ResumeLayout(false);
@@ -544,5 +583,7 @@
         private System.Windows.Forms.TabPage tabPageView;
         private System.Windows.Forms.DataGridView dgvView;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
     }
 }
