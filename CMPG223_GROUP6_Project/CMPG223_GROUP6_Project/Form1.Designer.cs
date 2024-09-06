@@ -41,6 +41,7 @@
             this.pnlDisplay = new System.Windows.Forms.Panel();
             this.dtgShowSeats = new System.Windows.Forms.DataGridView();
             this.lblMovieSeats = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlInsert.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgShowSeats)).BeginInit();
@@ -49,6 +50,7 @@
             // pnlInsert
             // 
             this.pnlInsert.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlInsert.Controls.Add(this.btnLogout);
             this.pnlInsert.Controls.Add(this.lblRoom);
             this.pnlInsert.Controls.Add(this.cmbRoom);
             this.pnlInsert.Controls.Add(this.btnBookTicket);
@@ -93,6 +95,7 @@
             this.btnBookTicket.TabIndex = 27;
             this.btnBookTicket.Text = "Book ticket";
             this.btnBookTicket.UseVisualStyleBackColor = true;
+            this.btnBookTicket.Click += new System.EventHandler(this.btnBookTicket_Click);
             // 
             // lblSeat
             // 
@@ -183,11 +186,22 @@
             this.lblMovieSeats.TabIndex = 11;
             this.lblMovieSeats.Text = "Seats available for cinema room";
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(8, 344);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(160, 32);
+            this.btnLogout.TabIndex = 28;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmSellTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 419);
+            this.ClientSize = new System.Drawing.Size(709, 420);
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlInsert);
             this.Name = "frmSellTicket";
@@ -217,6 +231,7 @@
         private System.Windows.Forms.Panel pnlDisplay;
         private System.Windows.Forms.DataGridView dtgShowSeats;
         private System.Windows.Forms.Label lblMovieSeats;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
 

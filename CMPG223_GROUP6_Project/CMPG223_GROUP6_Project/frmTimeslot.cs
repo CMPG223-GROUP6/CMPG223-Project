@@ -14,7 +14,7 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmTimeSlot : Form
     {
-        SqlConnection con = new SqlConnection(@"");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         SqlCommand command;
         SqlDataReader reader;
         SqlDataAdapter adapter;
@@ -177,6 +177,14 @@ namespace CMPG223_GROUP6_Project
         {
 
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
     }
-    }
+}
 

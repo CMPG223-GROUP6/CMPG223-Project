@@ -68,6 +68,7 @@
             this.lblEmployeeIDDelete = new System.Windows.Forms.Label();
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.dgvView = new System.Windows.Forms.DataGridView();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.tabPageUpdate.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tabPageAdd
             // 
+            this.tabPageAdd.Controls.Add(this.btnDashboard);
             this.tabPageAdd.Controls.Add(this.label1);
             this.tabPageAdd.Controls.Add(this.chkActiveAdd);
             this.tabPageAdd.Controls.Add(this.btnAdd);
@@ -134,7 +136,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(322, 287);
+            this.btnAdd.Location = new System.Drawing.Point(168, 288);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 41);
             this.btnAdd.TabIndex = 11;
@@ -466,6 +468,18 @@
             this.dgvView.Size = new System.Drawing.Size(781, 419);
             this.dgvView.TabIndex = 0;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(368, 288);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
+            this.btnDashboard.TabIndex = 15;
+            this.btnDashboard.Text = "Back to dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // frmMaintainEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +543,6 @@
         private System.Windows.Forms.Label lblEmployeeIDDelete;
         private System.Windows.Forms.TabPage tabPageView;
         private System.Windows.Forms.DataGridView dgvView;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

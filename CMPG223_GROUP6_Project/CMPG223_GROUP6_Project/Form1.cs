@@ -19,11 +19,12 @@ namespace CMPG223_GROUP6_Project
         }
 
         //Global connection
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DataDB.mdf;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         private int frmLoadMB = 0;
         private int frmLoadMR = 0;
         SqlCommand command;
         SqlDataReader reader;
+        public string fName;
 
         private void frmSellTicket_Load(object sender, EventArgs e)
         {
@@ -128,6 +129,19 @@ namespace CMPG223_GROUP6_Project
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnBookTicket_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            //Open Login form
+            this.Close();
+            frmLogin LoginForm = new frmLogin();
+            LoginForm.Show();
         }
     }
 }

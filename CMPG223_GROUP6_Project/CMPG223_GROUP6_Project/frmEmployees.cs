@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMPG223_GROUP6_Project;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -240,6 +241,14 @@ namespace MaintainEmployees
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
         }
     }
 }
