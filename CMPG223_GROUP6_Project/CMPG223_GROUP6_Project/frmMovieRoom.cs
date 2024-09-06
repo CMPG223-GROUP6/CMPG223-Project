@@ -324,5 +324,13 @@ namespace CMPG223_GROUP6_Project
             txtRoomNum.Clear();
             txtNumSeats.Clear();
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
     }
 }

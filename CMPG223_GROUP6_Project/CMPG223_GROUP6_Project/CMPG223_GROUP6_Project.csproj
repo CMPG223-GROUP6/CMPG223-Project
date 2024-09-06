@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +53,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEmployees.Designer.cs">
       <DependentUpon>frmEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMovieRoom.cs">
       <SubType>Form</SubType>
@@ -70,6 +83,12 @@
     <Compile Include="frmMovies.Designer.cs">
       <DependentUpon>frmMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRequestReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequestReports.Designer.cs">
+      <DependentUpon>frmRequestReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTimeslot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,14 +100,23 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmployees.resx">
       <DependentUpon>frmEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMovieRoom.resx">
       <DependentUpon>frmMovieRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMovies.resx">
       <DependentUpon>frmMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRequestReports.resx">
+      <DependentUpon>frmRequestReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimeslot.resx">
       <DependentUpon>frmTimeslot.cs</DependentUpon>

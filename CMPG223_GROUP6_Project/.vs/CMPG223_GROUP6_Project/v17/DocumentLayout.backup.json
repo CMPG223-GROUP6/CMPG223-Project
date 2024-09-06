@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\meiri\\OneDrive\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\meiri\\onedrive\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|c:\\users\\meiri\\onedrive\\documents\\github\\cmpg223-project\\cmpg223_group6_project\\cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EA0A936-D3A3-4632-AD42-1B7E42AD4FA9}|CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project.csproj|solutionrelative:cmpg223_group6_project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,36 +9,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\meiri\\OneDrive\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\Form1.cs",
-              "ToolTip": "C:\\Users\\meiri\\OneDrive\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T16:05:13.887Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 146,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{f2e84780-2af1-11d1-a7fa-00a0c9110051}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\meiri\\OneDrive\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs",
-              "RelativeDocumentMoniker": "CMPG223_GROUP6_Project\\Form1.cs",
-              "ToolTip": "C:\\Users\\meiri\\OneDrive\\Documents\\GitHub\\CMPG223-Project\\CMPG223_GROUP6_Project\\CMPG223_GROUP6_Project\\Form1.cs [Design]",
-              "RelativeToolTip": "CMPG223_GROUP6_Project\\Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T16:00:51.76Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a18f9d0-b838-11d0-93eb-00a0c90f2734}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{90243340-bd7a-11d0-93ef-00a0c90f2734}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0504ff91-9d61-11d0-a794-00a0c9110051}"
             }
           ]
         }

@@ -1,0 +1,177 @@
+﻿namespace CMPG223_GROUP6_Project
+{
+    partial class frmDashboard
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.pnlDashboard = new System.Windows.Forms.Panel();
+            this.btnRoomSeats = new System.Windows.Forms.Button();
+            this.btnMaintainMovieRooms = new System.Windows.Forms.Button();
+            this.btnMaintainMovies = new System.Windows.Forms.Button();
+            this.btnMaintainTimeslots = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnMaintainEmployees = new System.Windows.Forms.Button();
+            this.pnlDashboard.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.SystemColors.Control;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(252, 57);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(145, 33);
+            this.lblWelcome.TabIndex = 34;
+            this.lblWelcome.Text = "Welcome:";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlDashboard
+            // 
+            this.pnlDashboard.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlDashboard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlDashboard.Controls.Add(this.btnRoomSeats);
+            this.pnlDashboard.Controls.Add(this.btnMaintainMovieRooms);
+            this.pnlDashboard.Controls.Add(this.btnMaintainMovies);
+            this.pnlDashboard.Controls.Add(this.btnMaintainTimeslots);
+            this.pnlDashboard.Controls.Add(this.btnReports);
+            this.pnlDashboard.Controls.Add(this.btnLogout);
+            this.pnlDashboard.Controls.Add(this.btnMaintainEmployees);
+            this.pnlDashboard.Location = new System.Drawing.Point(252, 113);
+            this.pnlDashboard.Name = "pnlDashboard";
+            this.pnlDashboard.Size = new System.Drawing.Size(296, 280);
+            this.pnlDashboard.TabIndex = 33;
+            // 
+            // btnRoomSeats
+            // 
+            this.btnRoomSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoomSeats.Location = new System.Drawing.Point(16, 160);
+            this.btnRoomSeats.Name = "btnRoomSeats";
+            this.btnRoomSeats.Size = new System.Drawing.Size(120, 48);
+            this.btnRoomSeats.TabIndex = 34;
+            this.btnRoomSeats.Text = "Maintain Room Seats";
+            this.btnRoomSeats.UseVisualStyleBackColor = true;
+            this.btnRoomSeats.Click += new System.EventHandler(this.btnRoomSeats_Click);
+            // 
+            // btnMaintainMovieRooms
+            // 
+            this.btnMaintainMovieRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintainMovieRooms.Location = new System.Drawing.Point(160, 88);
+            this.btnMaintainMovieRooms.Name = "btnMaintainMovieRooms";
+            this.btnMaintainMovieRooms.Size = new System.Drawing.Size(120, 48);
+            this.btnMaintainMovieRooms.TabIndex = 33;
+            this.btnMaintainMovieRooms.Text = "Maintain Movie Rooms";
+            this.btnMaintainMovieRooms.UseVisualStyleBackColor = true;
+            this.btnMaintainMovieRooms.Click += new System.EventHandler(this.btnMaintainMovieRooms_Click);
+            // 
+            // btnMaintainMovies
+            // 
+            this.btnMaintainMovies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintainMovies.Location = new System.Drawing.Point(16, 88);
+            this.btnMaintainMovies.Name = "btnMaintainMovies";
+            this.btnMaintainMovies.Size = new System.Drawing.Size(120, 48);
+            this.btnMaintainMovies.TabIndex = 32;
+            this.btnMaintainMovies.Text = "Maintain Movies";
+            this.btnMaintainMovies.UseVisualStyleBackColor = true;
+            this.btnMaintainMovies.Click += new System.EventHandler(this.btnMaintainMovies_Click);
+            // 
+            // btnMaintainTimeslots
+            // 
+            this.btnMaintainTimeslots.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintainTimeslots.Location = new System.Drawing.Point(160, 16);
+            this.btnMaintainTimeslots.Name = "btnMaintainTimeslots";
+            this.btnMaintainTimeslots.Size = new System.Drawing.Size(120, 48);
+            this.btnMaintainTimeslots.TabIndex = 31;
+            this.btnMaintainTimeslots.Text = "Maintain Timeslots";
+            this.btnMaintainTimeslots.UseVisualStyleBackColor = true;
+            this.btnMaintainTimeslots.Click += new System.EventHandler(this.btnMaintainTimeslots_Click);
+            // 
+            // btnReports
+            // 
+            this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.Location = new System.Drawing.Point(160, 160);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(120, 48);
+            this.btnReports.TabIndex = 30;
+            this.btnReports.Text = "Request reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(88, 232);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(120, 32);
+            this.btnLogout.TabIndex = 29;
+            this.btnLogout.Text = "Log out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnMaintainEmployees
+            // 
+            this.btnMaintainEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaintainEmployees.Location = new System.Drawing.Point(16, 16);
+            this.btnMaintainEmployees.Name = "btnMaintainEmployees";
+            this.btnMaintainEmployees.Size = new System.Drawing.Size(120, 48);
+            this.btnMaintainEmployees.TabIndex = 0;
+            this.btnMaintainEmployees.Text = "Maintain Employees";
+            this.btnMaintainEmployees.UseVisualStyleBackColor = true;
+            this.btnMaintainEmployees.Click += new System.EventHandler(this.btnMaintainEmployees_Click);
+            // 
+            // frmDashboard
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.pnlDashboard);
+            this.Name = "frmDashboard";
+            this.Text = "Dashboard form";
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
+            this.Resize += new System.EventHandler(this.frmDashboard_Resize);
+            this.pnlDashboard.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Panel pnlDashboard;
+        private System.Windows.Forms.Button btnRoomSeats;
+        private System.Windows.Forms.Button btnMaintainMovieRooms;
+        private System.Windows.Forms.Button btnMaintainMovies;
+        private System.Windows.Forms.Button btnMaintainTimeslots;
+        private System.Windows.Forms.Button btnReports;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnMaintainEmployees;
+    }
+}

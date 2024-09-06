@@ -178,6 +178,13 @@ namespace CMPG223_GROUP6_Project
 
         }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
     }
-    }
+}
 

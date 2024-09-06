@@ -24,6 +24,7 @@ namespace CMPG223_GROUP6_Project
         private int frmLoadMR = 0;
         SqlCommand command;
         SqlDataReader reader;
+        public string fName;
 
         private void frmSellTicket_Load(object sender, EventArgs e)
         {
@@ -133,6 +134,14 @@ namespace CMPG223_GROUP6_Project
         private void btnBookTicket_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            //Open Login form
+            this.Close();
+            frmLogin LoginForm = new frmLogin();
+            LoginForm.Show();
         }
     }
 }

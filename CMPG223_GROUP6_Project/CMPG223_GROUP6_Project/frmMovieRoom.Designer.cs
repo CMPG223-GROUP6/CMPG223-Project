@@ -49,6 +49,7 @@ namespace CMPG223_GROUP6_Project
             this.cmbRoomID = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,7 +84,7 @@ namespace CMPG223_GROUP6_Project
             this.lbRoomID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbRoomID.Location = new System.Drawing.Point(110, 363);
             this.lbRoomID.Name = "lbRoomID";
-            this.lbRoomID.Size = new System.Drawing.Size(68, 16);
+            this.lbRoomID.Size = new System.Drawing.Size(67, 16);
             this.lbRoomID.TabIndex = 7;
             this.lbRoomID.Text = "Room ID";
             // 
@@ -95,7 +96,7 @@ namespace CMPG223_GROUP6_Project
             this.lbSeats.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbSeats.Location = new System.Drawing.Point(110, 335);
             this.lbSeats.Name = "lbSeats";
-            this.lbSeats.Size = new System.Drawing.Size(123, 16);
+            this.lbSeats.Size = new System.Drawing.Size(122, 16);
             this.lbSeats.TabIndex = 6;
             this.lbSeats.Text = "Number of Seats";
             // 
@@ -107,7 +108,7 @@ namespace CMPG223_GROUP6_Project
             this.lbNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbNumber.Location = new System.Drawing.Point(110, 307);
             this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(107, 16);
+            this.lbNumber.Size = new System.Drawing.Size(106, 16);
             this.lbNumber.TabIndex = 5;
             this.lbNumber.Text = "Room Number";
             // 
@@ -119,7 +120,7 @@ namespace CMPG223_GROUP6_Project
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbID.Location = new System.Drawing.Point(110, 279);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(69, 16);
+            this.lbID.Size = new System.Drawing.Size(68, 16);
             this.lbID.TabIndex = 4;
             this.lbID.Text = "Movie ID";
             // 
@@ -242,6 +243,18 @@ namespace CMPG223_GROUP6_Project
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(528, 336);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
+            this.btnDashboard.TabIndex = 24;
+            this.btnDashboard.Text = "Back to dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // frmMovieRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +262,7 @@ namespace CMPG223_GROUP6_Project
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbRoomID);
             this.Controls.Add(this.cmbMovieID);
@@ -297,5 +311,6 @@ namespace CMPG223_GROUP6_Project
         private System.Windows.Forms.ComboBox cmbRoomID;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
