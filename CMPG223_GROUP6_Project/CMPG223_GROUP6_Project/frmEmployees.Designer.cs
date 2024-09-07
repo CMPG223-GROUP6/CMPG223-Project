@@ -69,6 +69,7 @@
             this.lblTitleUpdate = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tabPageDelete = new System.Windows.Forms.TabPage();
+            this.btnBackDelete = new System.Windows.Forms.Button();
             this.lblInstructionsDelete = new System.Windows.Forms.Label();
             this.lblTitleDelete = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -76,30 +77,7 @@
             this.lblEmployeeIDDelete = new System.Windows.Forms.Label();
             this.tabPageView = new System.Windows.Forms.TabPage();
             this.dgvView = new System.Windows.Forms.DataGridView();
-            this.toolTipNameAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipSurnameAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipCellNumAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipUsernameAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipPasswordAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipAdminAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipActiveAdd = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipAddButton = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipBackToDash = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipEmployeeIDUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipNameUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipSurnameUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipCellNoUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipUsernameUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipActiveUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipPasswordUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipAdminUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipDashboardUpdate = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipcmbEmployeeIDDelete = new System.Windows.Forms.ToolTip(this.components);
-            this.btnBackDelete = new System.Windows.Forms.Button();
-            this.toolTipDashDelete = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipAdd = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -205,7 +183,7 @@
             this.chkActiveAdd.Size = new System.Drawing.Size(170, 20);
             this.chkActiveAdd.TabIndex = 6;
             this.chkActiveAdd.Text = "Is this employee Active?";
-            this.toolTipActiveAdd.SetToolTip(this.chkActiveAdd, "Please click on the box to select yes. Select again to deselect your choice.");
+            this.toolTipAdd.SetToolTip(this.chkActiveAdd, "Click on the box to select this option. Click it again to deselect it.");
             this.chkActiveAdd.UseVisualStyleBackColor = true;
             // 
             // lblUsernameAdd
@@ -236,7 +214,6 @@
             this.txtCellNumAdd.Name = "txtCellNumAdd";
             this.txtCellNumAdd.Size = new System.Drawing.Size(100, 22);
             this.txtCellNumAdd.TabIndex = 2;
-            this.toolTipCellNumAdd.SetToolTip(this.txtCellNumAdd, "Please enter a cellphone number.");
             // 
             // chkIsAdminAdd
             // 
@@ -247,7 +224,7 @@
             this.chkIsAdminAdd.Size = new System.Drawing.Size(189, 20);
             this.chkIsAdminAdd.TabIndex = 5;
             this.chkIsAdminAdd.Text = "Is this employee an Admin?";
-            this.toolTipAdminAdd.SetToolTip(this.chkIsAdminAdd, "Please click on the box to select yes. Select again to deselect your choice.");
+            this.toolTipAdd.SetToolTip(this.chkIsAdminAdd, "Click on the box to select this option. Click it again to deselect it.");
             this.chkIsAdminAdd.UseVisualStyleBackColor = true;
             // 
             // txtPasswordAdd
@@ -257,7 +234,6 @@
             this.txtPasswordAdd.Name = "txtPasswordAdd";
             this.txtPasswordAdd.Size = new System.Drawing.Size(100, 22);
             this.txtPasswordAdd.TabIndex = 4;
-            this.toolTipPasswordAdd.SetToolTip(this.txtPasswordAdd, "Please enter a password.");
             this.txtPasswordAdd.UseSystemPasswordChar = true;
             // 
             // txtNameAdd
@@ -267,7 +243,6 @@
             this.txtNameAdd.Name = "txtNameAdd";
             this.txtNameAdd.Size = new System.Drawing.Size(100, 22);
             this.txtNameAdd.TabIndex = 0;
-            this.toolTipNameAdd.SetToolTip(this.txtNameAdd, "Please enter a name.");
             // 
             // txtUsernameAdd
             // 
@@ -276,7 +251,6 @@
             this.txtUsernameAdd.Name = "txtUsernameAdd";
             this.txtUsernameAdd.Size = new System.Drawing.Size(100, 22);
             this.txtUsernameAdd.TabIndex = 3;
-            this.toolTipUsernameAdd.SetToolTip(this.txtUsernameAdd, "Please enter a username.");
             // 
             // txtSurnameAdd
             // 
@@ -285,7 +259,6 @@
             this.txtSurnameAdd.Name = "txtSurnameAdd";
             this.txtSurnameAdd.Size = new System.Drawing.Size(100, 22);
             this.txtSurnameAdd.TabIndex = 1;
-            this.toolTipSurnameAdd.SetToolTip(this.txtSurnameAdd, "Please enter a surname.");
             // 
             // btnDashboard
             // 
@@ -296,7 +269,7 @@
             this.btnDashboard.Size = new System.Drawing.Size(160, 40);
             this.btnDashboard.TabIndex = 8;
             this.btnDashboard.Text = "&Back to dashboard";
-            this.toolTipBackToDash.SetToolTip(this.btnDashboard, "Click to go back to the dashboard menu.");
+            this.toolTipAdd.SetToolTip(this.btnDashboard, "Click on this to go back to the dashboard menu.");
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
@@ -318,7 +291,8 @@
             this.btnAdd.Size = new System.Drawing.Size(160, 40);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Add new employee";
-            this.toolTipAddButton.SetToolTip(this.btnAdd, "Click to add the new employee.");
+            this.toolTipAdd.SetToolTip(this.btnAdd, "Click on this button to add a new employee record with the details you have enter" +
+        "ed.");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -355,7 +329,6 @@
             this.btnBackUpdate.Size = new System.Drawing.Size(160, 40);
             this.btnBackUpdate.TabIndex = 1;
             this.btnBackUpdate.Text = "&Back to dashboard";
-            this.toolTipDashboardUpdate.SetToolTip(this.btnBackUpdate, "Click to go back to the dashboard menu.");
             this.btnBackUpdate.UseVisualStyleBackColor = true;
             this.btnBackUpdate.Click += new System.EventHandler(this.btnBackUpdate_Click);
             // 
@@ -397,7 +370,6 @@
             this.txtUsernameUpdate.Name = "txtUsernameUpdate";
             this.txtUsernameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtUsernameUpdate.TabIndex = 4;
-            this.toolTipUsernameUpdate.SetToolTip(this.txtUsernameUpdate, "Please enter a username.");
             // 
             // lblNameUpdate
             // 
@@ -448,7 +420,6 @@
             this.chkIsActiveUpdate.Size = new System.Drawing.Size(170, 20);
             this.chkIsActiveUpdate.TabIndex = 7;
             this.chkIsActiveUpdate.Text = "Is this employee Active?";
-            this.toolTipActiveUpdate.SetToolTip(this.chkIsActiveUpdate, "Please click on the box to select yes. Select again to deselect your choice.");
             this.chkIsActiveUpdate.UseVisualStyleBackColor = true;
             // 
             // lblPasswordUpdate
@@ -470,7 +441,6 @@
             this.chkIsAdminUpdate.Size = new System.Drawing.Size(189, 20);
             this.chkIsAdminUpdate.TabIndex = 6;
             this.chkIsAdminUpdate.Text = "Is this employee an Admin?";
-            this.toolTipAdminUpdate.SetToolTip(this.chkIsAdminUpdate, "Please click on the box to select yes. Select again to deselect your choice.");
             this.chkIsAdminUpdate.UseVisualStyleBackColor = true;
             // 
             // cmbEmployeeIDUpdate
@@ -481,7 +451,6 @@
             this.cmbEmployeeIDUpdate.Name = "cmbEmployeeIDUpdate";
             this.cmbEmployeeIDUpdate.Size = new System.Drawing.Size(100, 24);
             this.cmbEmployeeIDUpdate.TabIndex = 0;
-            this.toolTipEmployeeIDUpdate.SetToolTip(this.cmbEmployeeIDUpdate, "Please select an employee ID.");
             // 
             // txtNameUpdate
             // 
@@ -490,7 +459,6 @@
             this.txtNameUpdate.Name = "txtNameUpdate";
             this.txtNameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtNameUpdate.TabIndex = 1;
-            this.toolTipNameUpdate.SetToolTip(this.txtNameUpdate, "Please enter a name.");
             // 
             // txtCellNumUpdate
             // 
@@ -500,7 +468,6 @@
             this.txtCellNumUpdate.Name = "txtCellNumUpdate";
             this.txtCellNumUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtCellNumUpdate.TabIndex = 3;
-            this.toolTipCellNoUpdate.SetToolTip(this.txtCellNumUpdate, "Please enter a cellphone number.");
             // 
             // txtSurnameUpdate
             // 
@@ -509,7 +476,6 @@
             this.txtSurnameUpdate.Name = "txtSurnameUpdate";
             this.txtSurnameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtSurnameUpdate.TabIndex = 2;
-            this.toolTipSurnameUpdate.SetToolTip(this.txtSurnameUpdate, "Please enter a surname.");
             // 
             // txtPasswordUpdate
             // 
@@ -518,7 +484,6 @@
             this.txtPasswordUpdate.Name = "txtPasswordUpdate";
             this.txtPasswordUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtPasswordUpdate.TabIndex = 5;
-            this.toolTipPasswordUpdate.SetToolTip(this.txtPasswordUpdate, "Please enter a password.");
             this.txtPasswordUpdate.UseSystemPasswordChar = true;
             // 
             // lblTitleUpdate
@@ -539,7 +504,6 @@
             this.btnUpdate.Size = new System.Drawing.Size(150, 41);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "&Update details";
-            this.toolTipAdminUpdate.SetToolTip(this.btnUpdate, "Click to update the selected employee ID\'s details.");
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
@@ -557,6 +521,17 @@
             this.tabPageDelete.Size = new System.Drawing.Size(794, 472);
             this.tabPageDelete.TabIndex = 2;
             this.tabPageDelete.Text = "Delete";
+            // 
+            // btnBackDelete
+            // 
+            this.btnBackDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnBackDelete.Location = new System.Drawing.Point(447, 143);
+            this.btnBackDelete.Name = "btnBackDelete";
+            this.btnBackDelete.Size = new System.Drawing.Size(160, 40);
+            this.btnBackDelete.TabIndex = 2;
+            this.btnBackDelete.Text = "&Back to dashboard";
+            this.btnBackDelete.UseVisualStyleBackColor = true;
+            this.btnBackDelete.Click += new System.EventHandler(this.btnBackDelete_Click);
             // 
             // lblInstructionsDelete
             // 
@@ -586,7 +561,6 @@
             this.btnDelete.Size = new System.Drawing.Size(160, 40);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "&Delete";
-            this.toolTipDelete.SetToolTip(this.btnDelete, "Click on this to delete the record that corresponds to the selected employee ID.");
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
@@ -598,7 +572,6 @@
             this.cmbEmployeeIDDelete.Name = "cmbEmployeeIDDelete";
             this.cmbEmployeeIDDelete.Size = new System.Drawing.Size(121, 24);
             this.cmbEmployeeIDDelete.TabIndex = 0;
-            this.toolTipcmbEmployeeIDDelete.SetToolTip(this.cmbEmployeeIDDelete, "Select an employee ID to delete.");
             // 
             // lblEmployeeIDDelete
             // 
@@ -628,18 +601,6 @@
             this.dgvView.Name = "dgvView";
             this.dgvView.Size = new System.Drawing.Size(798, 469);
             this.dgvView.TabIndex = 0;
-            // 
-            // btnBackDelete
-            // 
-            this.btnBackDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnBackDelete.Location = new System.Drawing.Point(447, 143);
-            this.btnBackDelete.Name = "btnBackDelete";
-            this.btnBackDelete.Size = new System.Drawing.Size(160, 40);
-            this.btnBackDelete.TabIndex = 2;
-            this.btnBackDelete.Text = "&Back to dashboard";
-            this.toolTipDashDelete.SetToolTip(this.btnBackDelete, "Click on this to go back to the dashboard menu.");
-            this.btnBackDelete.UseVisualStyleBackColor = true;
-            this.btnBackDelete.Click += new System.EventHandler(this.btnBackDelete_Click);
             // 
             // frmMaintainEmployees
             // 
@@ -711,33 +672,11 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel pnlAdd;
         private System.Windows.Forms.Label lblInstructionsAdd;
-        private System.Windows.Forms.ToolTip toolTipNameAdd;
-        private System.Windows.Forms.ToolTip toolTipSurnameAdd;
-        private System.Windows.Forms.ToolTip toolTipCellNumAdd;
-        private System.Windows.Forms.ToolTip toolTipUsernameAdd;
-        private System.Windows.Forms.ToolTip toolTipPasswordAdd;
-        private System.Windows.Forms.ToolTip toolTipAdminAdd;
-        private System.Windows.Forms.ToolTip toolTipActiveAdd;
-        private System.Windows.Forms.ToolTip toolTipAddButton;
-        private System.Windows.Forms.ToolTip toolTipBackToDash;
         private System.Windows.Forms.Panel pnlUpdate;
         private System.Windows.Forms.Button btnBackUpdate;
         private System.Windows.Forms.Label lblInstructionsUpdate;
         private System.Windows.Forms.Label lblInstructionsDelete;
-        private System.Windows.Forms.ToolTip toolTipEmployeeIDUpdate;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTipNameUpdate;
-        private System.Windows.Forms.ToolTip toolTipSurnameUpdate;
-        private System.Windows.Forms.ToolTip toolTipCellNoUpdate;
-        private System.Windows.Forms.ToolTip toolTipUsernameUpdate;
-        private System.Windows.Forms.ToolTip toolTipActiveUpdate;
-        private System.Windows.Forms.ToolTip toolTipPasswordUpdate;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ToolTip toolTipAdminUpdate;
-        private System.Windows.Forms.ToolTip toolTipDashboardUpdate;
-        private System.Windows.Forms.ToolTip toolTipDelete;
-        private System.Windows.Forms.ToolTip toolTipcmbEmployeeIDDelete;
         private System.Windows.Forms.Button btnBackDelete;
-        private System.Windows.Forms.ToolTip toolTipDashDelete;
+        private System.Windows.Forms.ToolTip toolTipAdd;
     }
 }

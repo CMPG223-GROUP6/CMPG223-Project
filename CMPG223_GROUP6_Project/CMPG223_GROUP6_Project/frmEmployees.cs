@@ -59,81 +59,6 @@ namespace MaintainEmployees
             cmbEmployeeIDUpdate.DataSource = ds.Tables["EMPLOYEE"];
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string name, surname, cellNum, username, password;
-            bool isError = false;
-
-            //Gets the user's input.
-            name = txtNameAdd.Text;
-            surname = txtSurnameAdd.Text;
-            cellNum = txtCellNumAdd.Text;
-            username = txtUsernameAdd.Text;
-            password = txtPasswordAdd.Text;
-
-            //Validates the input.
-            if (name == "")
-            {
-                MessageBox.Show("Enter a name.");
-                isError = true;
-            }
-            else if (surname == "")
-            {
-                MessageBox.Show("Enter a surname.");
-                isError = true;
-            }
-            else if (cellNum == "")
-            {
-                MessageBox.Show("Enter a cell number.");
-                isError = true;
-            }
-            else if (username == "")
-            {
-                MessageBox.Show("Enter a username.");
-                isError = true;
-            }
-            else if (password == "")
-            {
-                MessageBox.Show("Enter a password.");
-                isError = true;
-            }
-
-            if (isError == false)
-            {
-                conn.Open();
-
-                //SQL run stored procedure to add employees.
-                comm = new SqlCommand("Add_Employee", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
-                comm.Parameters.AddWithValue("@Is_Active", chkActiveAdd.Checked);
-                comm.Parameters.AddWithValue("@Employee_Name", name);
-                comm.Parameters.AddWithValue("@Employee_Surname", surname);
-                comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
-                comm.Parameters.AddWithValue("@Username", username);
-                comm.Parameters.AddWithValue("@Password", password);
-                comm.ExecuteNonQuery();
-
-                MessageBox.Show("A new employee was added!");
-
-                conn.Close();
-                showEmployees();
-                populateComboBox();
-
-                //Clears input
-                txtNameAdd.Text = "";
-                txtSurnameAdd.Text = "";
-                txtUsernameAdd.Text = "";
-                txtPasswordAdd.Text = "";
-                txtCellNumAdd.Text = "";
-                chkActiveAdd.Checked = false;
-                chkIsAdminAdd.Checked = false;
-
-                //Sets focus to the first component.
-                txtNameAdd.Focus();
-            }
-        }
-
         private void frmMaintainEmployees_Load(object sender, EventArgs e)
         {
             //Displays the employees and populates the combobox with the employee IDs when the form loads.
@@ -196,6 +121,7 @@ namespace MaintainEmployees
                 comm.Parameters.AddWithValue("@Password", password);
                 comm.ExecuteNonQuery();
 
+                //Displays confirmation message to the user.
                 MessageBox.Show("A new employee was added!");
 
                 conn.Close();
