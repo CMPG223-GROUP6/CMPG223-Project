@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnShowAdd = new System.Windows.Forms.Button();
@@ -38,15 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTimeslotUpdate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtIdUpdate = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIdDelete = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnDashboard = new System.Windows.Forms.Button();
+            this.cmbTimeslotIDUpdate = new System.Windows.Forms.ComboBox();
+            this.cmbTimeslotIdDelete = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,6 +81,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Timeslot";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(72, 288);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
+            this.btnDashboard.TabIndex = 15;
+            this.btnDashboard.Text = "Back to dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // dataGridView1
             // 
@@ -118,10 +130,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbTimeslotIDUpdate);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.txtTimeslotUpdate);
             this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.txtIdUpdate);
             this.tabPage2.Controls.Add(this.btnUpdate);
             this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -157,16 +169,9 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "ID:";
             // 
-            // txtIdUpdate
-            // 
-            this.txtIdUpdate.Location = new System.Drawing.Point(73, 97);
-            this.txtIdUpdate.Name = "txtIdUpdate";
-            this.txtIdUpdate.Size = new System.Drawing.Size(100, 20);
-            this.txtIdUpdate.TabIndex = 3;
-            // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(200, 97);
+            this.btnUpdate.Location = new System.Drawing.Point(244, 97);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 1;
@@ -184,9 +189,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cmbTimeslotIdDelete);
             this.tabPage3.Controls.Add(this.btnDelete);
             this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.txtIdDelete);
             this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -215,13 +220,6 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Select ID:";
             // 
-            // txtIdDelete
-            // 
-            this.txtIdDelete.Location = new System.Drawing.Point(104, 102);
-            this.txtIdDelete.Name = "txtIdDelete";
-            this.txtIdDelete.Size = new System.Drawing.Size(100, 20);
-            this.txtIdDelete.TabIndex = 1;
-            // 
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -230,17 +228,21 @@
             this.dataGridView3.Size = new System.Drawing.Size(240, 150);
             this.dataGridView3.TabIndex = 0;
             // 
-            // btnDashboard
+            // cmbTimeslotIDUpdate
             // 
-            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(72, 288);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
-            this.btnDashboard.TabIndex = 15;
-            this.btnDashboard.Text = "Back to dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.cmbTimeslotIDUpdate.FormattingEnabled = true;
+            this.cmbTimeslotIDUpdate.Location = new System.Drawing.Point(73, 97);
+            this.cmbTimeslotIDUpdate.Name = "cmbTimeslotIDUpdate";
+            this.cmbTimeslotIDUpdate.Size = new System.Drawing.Size(121, 21);
+            this.cmbTimeslotIDUpdate.TabIndex = 7;
+            // 
+            // cmbTimeslotIdDelete
+            // 
+            this.cmbTimeslotIdDelete.FormattingEnabled = true;
+            this.cmbTimeslotIdDelete.Location = new System.Drawing.Point(105, 105);
+            this.cmbTimeslotIdDelete.Name = "cmbTimeslotIdDelete";
+            this.cmbTimeslotIdDelete.Size = new System.Drawing.Size(121, 21);
+            this.cmbTimeslotIdDelete.TabIndex = 4;
             // 
             // frmTimeSlot
             // 
@@ -277,14 +279,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTimeslotUpdate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtIdUpdate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIdDelete;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.ComboBox cmbTimeslotIDUpdate;
+        private System.Windows.Forms.ComboBox cmbTimeslotIdDelete;
     }
 }
