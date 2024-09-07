@@ -229,7 +229,7 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider1.SetError(cmbMovieID, string.Empty); // Clear previous error
+                errorProvider1.SetError(cmbMovieID, string.Empty);
             }
 
             if (string.IsNullOrEmpty(txtRoomNum.Text) || !int.TryParse(txtRoomNum.Text, out int roomNum))
@@ -239,7 +239,7 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider1.SetError(txtRoomNum, string.Empty); // Clear previous error
+                errorProvider1.SetError(txtRoomNum, string.Empty);
             }
 
             if (string.IsNullOrEmpty(txtNumSeats.Text) || !int.TryParse(txtNumSeats.Text, out int numSeats))
@@ -249,7 +249,19 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider1.SetError(txtNumSeats, string.Empty); // Clear previous error
+                errorProvider1.SetError(txtNumSeats, string.Empty);
+            }
+
+            // Automatically set isActive
+            bool isActive;
+
+            if (isUpdating)
+            {
+                isActive = true;
+            }
+            else
+            {
+                isActive = true;
             }
 
             // If it's an update operation
@@ -266,6 +278,7 @@ namespace CMPG223_GROUP6_Project
                     command.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
                     command.Parameters.AddWithValue("@Room_Num", roomNum);
                     command.Parameters.AddWithValue("@Num_Seats", numSeats);
+                    command.Parameters.AddWithValue("@IsActive", isActive);  // Automatically set isActive
 
                     command.ExecuteNonQuery();
 
@@ -274,6 +287,7 @@ namespace CMPG223_GROUP6_Project
                     selectedRow.Cells["Movie_ID"].Value = cmbMovieID.Text;
                     selectedRow.Cells["Room_Num"].Value = roomNum.ToString();
                     selectedRow.Cells["Num_Seats"].Value = numSeats.ToString();
+                    selectedRow.Cells["IsActive"].Value = isActive;  // Update the isActive column
 
                     // Display success message via lbStatus
                     lbStatus.Text = "The movie room was updated successfully!";
@@ -296,6 +310,7 @@ namespace CMPG223_GROUP6_Project
                     command.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
                     command.Parameters.AddWithValue("@Room_Num", roomNum);
                     command.Parameters.AddWithValue("@Num_Seats", numSeats);
+                    command.Parameters.AddWithValue("@IsActive", isActive);  // Automatically set isActive
 
                     command.ExecuteNonQuery();
 
