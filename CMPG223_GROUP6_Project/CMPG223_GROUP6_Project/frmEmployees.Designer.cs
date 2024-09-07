@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMaintainEmployees));
             this.tabControlMaintainEmployees = new System.Windows.Forms.TabControl();
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.lblInstructionsAdd = new System.Windows.Forms.Label();
@@ -109,6 +110,8 @@
             // tabPageAdd
             // 
             this.tabPageAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabPageAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageAdd.BackgroundImage")));
+            this.tabPageAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPageAdd.Controls.Add(this.lblInstructionsAdd);
             this.tabPageAdd.Controls.Add(this.pnlAdd);
             this.tabPageAdd.Controls.Add(this.btnDashboard);
@@ -124,15 +127,18 @@
             // lblInstructionsAdd
             // 
             this.lblInstructionsAdd.AutoSize = true;
-            this.lblInstructionsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblInstructionsAdd.Location = new System.Drawing.Point(285, 50);
+            this.lblInstructionsAdd.BackColor = System.Drawing.Color.Transparent;
+            this.lblInstructionsAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstructionsAdd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblInstructionsAdd.Location = new System.Drawing.Point(260, 63);
             this.lblInstructionsAdd.Name = "lblInstructionsAdd";
-            this.lblInstructionsAdd.Size = new System.Drawing.Size(277, 16);
+            this.lblInstructionsAdd.Size = new System.Drawing.Size(322, 16);
             this.lblInstructionsAdd.TabIndex = 13;
             this.lblInstructionsAdd.Text = "Please enter the details of the new employee.";
             // 
             // pnlAdd
             // 
+            this.pnlAdd.BackColor = System.Drawing.Color.Transparent;
             this.pnlAdd.Controls.Add(this.lblNameAdd);
             this.pnlAdd.Controls.Add(this.lblSurnameAdd);
             this.pnlAdd.Controls.Add(this.lblCellNumAdd);
@@ -144,58 +150,63 @@
             this.pnlAdd.Controls.Add(this.txtNameAdd);
             this.pnlAdd.Controls.Add(this.txtUsernameAdd);
             this.pnlAdd.Controls.Add(this.txtSurnameAdd);
-            this.pnlAdd.Location = new System.Drawing.Point(288, 85);
+            this.pnlAdd.Location = new System.Drawing.Point(280, 82);
             this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(282, 214);
+            this.pnlAdd.Size = new System.Drawing.Size(282, 209);
             this.pnlAdd.TabIndex = 16;
             // 
             // lblNameAdd
             // 
             this.lblNameAdd.AutoSize = true;
-            this.lblNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNameAdd.Location = new System.Drawing.Point(3, 12);
             this.lblNameAdd.Name = "lblNameAdd";
-            this.lblNameAdd.Size = new System.Drawing.Size(48, 16);
+            this.lblNameAdd.Size = new System.Drawing.Size(57, 18);
             this.lblNameAdd.TabIndex = 0;
             this.lblNameAdd.Text = "Name:";
             // 
             // lblSurnameAdd
             // 
             this.lblSurnameAdd.AutoSize = true;
-            this.lblSurnameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblSurnameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurnameAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSurnameAdd.Location = new System.Drawing.Point(3, 45);
             this.lblSurnameAdd.Name = "lblSurnameAdd";
-            this.lblSurnameAdd.Size = new System.Drawing.Size(65, 16);
+            this.lblSurnameAdd.Size = new System.Drawing.Size(80, 18);
             this.lblSurnameAdd.TabIndex = 1;
             this.lblSurnameAdd.Text = "Surname:";
             // 
             // lblCellNumAdd
             // 
             this.lblCellNumAdd.AutoSize = true;
-            this.lblCellNumAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblCellNumAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCellNumAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCellNumAdd.Location = new System.Drawing.Point(3, 78);
             this.lblCellNumAdd.Name = "lblCellNumAdd";
-            this.lblCellNumAdd.Size = new System.Drawing.Size(120, 16);
+            this.lblCellNumAdd.Size = new System.Drawing.Size(149, 18);
             this.lblCellNumAdd.TabIndex = 2;
             this.lblCellNumAdd.Text = "Cellphone number:";
             // 
             // lblUsernameAdd
             // 
             this.lblUsernameAdd.AutoSize = true;
-            this.lblUsernameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblUsernameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsernameAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblUsernameAdd.Location = new System.Drawing.Point(3, 110);
             this.lblUsernameAdd.Name = "lblUsernameAdd";
-            this.lblUsernameAdd.Size = new System.Drawing.Size(74, 16);
+            this.lblUsernameAdd.Size = new System.Drawing.Size(90, 18);
             this.lblUsernameAdd.TabIndex = 3;
             this.lblUsernameAdd.Text = "Username:";
             // 
             // lblPasswordAdd
             // 
             this.lblPasswordAdd.AutoSize = true;
-            this.lblPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasswordAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblPasswordAdd.Location = new System.Drawing.Point(3, 143);
             this.lblPasswordAdd.Name = "lblPasswordAdd";
-            this.lblPasswordAdd.Size = new System.Drawing.Size(71, 16);
+            this.lblPasswordAdd.Size = new System.Drawing.Size(88, 18);
             this.lblPasswordAdd.TabIndex = 4;
             this.lblPasswordAdd.Text = "Password:";
             // 
@@ -212,10 +223,11 @@
             // chkIsAdminAdd
             // 
             this.chkIsAdminAdd.AutoSize = true;
-            this.chkIsAdminAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.chkIsAdminAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIsAdminAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chkIsAdminAdd.Location = new System.Drawing.Point(6, 180);
             this.chkIsAdminAdd.Name = "chkIsAdminAdd";
-            this.chkIsAdminAdd.Size = new System.Drawing.Size(190, 20);
+            this.chkIsAdminAdd.Size = new System.Drawing.Size(232, 22);
             this.chkIsAdminAdd.TabIndex = 5;
             this.chkIsAdminAdd.Text = "Is this employee an Admin?";
             this.toolTipAdd.SetToolTip(this.chkIsAdminAdd, "Click on the box to select this option. Click it again to deselect it.");
@@ -261,21 +273,25 @@
             // btnDashboard
             // 
             this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(443, 324);
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDashboard.Location = new System.Drawing.Point(435, 352);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(160, 40);
+            this.btnDashboard.Size = new System.Drawing.Size(212, 58);
             this.btnDashboard.TabIndex = 8;
             this.btnDashboard.Text = "&Back to dashboard";
             this.toolTipAdd.SetToolTip(this.btnDashboard, "Click on this to go back to the dashboard menu.");
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // lblTitleAdd
             // 
             this.lblTitleAdd.AutoSize = true;
+            this.lblTitleAdd.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleAdd.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold);
-            this.lblTitleAdd.Location = new System.Drawing.Point(276, 3);
+            this.lblTitleAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitleAdd.Location = new System.Drawing.Point(276, 14);
             this.lblTitleAdd.Name = "lblTitleAdd";
             this.lblTitleAdd.Size = new System.Drawing.Size(286, 37);
             this.lblTitleAdd.TabIndex = 13;
@@ -283,15 +299,17 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAdd.Location = new System.Drawing.Point(241, 324);
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.Location = new System.Drawing.Point(198, 352);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(160, 40);
+            this.btnAdd.Size = new System.Drawing.Size(209, 58);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Add new employee";
             this.toolTipAdd.SetToolTip(this.btnAdd, "Click on this button to add a new employee record with the details you have enter" +
         "ed.");
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabPageUpdate
