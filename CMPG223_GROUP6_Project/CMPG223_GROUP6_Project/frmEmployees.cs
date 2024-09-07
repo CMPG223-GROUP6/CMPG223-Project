@@ -15,7 +15,7 @@ namespace MaintainEmployees
 {
     public partial class frmMaintainEmployees : Form
     {
-        string conString = @"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename= '|DataDirectory|TestDB.mdf'; Integrated Security=True";
+        string conString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private SqlConnection conn;
         private SqlCommand comm;
         private DataSet ds;
@@ -334,6 +334,7 @@ namespace MaintainEmployees
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
         }
+
     }
 
 }

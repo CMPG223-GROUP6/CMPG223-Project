@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRoomSeat));
             this.label1 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.btnAction = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.dgwDisplayRoomSeats = new System.Windows.Forms.DataGridView();
             this.rbAction = new System.Windows.Forms.GroupBox();
             this.gbSeatInfo = new System.Windows.Forms.GroupBox();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDisplayRoomSeats)).BeginInit();
             this.rbAction.SuspendLayout();
             this.gbSeatInfo.SuspendLayout();
@@ -48,56 +50,72 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(318, 19);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(267, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 29);
+            this.label1.Size = new System.Drawing.Size(334, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Room Seat Management";
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(12, 312);
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblError.Location = new System.Drawing.Point(142, 283);
+            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(49, 20);
+            this.lblError.Size = new System.Drawing.Size(40, 16);
             this.lblError.TabIndex = 1;
             this.lblError.Text = " Error";
             // 
             // btnAction
             // 
-            this.btnAction.Location = new System.Drawing.Point(12, 258);
+            this.btnAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAction.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAction.Location = new System.Drawing.Point(148, 231);
+            this.btnAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(296, 36);
+            this.btnAction.Size = new System.Drawing.Size(237, 42);
             this.btnAction.TabIndex = 2;
             this.btnAction.Text = "X";
-            this.btnAction.UseVisualStyleBackColor = true;
+            this.btnAction.UseVisualStyleBackColor = false;
             this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
             // lblHeadingMovieRoom
             // 
             this.lblHeadingMovieRoom.AutoSize = true;
-            this.lblHeadingMovieRoom.Location = new System.Drawing.Point(6, 31);
+            this.lblHeadingMovieRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeadingMovieRoom.Location = new System.Drawing.Point(4, 25);
+            this.lblHeadingMovieRoom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeadingMovieRoom.Name = "lblHeadingMovieRoom";
-            this.lblHeadingMovieRoom.Size = new System.Drawing.Size(87, 16);
+            this.lblHeadingMovieRoom.Size = new System.Drawing.Size(99, 16);
             this.lblHeadingMovieRoom.TabIndex = 3;
             this.lblHeadingMovieRoom.Text = "Movie Room:";
             // 
             // lblHeadingSeatNum
             // 
             this.lblHeadingSeatNum.AutoSize = true;
-            this.lblHeadingSeatNum.Location = new System.Drawing.Point(6, 89);
+            this.lblHeadingSeatNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeadingSeatNum.Location = new System.Drawing.Point(4, 72);
+            this.lblHeadingSeatNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeadingSeatNum.Name = "lblHeadingSeatNum";
-            this.lblHeadingSeatNum.Size = new System.Drawing.Size(89, 16);
+            this.lblHeadingSeatNum.Size = new System.Drawing.Size(102, 16);
             this.lblHeadingSeatNum.TabIndex = 4;
             this.lblHeadingSeatNum.Text = "Seat Number:";
             // 
             // rbAdd
             // 
             this.rbAdd.AutoSize = true;
-            this.rbAdd.Location = new System.Drawing.Point(6, 21);
+            this.rbAdd.Location = new System.Drawing.Point(4, 17);
+            this.rbAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbAdd.Name = "rbAdd";
-            this.rbAdd.Size = new System.Drawing.Size(53, 20);
+            this.rbAdd.Size = new System.Drawing.Size(54, 20);
             this.rbAdd.TabIndex = 5;
             this.rbAdd.TabStop = true;
             this.rbAdd.Text = "Add";
@@ -107,9 +125,10 @@
             // rbDelete
             // 
             this.rbDelete.AutoSize = true;
-            this.rbDelete.Location = new System.Drawing.Point(222, 21);
+            this.rbDelete.Location = new System.Drawing.Point(166, 17);
+            this.rbDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbDelete.Name = "rbDelete";
-            this.rbDelete.Size = new System.Drawing.Size(68, 20);
+            this.rbDelete.Size = new System.Drawing.Size(72, 20);
             this.rbDelete.TabIndex = 6;
             this.rbDelete.TabStop = true;
             this.rbDelete.Text = "Delete";
@@ -119,65 +138,94 @@
             // cbMovieRoom
             // 
             this.cbMovieRoom.FormattingEnabled = true;
-            this.cbMovieRoom.Location = new System.Drawing.Point(124, 31);
+            this.cbMovieRoom.Location = new System.Drawing.Point(121, 25);
+            this.cbMovieRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbMovieRoom.Name = "cbMovieRoom";
-            this.cbMovieRoom.Size = new System.Drawing.Size(163, 24);
+            this.cbMovieRoom.Size = new System.Drawing.Size(123, 24);
             this.cbMovieRoom.TabIndex = 7;
             this.cbMovieRoom.SelectedIndexChanged += new System.EventHandler(this.cbMovieRoom_SelectedIndexChanged);
             // 
             // cbSeatNumber
             // 
             this.cbSeatNumber.FormattingEnabled = true;
-            this.cbSeatNumber.Location = new System.Drawing.Point(124, 89);
+            this.cbSeatNumber.Location = new System.Drawing.Point(121, 71);
+            this.cbSeatNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbSeatNumber.Name = "cbSeatNumber";
-            this.cbSeatNumber.Size = new System.Drawing.Size(163, 24);
+            this.cbSeatNumber.Size = new System.Drawing.Size(123, 24);
             this.cbSeatNumber.TabIndex = 8;
             // 
             // dgwDisplayRoomSeats
             // 
             this.dgwDisplayRoomSeats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwDisplayRoomSeats.Location = new System.Drawing.Point(323, 67);
+            this.dgwDisplayRoomSeats.Location = new System.Drawing.Point(395, 63);
+            this.dgwDisplayRoomSeats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgwDisplayRoomSeats.Name = "dgwDisplayRoomSeats";
             this.dgwDisplayRoomSeats.RowHeadersWidth = 51;
             this.dgwDisplayRoomSeats.RowTemplate.Height = 24;
-            this.dgwDisplayRoomSeats.Size = new System.Drawing.Size(440, 227);
+            this.dgwDisplayRoomSeats.Size = new System.Drawing.Size(317, 213);
             this.dgwDisplayRoomSeats.TabIndex = 9;
             // 
             // rbAction
             // 
+            this.rbAction.BackColor = System.Drawing.Color.Transparent;
             this.rbAction.Controls.Add(this.rbAdd);
             this.rbAction.Controls.Add(this.rbDelete);
-            this.rbAction.Location = new System.Drawing.Point(12, 66);
+            this.rbAction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAction.Location = new System.Drawing.Point(141, 63);
+            this.rbAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbAction.Name = "rbAction";
-            this.rbAction.Size = new System.Drawing.Size(296, 51);
+            this.rbAction.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbAction.Size = new System.Drawing.Size(250, 41);
             this.rbAction.TabIndex = 10;
             this.rbAction.TabStop = false;
             this.rbAction.Text = "Action";
             // 
             // gbSeatInfo
             // 
+            this.gbSeatInfo.BackColor = System.Drawing.Color.Transparent;
             this.gbSeatInfo.Controls.Add(this.cbMovieRoom);
             this.gbSeatInfo.Controls.Add(this.lblHeadingMovieRoom);
             this.gbSeatInfo.Controls.Add(this.cbSeatNumber);
             this.gbSeatInfo.Controls.Add(this.lblHeadingSeatNum);
-            this.gbSeatInfo.Location = new System.Drawing.Point(15, 123);
+            this.gbSeatInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSeatInfo.Location = new System.Drawing.Point(141, 109);
+            this.gbSeatInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbSeatInfo.Name = "gbSeatInfo";
-            this.gbSeatInfo.Size = new System.Drawing.Size(293, 129);
+            this.gbSeatInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbSeatInfo.Size = new System.Drawing.Size(250, 118);
             this.gbSeatInfo.TabIndex = 11;
             this.gbSeatInfo.TabStop = false;
             this.gbSeatInfo.Text = "Seat Information";
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDashboard.Location = new System.Drawing.Point(628, 412);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(187, 51);
+            this.btnDashboard.TabIndex = 23;
+            this.btnDashboard.Text = "Back to dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // frmRoomSeat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 343);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(839, 492);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.dgwDisplayRoomSeats);
             this.Controls.Add(this.btnAction);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rbAction);
             this.Controls.Add(this.gbSeatInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmRoomSeat";
             this.Text = "frmRoomSeat";
             this.Load += new System.EventHandler(this.frmRoomSeat_Load);
@@ -205,5 +253,6 @@
         private System.Windows.Forms.DataGridView dgwDisplayRoomSeats;
         private System.Windows.Forms.GroupBox rbAction;
         private System.Windows.Forms.GroupBox gbSeatInfo;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
