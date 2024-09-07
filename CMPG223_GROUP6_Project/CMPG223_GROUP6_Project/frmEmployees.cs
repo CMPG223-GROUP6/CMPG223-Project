@@ -132,48 +132,51 @@ namespace MaintainEmployees
 
             if (isError == false)
             {
-                conn.Open();
-
-                //SQL run stored procedure to add employees.
-                comm = new SqlCommand("Add_Employee", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
-                comm.Parameters.AddWithValue("@Employee_Name", name);
-                comm.Parameters.AddWithValue("@Employee_Surname", surname);
-                comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
-                comm.Parameters.AddWithValue("@Username", username);
-                comm.Parameters.AddWithValue("@Password", password);
-                comm.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
-                comm.ExecuteNonQuery();
-
-                bool Is_Added = Convert.ToBoolean(comm.Parameters["@Is_Added"].Value);
-
-                if (Is_Added == false)
+                using (SqlConnection conn = new SqlConnection(conString))
                 {
-                    errorProviderAdd.SetError(txtNameAdd, "Did not add because value already exists");
+                    conn.Open();
+
+                    //SQL run stored procedure to add employees.
+                    comm = new SqlCommand("Add_Employee", conn);
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
+                    comm.Parameters.AddWithValue("@Employee_Name", name);
+                    comm.Parameters.AddWithValue("@Employee_Surname", surname);
+                    comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
+                    comm.Parameters.AddWithValue("@Username", username);
+                    comm.Parameters.AddWithValue("@Password", password);
+                    comm.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+                    comm.ExecuteNonQuery();
+
+                    bool Is_Added = Convert.ToBoolean(comm.Parameters["@Is_Added"].Value);
+
+                    if (Is_Added == false)
+                    {
+                        errorProviderAdd.SetError(txtNameAdd, "Did not add because value already exists");
+                    }
+                    else
+                    {
+                        //Displays confirmation message to the user.
+                        MessageBox.Show("A new employee was added!");
+                    }
+
+                    conn.Close();
+
+                    //Displays the employees and populates the combobox with the employee IDs.
+                    showEmployees();
+                    populateComboBox();
+
+                    //Clears input.
+                    txtNameAdd.Text = "";
+                    txtSurnameAdd.Text = "";
+                    txtUsernameAdd.Text = "";
+                    txtPasswordAdd.Text = "";
+                    txtCellNumAdd.Text = "";
+                    chkIsAdminAdd.Checked = false;
+
+                    //Sets focus to the first component.
+                    txtNameAdd.Focus();
                 }
-                else
-                {
-                    //Displays confirmation message to the user.
-                    MessageBox.Show("A new employee was added!");
-                }
-         
-                conn.Close();
-
-                //Displays the employees and populates the combobox with the employee IDs.
-                showEmployees();
-                populateComboBox();
-
-                //Clears input.
-                txtNameAdd.Text = "";
-                txtSurnameAdd.Text = "";
-                txtUsernameAdd.Text = "";
-                txtPasswordAdd.Text = "";
-                txtCellNumAdd.Text = "";
-                chkIsAdminAdd.Checked = false;
-
-                //Sets focus to the first component.
-                txtNameAdd.Focus();
             }
         }
 
@@ -334,6 +337,15 @@ namespace MaintainEmployees
             AdministratorDashboard.Show();
         }
 
+        private void lblTitleUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPasswordUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

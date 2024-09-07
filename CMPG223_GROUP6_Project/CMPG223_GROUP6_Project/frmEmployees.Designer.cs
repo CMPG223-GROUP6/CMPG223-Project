@@ -104,7 +104,7 @@
             this.tabControlMaintainEmployees.Location = new System.Drawing.Point(-1, 0);
             this.tabControlMaintainEmployees.Name = "tabControlMaintainEmployees";
             this.tabControlMaintainEmployees.SelectedIndex = 0;
-            this.tabControlMaintainEmployees.Size = new System.Drawing.Size(802, 498);
+            this.tabControlMaintainEmployees.Size = new System.Drawing.Size(849, 524);
             this.tabControlMaintainEmployees.TabIndex = 1;
             // 
             // tabPageAdd
@@ -120,7 +120,7 @@
             this.tabPageAdd.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdd.Name = "tabPageAdd";
             this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(794, 472);
+            this.tabPageAdd.Size = new System.Drawing.Size(841, 498);
             this.tabPageAdd.TabIndex = 0;
             this.tabPageAdd.Text = "Add";
             // 
@@ -276,7 +276,7 @@
             this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDashboard.Location = new System.Drawing.Point(435, 352);
+            this.btnDashboard.Location = new System.Drawing.Point(474, 352);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(212, 58);
             this.btnDashboard.TabIndex = 8;
@@ -315,6 +315,8 @@
             // tabPageUpdate
             // 
             this.tabPageUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabPageUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageUpdate.BackgroundImage")));
+            this.tabPageUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPageUpdate.Controls.Add(this.lblInstructionsUpdate);
             this.tabPageUpdate.Controls.Add(this.btnBackUpdate);
             this.tabPageUpdate.Controls.Add(this.pnlUpdate);
@@ -323,34 +325,38 @@
             this.tabPageUpdate.Location = new System.Drawing.Point(4, 22);
             this.tabPageUpdate.Name = "tabPageUpdate";
             this.tabPageUpdate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpdate.Size = new System.Drawing.Size(794, 472);
+            this.tabPageUpdate.Size = new System.Drawing.Size(841, 498);
             this.tabPageUpdate.TabIndex = 1;
             this.tabPageUpdate.Text = "Update";
             // 
             // lblInstructionsUpdate
             // 
             this.lblInstructionsUpdate.AutoSize = true;
-            this.lblInstructionsUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblInstructionsUpdate.Location = new System.Drawing.Point(250, 48);
+            this.lblInstructionsUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.lblInstructionsUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblInstructionsUpdate.Location = new System.Drawing.Point(183, 64);
             this.lblInstructionsUpdate.Name = "lblInstructionsUpdate";
-            this.lblInstructionsUpdate.Size = new System.Drawing.Size(390, 16);
+            this.lblInstructionsUpdate.Size = new System.Drawing.Size(489, 18);
             this.lblInstructionsUpdate.TabIndex = 18;
             this.lblInstructionsUpdate.Text = "Please enter the new details of the employee you have selected.";
             // 
             // btnBackUpdate
             // 
-            this.btnBackUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnBackUpdate.Location = new System.Drawing.Point(452, 369);
+            this.btnBackUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnBackUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBackUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBackUpdate.Location = new System.Drawing.Point(457, 363);
             this.btnBackUpdate.Name = "btnBackUpdate";
-            this.btnBackUpdate.Size = new System.Drawing.Size(160, 40);
+            this.btnBackUpdate.Size = new System.Drawing.Size(200, 53);
             this.btnBackUpdate.TabIndex = 1;
             this.btnBackUpdate.Text = "&Back to dashboard";
             this.toolTipUpdate.SetToolTip(this.btnBackUpdate, "Click on this to go back to the dashboard menu.");
-            this.btnBackUpdate.UseVisualStyleBackColor = true;
+            this.btnBackUpdate.UseVisualStyleBackColor = false;
             this.btnBackUpdate.Click += new System.EventHandler(this.btnBackUpdate_Click);
             // 
             // pnlUpdate
             // 
+            this.pnlUpdate.BackColor = System.Drawing.Color.Transparent;
             this.pnlUpdate.Controls.Add(this.lblEmployeeIDUpdate);
             this.pnlUpdate.Controls.Add(this.txtUsernameUpdate);
             this.pnlUpdate.Controls.Add(this.lblNameUpdate);
@@ -364,25 +370,25 @@
             this.pnlUpdate.Controls.Add(this.txtCellNumUpdate);
             this.pnlUpdate.Controls.Add(this.txtSurnameUpdate);
             this.pnlUpdate.Controls.Add(this.txtPasswordUpdate);
-            this.pnlUpdate.Location = new System.Drawing.Point(307, 82);
+            this.pnlUpdate.Location = new System.Drawing.Point(158, 85);
             this.pnlUpdate.Name = "pnlUpdate";
-            this.pnlUpdate.Size = new System.Drawing.Size(271, 270);
+            this.pnlUpdate.Size = new System.Drawing.Size(534, 221);
             this.pnlUpdate.TabIndex = 16;
             // 
             // lblEmployeeIDUpdate
             // 
             this.lblEmployeeIDUpdate.AutoSize = true;
-            this.lblEmployeeIDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblEmployeeIDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblEmployeeIDUpdate.Location = new System.Drawing.Point(17, 11);
             this.lblEmployeeIDUpdate.Name = "lblEmployeeIDUpdate";
-            this.lblEmployeeIDUpdate.Size = new System.Drawing.Size(89, 16);
+            this.lblEmployeeIDUpdate.Size = new System.Drawing.Size(108, 18);
             this.lblEmployeeIDUpdate.TabIndex = 0;
             this.lblEmployeeIDUpdate.Text = "Employee ID:";
             // 
             // txtUsernameUpdate
             // 
             this.txtUsernameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtUsernameUpdate.Location = new System.Drawing.Point(155, 157);
+            this.txtUsernameUpdate.Location = new System.Drawing.Point(172, 162);
             this.txtUsernameUpdate.Name = "txtUsernameUpdate";
             this.txtUsernameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtUsernameUpdate.TabIndex = 4;
@@ -391,60 +397,61 @@
             // lblNameUpdate
             // 
             this.lblNameUpdate.AutoSize = true;
-            this.lblNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblNameUpdate.Location = new System.Drawing.Point(17, 54);
             this.lblNameUpdate.Name = "lblNameUpdate";
-            this.lblNameUpdate.Size = new System.Drawing.Size(48, 16);
+            this.lblNameUpdate.Size = new System.Drawing.Size(57, 18);
             this.lblNameUpdate.TabIndex = 1;
             this.lblNameUpdate.Text = "Name:";
             // 
             // lblUsernameUpdate
             // 
             this.lblUsernameUpdate.AutoSize = true;
-            this.lblUsernameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblUsernameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblUsernameUpdate.Location = new System.Drawing.Point(17, 163);
             this.lblUsernameUpdate.Name = "lblUsernameUpdate";
-            this.lblUsernameUpdate.Size = new System.Drawing.Size(74, 16);
+            this.lblUsernameUpdate.Size = new System.Drawing.Size(90, 18);
             this.lblUsernameUpdate.TabIndex = 14;
             this.lblUsernameUpdate.Text = "Username:";
             // 
             // lblSurnameUpdate
             // 
             this.lblSurnameUpdate.AutoSize = true;
-            this.lblSurnameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblSurnameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblSurnameUpdate.Location = new System.Drawing.Point(17, 91);
             this.lblSurnameUpdate.Name = "lblSurnameUpdate";
-            this.lblSurnameUpdate.Size = new System.Drawing.Size(65, 16);
+            this.lblSurnameUpdate.Size = new System.Drawing.Size(80, 18);
             this.lblSurnameUpdate.TabIndex = 2;
             this.lblSurnameUpdate.Text = "Surname:";
             // 
             // lblCellNumUpdate
             // 
             this.lblCellNumUpdate.AutoSize = true;
-            this.lblCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblCellNumUpdate.Location = new System.Drawing.Point(17, 128);
             this.lblCellNumUpdate.Name = "lblCellNumUpdate";
-            this.lblCellNumUpdate.Size = new System.Drawing.Size(120, 16);
+            this.lblCellNumUpdate.Size = new System.Drawing.Size(149, 18);
             this.lblCellNumUpdate.TabIndex = 3;
             this.lblCellNumUpdate.Text = "Cellphone number:";
             // 
             // lblPasswordUpdate
             // 
             this.lblPasswordUpdate.AutoSize = true;
-            this.lblPasswordUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblPasswordUpdate.Location = new System.Drawing.Point(17, 202);
+            this.lblPasswordUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblPasswordUpdate.Location = new System.Drawing.Point(17, 197);
             this.lblPasswordUpdate.Name = "lblPasswordUpdate";
-            this.lblPasswordUpdate.Size = new System.Drawing.Size(71, 16);
+            this.lblPasswordUpdate.Size = new System.Drawing.Size(88, 18);
             this.lblPasswordUpdate.TabIndex = 4;
             this.lblPasswordUpdate.Text = "Password:";
+            this.lblPasswordUpdate.Click += new System.EventHandler(this.lblPasswordUpdate_Click);
             // 
             // chkIsAdminUpdate
             // 
             this.chkIsAdminUpdate.AutoSize = true;
-            this.chkIsAdminUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.chkIsAdminUpdate.Location = new System.Drawing.Point(20, 237);
+            this.chkIsAdminUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.chkIsAdminUpdate.Location = new System.Drawing.Point(299, 91);
             this.chkIsAdminUpdate.Name = "chkIsAdminUpdate";
-            this.chkIsAdminUpdate.Size = new System.Drawing.Size(190, 20);
+            this.chkIsAdminUpdate.Size = new System.Drawing.Size(232, 22);
             this.chkIsAdminUpdate.TabIndex = 6;
             this.chkIsAdminUpdate.Text = "Is this employee an Admin?";
             this.toolTipUpdate.SetToolTip(this.chkIsAdminUpdate, "Click on the box to select this option. Click it again to deselect it.");
@@ -454,7 +461,7 @@
             // 
             this.cmbEmployeeIDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbEmployeeIDUpdate.FormattingEnabled = true;
-            this.cmbEmployeeIDUpdate.Location = new System.Drawing.Point(155, 8);
+            this.cmbEmployeeIDUpdate.Location = new System.Drawing.Point(172, 10);
             this.cmbEmployeeIDUpdate.Name = "cmbEmployeeIDUpdate";
             this.cmbEmployeeIDUpdate.Size = new System.Drawing.Size(100, 24);
             this.cmbEmployeeIDUpdate.TabIndex = 0;
@@ -463,7 +470,7 @@
             // txtNameUpdate
             // 
             this.txtNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtNameUpdate.Location = new System.Drawing.Point(155, 47);
+            this.txtNameUpdate.Location = new System.Drawing.Point(172, 53);
             this.txtNameUpdate.Name = "txtNameUpdate";
             this.txtNameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtNameUpdate.TabIndex = 1;
@@ -472,7 +479,7 @@
             // txtCellNumUpdate
             // 
             this.txtCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtCellNumUpdate.Location = new System.Drawing.Point(155, 122);
+            this.txtCellNumUpdate.Location = new System.Drawing.Point(172, 124);
             this.txtCellNumUpdate.Mask = "9990000000";
             this.txtCellNumUpdate.Name = "txtCellNumUpdate";
             this.txtCellNumUpdate.Size = new System.Drawing.Size(100, 22);
@@ -482,7 +489,7 @@
             // txtSurnameUpdate
             // 
             this.txtSurnameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtSurnameUpdate.Location = new System.Drawing.Point(155, 85);
+            this.txtSurnameUpdate.Location = new System.Drawing.Point(172, 90);
             this.txtSurnameUpdate.Name = "txtSurnameUpdate";
             this.txtSurnameUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtSurnameUpdate.TabIndex = 2;
@@ -491,7 +498,7 @@
             // txtPasswordUpdate
             // 
             this.txtPasswordUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtPasswordUpdate.Location = new System.Drawing.Point(155, 196);
+            this.txtPasswordUpdate.Location = new System.Drawing.Point(172, 196);
             this.txtPasswordUpdate.Name = "txtPasswordUpdate";
             this.txtPasswordUpdate.Size = new System.Drawing.Size(100, 22);
             this.txtPasswordUpdate.TabIndex = 5;
@@ -501,24 +508,29 @@
             // lblTitleUpdate
             // 
             this.lblTitleUpdate.AutoSize = true;
+            this.lblTitleUpdate.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleUpdate.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold);
-            this.lblTitleUpdate.Location = new System.Drawing.Point(274, 0);
+            this.lblTitleUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitleUpdate.Location = new System.Drawing.Point(242, 13);
             this.lblTitleUpdate.Name = "lblTitleUpdate";
             this.lblTitleUpdate.Size = new System.Drawing.Size(339, 37);
             this.lblTitleUpdate.TabIndex = 13;
             this.lblTitleUpdate.Text = "Update employee details";
+            this.lblTitleUpdate.Click += new System.EventHandler(this.lblTitleUpdate_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdate.Location = new System.Drawing.Point(262, 369);
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnUpdate.Location = new System.Drawing.Point(214, 363);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(150, 41);
+            this.btnUpdate.Size = new System.Drawing.Size(193, 53);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "&Update details";
             this.toolTipUpdate.SetToolTip(this.btnUpdate, "Click on this button to update the selected employee record with the new details " +
         "you have entered.");
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // tabPageDelete
@@ -532,7 +544,7 @@
             this.tabPageDelete.Controls.Add(this.lblEmployeeIDDelete);
             this.tabPageDelete.Location = new System.Drawing.Point(4, 22);
             this.tabPageDelete.Name = "tabPageDelete";
-            this.tabPageDelete.Size = new System.Drawing.Size(794, 472);
+            this.tabPageDelete.Size = new System.Drawing.Size(841, 498);
             this.tabPageDelete.TabIndex = 2;
             this.tabPageDelete.Text = "Delete";
             // 
@@ -635,7 +647,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 446);
+            this.ClientSize = new System.Drawing.Size(843, 520);
             this.Controls.Add(this.tabControlMaintainEmployees);
             this.Name = "frmMaintainEmployees";
             this.Text = "Maintain employees";
