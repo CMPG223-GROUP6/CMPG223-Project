@@ -356,7 +356,6 @@ namespace MaintainEmployees
             // Open the connection if it's not already open.
             if (conn.State != ConnectionState.Open)
             {
-<<<<<<< HEAD
                 conn.Open();
             }
             try
@@ -372,9 +371,7 @@ namespace MaintainEmployees
                 comm.Dispose();
 
                 if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
-=======
-                if (conn.State != ConnectionState.Open)
->>>>>>> main
+
                 {
                     conn.Open();
                     comm = new SqlCommand("change_IsActive", conn);
@@ -400,7 +397,7 @@ namespace MaintainEmployees
                     conn.Close();
                 }
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
