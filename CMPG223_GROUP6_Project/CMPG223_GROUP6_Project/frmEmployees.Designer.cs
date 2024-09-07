@@ -80,6 +80,7 @@
             this.toolTipUpdate = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
             this.errorProviderUpdate = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDelete = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMaintainEmployees
@@ -512,7 +514,7 @@
             this.tabPageDelete.Controls.Add(this.lblEmployeeIDDelete);
             this.tabPageDelete.Location = new System.Drawing.Point(4, 22);
             this.tabPageDelete.Name = "tabPageDelete";
-            this.tabPageDelete.Size = new System.Drawing.Size(794, 498);
+            this.tabPageDelete.Size = new System.Drawing.Size(794, 472);
             this.tabPageDelete.TabIndex = 2;
             this.tabPageDelete.Text = "Delete";
             // 
@@ -586,7 +588,7 @@
             this.tabPageView.Location = new System.Drawing.Point(4, 22);
             this.tabPageView.Name = "tabPageView";
             this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageView.Size = new System.Drawing.Size(794, 498);
+            this.tabPageView.Size = new System.Drawing.Size(794, 472);
             this.tabPageView.TabIndex = 3;
             this.tabPageView.Text = "View All Employees";
             this.tabPageView.UseVisualStyleBackColor = true;
@@ -606,6 +608,10 @@
             // errorProviderUpdate
             // 
             this.errorProviderUpdate.ContainerControl = this;
+            // 
+            // errorProviderDelete
+            // 
+            this.errorProviderDelete.ContainerControl = this;
             // 
             // frmMaintainEmployees
             // 
@@ -630,6 +636,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -687,5 +694,6 @@
         private System.Windows.Forms.ToolTip toolTipUpdate;
         private System.Windows.Forms.ToolTip toolTipDelete;
         private System.Windows.Forms.ErrorProvider errorProviderUpdate;
+        private System.Windows.Forms.ErrorProvider errorProviderDelete;
     }
 }

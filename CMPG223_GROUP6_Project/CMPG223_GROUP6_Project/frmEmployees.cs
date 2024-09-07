@@ -47,7 +47,7 @@ namespace MaintainEmployees
 
             //Populates the combobox with employee IDs.
             DataSet ds = new DataSet();
-            sql = "SELECT Employee_ID FROM EMPLOYEE";
+            sql = "SELECT DISTINCT Employee_ID FROM EMPLOYEE WHERE Is_Active = 1";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
             adapter.Fill(ds, "EMPLOYEE");
 
@@ -145,9 +145,20 @@ namespace MaintainEmployees
                 comm.Parameters.AddWithValue("@Password", password);
                 comm.ExecuteNonQuery();
 
-                //Displays confirmation message to the user.
-                MessageBox.Show("A new employee was added!");
+                comm.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
+                comm.ExecuteNonQuery();
+                bool Is_Added = Convert.ToBoolean(comm.Parameters["@Is_Added"].Value);
 
+                if (Is_Added == false)
+                {
+                    errorProviderAdd.SetError(txtNameAdd, "Did not add because value already exists");
+                }
+                else
+                {
+                    //Displays confirmation message to the user.
+                    MessageBox.Show("A new employee was added!");
+                }
+         
                 conn.Close();
 
                 //Displays the employees and populates the combobox with the employee IDs.
@@ -279,12 +290,32 @@ namespace MaintainEmployees
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 conn.Open();
                 comm = new SqlCommand("change_IsActive", conn);
                 comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue(@Is_Active, 1);
+                comm.Parameters.AddWithValue("@Employee_ID", cmbEmployeeIDDelete.Text);
+
+
+                adap = new SqlDataAdapter(comm);
+
+                comm.ExecuteNonQuery();
+                comm.Dispose();
+
+                if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
+                {
+                    errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
+                }
+                else
+                {
+                    errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
+                    MessageBox.Show("Employee ID deleted sucessfully!");
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
