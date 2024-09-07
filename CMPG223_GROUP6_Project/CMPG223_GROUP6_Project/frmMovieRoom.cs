@@ -230,7 +230,7 @@ namespace CMPG223_GROUP6_Project
                 // If it's an add operation, check for duplicates
                 if (!isUpdating)
                 {
-                    SqlCommand checkCommand = new SqlCommand("Add_MovieRooms", conn);
+                    SqlCommand checkCommand = new SqlCommand("Add_MovieRoom", conn);
                     checkCommand.CommandType = CommandType.StoredProcedure;
 
                     if (!int.TryParse(cmbMovieID.Text, out int movieID))

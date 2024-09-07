@@ -536,6 +536,8 @@
             // tabPageDelete
             // 
             this.tabPageDelete.BackColor = System.Drawing.Color.Pink;
+            this.tabPageDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageDelete.BackgroundImage")));
+            this.tabPageDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPageDelete.Controls.Add(this.btnBackDelete);
             this.tabPageDelete.Controls.Add(this.lblInstructionsDelete);
             this.tabPageDelete.Controls.Add(this.lblTitleDelete);
@@ -550,31 +552,36 @@
             // 
             // btnBackDelete
             // 
-            this.btnBackDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnBackDelete.Location = new System.Drawing.Point(447, 143);
+            this.btnBackDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnBackDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBackDelete.Location = new System.Drawing.Point(466, 376);
             this.btnBackDelete.Name = "btnBackDelete";
-            this.btnBackDelete.Size = new System.Drawing.Size(160, 40);
+            this.btnBackDelete.Size = new System.Drawing.Size(183, 53);
             this.btnBackDelete.TabIndex = 2;
             this.btnBackDelete.Text = "&Back to dashboard";
             this.toolTipDelete.SetToolTip(this.btnBackDelete, "Click on this to go back to the dashboard menu.");
-            this.btnBackDelete.UseVisualStyleBackColor = true;
+            this.btnBackDelete.UseVisualStyleBackColor = false;
             this.btnBackDelete.Click += new System.EventHandler(this.btnBackDelete_Click);
             // 
             // lblInstructionsDelete
             // 
             this.lblInstructionsDelete.AutoSize = true;
-            this.lblInstructionsDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblInstructionsDelete.Location = new System.Drawing.Point(269, 51);
+            this.lblInstructionsDelete.BackColor = System.Drawing.Color.Transparent;
+            this.lblInstructionsDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblInstructionsDelete.Location = new System.Drawing.Point(219, 122);
             this.lblInstructionsDelete.Name = "lblInstructionsDelete";
-            this.lblInstructionsDelete.Size = new System.Drawing.Size(339, 16);
+            this.lblInstructionsDelete.Size = new System.Drawing.Size(430, 18);
             this.lblInstructionsDelete.TabIndex = 4;
             this.lblInstructionsDelete.Text = "Please select the ID of the employee you want to delete.";
             // 
             // lblTitleDelete
             // 
             this.lblTitleDelete.AutoSize = true;
+            this.lblTitleDelete.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleDelete.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold);
-            this.lblTitleDelete.Location = new System.Drawing.Point(287, 0);
+            this.lblTitleDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTitleDelete.Location = new System.Drawing.Point(296, 10);
             this.lblTitleDelete.Name = "lblTitleDelete";
             this.lblTitleDelete.Size = new System.Drawing.Size(273, 37);
             this.lblTitleDelete.TabIndex = 3;
@@ -582,21 +589,23 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnDelete.Location = new System.Drawing.Point(249, 143);
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDelete.Location = new System.Drawing.Point(187, 376);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(160, 40);
+            this.btnDelete.Size = new System.Drawing.Size(191, 53);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "&Delete";
             this.toolTipDelete.SetToolTip(this.btnDelete, "Click on this to delete the selected employee\'s record.");
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // cmbEmployeeIDDelete
             // 
             this.cmbEmployeeIDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbEmployeeIDDelete.FormattingEnabled = true;
-            this.cmbEmployeeIDDelete.Location = new System.Drawing.Point(455, 89);
+            this.cmbEmployeeIDDelete.Location = new System.Drawing.Point(448, 222);
             this.cmbEmployeeIDDelete.Name = "cmbEmployeeIDDelete";
             this.cmbEmployeeIDDelete.Size = new System.Drawing.Size(121, 24);
             this.cmbEmployeeIDDelete.TabIndex = 0;
@@ -605,10 +614,11 @@
             // lblEmployeeIDDelete
             // 
             this.lblEmployeeIDDelete.AutoSize = true;
-            this.lblEmployeeIDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblEmployeeIDDelete.Location = new System.Drawing.Point(291, 92);
+            this.lblEmployeeIDDelete.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmployeeIDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblEmployeeIDDelete.Location = new System.Drawing.Point(242, 222);
             this.lblEmployeeIDDelete.Name = "lblEmployeeIDDelete";
-            this.lblEmployeeIDDelete.Size = new System.Drawing.Size(144, 16);
+            this.lblEmployeeIDDelete.Size = new System.Drawing.Size(178, 18);
             this.lblEmployeeIDDelete.TabIndex = 0;
             this.lblEmployeeIDDelete.Text = "Employee ID to delete:";
             // 
@@ -618,7 +628,7 @@
             this.tabPageView.Location = new System.Drawing.Point(4, 22);
             this.tabPageView.Name = "tabPageView";
             this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageView.Size = new System.Drawing.Size(794, 472);
+            this.tabPageView.Size = new System.Drawing.Size(841, 498);
             this.tabPageView.TabIndex = 3;
             this.tabPageView.Text = "View All Employees";
             this.tabPageView.UseVisualStyleBackColor = true;
@@ -628,7 +638,7 @@
             this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView.Location = new System.Drawing.Point(-4, 0);
             this.dgvView.Name = "dgvView";
-            this.dgvView.Size = new System.Drawing.Size(798, 469);
+            this.dgvView.Size = new System.Drawing.Size(845, 502);
             this.dgvView.TabIndex = 0;
             // 
             // errorProviderAdd
