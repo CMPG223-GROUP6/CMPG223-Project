@@ -294,31 +294,37 @@ namespace MaintainEmployees
         {
             try
             {
-                conn.Open();
-                comm = new SqlCommand("change_IsActive", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@Employee_ID", cmbEmployeeIDDelete.Text);
-
-
-                adap = new SqlDataAdapter(comm);
-
-                comm.ExecuteNonQuery();
-                comm.Dispose();
-
-                if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
+                if (conn.State != ConnectionState.Open)
                 {
-                    errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
-                }
-                else
-                {
-                    errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
-                    MessageBox.Show("Employee ID deleted sucessfully!");
+                    conn.Open();
+                    comm = new SqlCommand("change_IsActive", conn);
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.Parameters.AddWithValue("@Employee_ID", cmbEmployeeIDDelete.Text);
+
+
+                    adap = new SqlDataAdapter(comm);
+
+                    comm.ExecuteNonQuery();
+                    comm.Dispose();
+
+                    if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
+                    {
+                        errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
+                    }
+                    else
+                    {
+                        errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
+                        MessageBox.Show("Employee ID deleted sucessfully!");
+                    }
+
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
 
         private void btnBackUpdate_Click(object sender, EventArgs e)
