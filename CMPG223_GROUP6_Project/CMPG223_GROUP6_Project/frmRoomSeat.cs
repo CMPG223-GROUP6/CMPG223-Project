@@ -13,7 +13,7 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmRoomSeat : Form
     {
-        SqlConnection con = new SqlConnection(@"Server=.\SQLEXPRESS;Database=DreamflixDB;Trusted_Connection=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         SqlCommand cmd;
         SqlDataAdapter adapter;
         DataSet ds;
