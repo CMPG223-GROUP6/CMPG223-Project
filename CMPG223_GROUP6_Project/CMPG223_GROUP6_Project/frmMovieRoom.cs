@@ -178,31 +178,6 @@ namespace CMPG223_GROUP6_Project
             }
         }
 
-        // Update an existing movie room
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                // Display error message via errorProvider1
-                errorProvider1.SetError(dataGridView1, "Please select a row in the grid to update.");
-                return;
-            }
-
-            // Clear previous error
-            errorProvider1.SetError(dataGridView1, string.Empty);
-
-            // Update operation
-            isUpdating = true;
-            ToggleRoomDetailsControls(true, true);
-            txtNumSeats.ReadOnly = true;
-
-            // Auto-fill the controls with the selected row's data
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-            cmbRoomID.Text = selectedRow.Cells["Room_ID"].Value.ToString();
-            cmbMovieID.Text = selectedRow.Cells["Movie_ID"].Value.ToString();
-            txtRoomNum.Text = selectedRow.Cells["Room_Num"].Value.ToString();
-            txtNumSeats.Text = selectedRow.Cells["Num_Seats"].Value.ToString();
-        }
 
         //Handling DataGridView row selection to fill fields
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
