@@ -238,11 +238,6 @@ namespace MaintainEmployees
             cmbEmployeeIDDelete.Focus();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form

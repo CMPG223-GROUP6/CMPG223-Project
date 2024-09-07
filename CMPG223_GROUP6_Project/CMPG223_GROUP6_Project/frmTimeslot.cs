@@ -351,6 +351,7 @@ namespace CMPG223_GROUP6_Project
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
         }
+
     }
 }
 
