@@ -143,10 +143,9 @@ namespace MaintainEmployees
                 comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
                 comm.Parameters.AddWithValue("@Username", username);
                 comm.Parameters.AddWithValue("@Password", password);
-                comm.ExecuteNonQuery();
-
                 comm.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
                 comm.ExecuteNonQuery();
+
                 bool Is_Added = Convert.ToBoolean(comm.Parameters["@Is_Added"].Value);
 
                 if (Is_Added == false)
