@@ -38,7 +38,9 @@ namespace CMPG223_GROUP6_Project
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // Validate input for Movie Name, Description, and Price
+            // Clear previous error messages
+            labelError.Text = "";
+
             if (!ValidateInputs())
             {
                 return;
@@ -50,7 +52,20 @@ namespace CMPG223_GROUP6_Project
                 {
                     conn.Open();
 
-                    // Add new movie
+                    // Check if the movie already exists
+                    using (SqlCommand checkCommand = new SqlCommand("SELECT 1 FROM MOVIE WHERE Movie_Name = @Movie_Name AND Is_Active = 1", conn))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
+                        var movieExists = checkCommand.ExecuteScalar();
+
+                        if (movieExists != null)
+                        {
+                            labelError.Text = "Movie already exists."; // Show error if the movie exists
+                            return; // Exit if the movie exists
+                        }
+                    }
+
+                    // If the movie does not exist, insert it
                     using (SqlCommand command = new SqlCommand("InsertMovie", conn))
                     {
                         command.CommandType = CommandType.StoredProcedure;
@@ -60,15 +75,13 @@ namespace CMPG223_GROUP6_Project
                         command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("A new movie was added!");
-
-                    // Refresh movie list
-                    ShowMovies();
+                    labelError.Text = "A new movie was added!"; // Display success message on label
+                    ShowMovies(); // Refresh the movie list
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}"; // Display error on label
             }
         }
 
@@ -103,12 +116,17 @@ namespace CMPG223_GROUP6_Project
                         command.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
                         command.Parameters.AddWithValue("@Movie_Description", textBoxMovieDescription.Text);
                         command.Parameters.AddWithValue("@Price", decimal.Parse(textBoxPrice.Text));
+
                         command.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("Movie updated successfully!");
                     ShowMovies(); // Refresh the DataGridView
                 }
+            }
+            catch (SqlException ex) when (ex.Number == 50000)
+            {
+                labelError.Text = "A movie with the same name already exists.";
             }
             catch (Exception ex)
             {
