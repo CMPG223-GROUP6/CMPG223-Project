@@ -36,7 +36,6 @@
             this.lblNameAdd = new System.Windows.Forms.Label();
             this.lblSurnameAdd = new System.Windows.Forms.Label();
             this.lblCellNumAdd = new System.Windows.Forms.Label();
-            this.chkActiveAdd = new System.Windows.Forms.CheckBox();
             this.lblUsernameAdd = new System.Windows.Forms.Label();
             this.lblPasswordAdd = new System.Windows.Forms.Label();
             this.txtCellNumAdd = new System.Windows.Forms.MaskedTextBox();
@@ -58,7 +57,6 @@
             this.lblUsernameUpdate = new System.Windows.Forms.Label();
             this.lblSurnameUpdate = new System.Windows.Forms.Label();
             this.lblCellNumUpdate = new System.Windows.Forms.Label();
-            this.chkIsActiveUpdate = new System.Windows.Forms.CheckBox();
             this.lblPasswordUpdate = new System.Windows.Forms.Label();
             this.chkIsAdminUpdate = new System.Windows.Forms.CheckBox();
             this.cmbEmployeeIDUpdate = new System.Windows.Forms.ComboBox();
@@ -136,7 +134,6 @@
             this.pnlAdd.Controls.Add(this.lblNameAdd);
             this.pnlAdd.Controls.Add(this.lblSurnameAdd);
             this.pnlAdd.Controls.Add(this.lblCellNumAdd);
-            this.pnlAdd.Controls.Add(this.chkActiveAdd);
             this.pnlAdd.Controls.Add(this.lblUsernameAdd);
             this.pnlAdd.Controls.Add(this.lblPasswordAdd);
             this.pnlAdd.Controls.Add(this.txtCellNumAdd);
@@ -147,7 +144,7 @@
             this.pnlAdd.Controls.Add(this.txtSurnameAdd);
             this.pnlAdd.Location = new System.Drawing.Point(288, 85);
             this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(282, 239);
+            this.pnlAdd.Size = new System.Drawing.Size(282, 214);
             this.pnlAdd.TabIndex = 16;
             // 
             // lblNameAdd
@@ -179,18 +176,6 @@
             this.lblCellNumAdd.Size = new System.Drawing.Size(119, 16);
             this.lblCellNumAdd.TabIndex = 2;
             this.lblCellNumAdd.Text = "Cellphone number:";
-            // 
-            // chkActiveAdd
-            // 
-            this.chkActiveAdd.AutoSize = true;
-            this.chkActiveAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.chkActiveAdd.Location = new System.Drawing.Point(6, 212);
-            this.chkActiveAdd.Name = "chkActiveAdd";
-            this.chkActiveAdd.Size = new System.Drawing.Size(170, 20);
-            this.chkActiveAdd.TabIndex = 6;
-            this.chkActiveAdd.Text = "Is this employee Active?";
-            this.toolTipAdd.SetToolTip(this.chkActiveAdd, "Click on the box to select this option. Click it again to deselect it.");
-            this.chkActiveAdd.UseVisualStyleBackColor = true;
             // 
             // lblUsernameAdd
             // 
@@ -275,7 +260,7 @@
             // 
             this.btnDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(441, 366);
+            this.btnDashboard.Location = new System.Drawing.Point(443, 324);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(160, 40);
             this.btnDashboard.TabIndex = 8;
@@ -297,7 +282,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAdd.Location = new System.Drawing.Point(239, 366);
+            this.btnAdd.Location = new System.Drawing.Point(241, 324);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(160, 40);
             this.btnAdd.TabIndex = 7;
@@ -335,7 +320,7 @@
             // btnBackUpdate
             // 
             this.btnBackUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnBackUpdate.Location = new System.Drawing.Point(453, 409);
+            this.btnBackUpdate.Location = new System.Drawing.Point(452, 369);
             this.btnBackUpdate.Name = "btnBackUpdate";
             this.btnBackUpdate.Size = new System.Drawing.Size(160, 40);
             this.btnBackUpdate.TabIndex = 1;
@@ -352,7 +337,6 @@
             this.pnlUpdate.Controls.Add(this.lblUsernameUpdate);
             this.pnlUpdate.Controls.Add(this.lblSurnameUpdate);
             this.pnlUpdate.Controls.Add(this.lblCellNumUpdate);
-            this.pnlUpdate.Controls.Add(this.chkIsActiveUpdate);
             this.pnlUpdate.Controls.Add(this.lblPasswordUpdate);
             this.pnlUpdate.Controls.Add(this.chkIsAdminUpdate);
             this.pnlUpdate.Controls.Add(this.cmbEmployeeIDUpdate);
@@ -362,7 +346,7 @@
             this.pnlUpdate.Controls.Add(this.txtPasswordUpdate);
             this.pnlUpdate.Location = new System.Drawing.Point(307, 82);
             this.pnlUpdate.Name = "pnlUpdate";
-            this.pnlUpdate.Size = new System.Drawing.Size(271, 304);
+            this.pnlUpdate.Size = new System.Drawing.Size(271, 270);
             this.pnlUpdate.TabIndex = 16;
             // 
             // lblEmployeeIDUpdate
@@ -423,18 +407,6 @@
             this.lblCellNumUpdate.Size = new System.Drawing.Size(119, 16);
             this.lblCellNumUpdate.TabIndex = 3;
             this.lblCellNumUpdate.Text = "Cellphone number:";
-            // 
-            // chkIsActiveUpdate
-            // 
-            this.chkIsActiveUpdate.AutoSize = true;
-            this.chkIsActiveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.chkIsActiveUpdate.Location = new System.Drawing.Point(20, 272);
-            this.chkIsActiveUpdate.Name = "chkIsActiveUpdate";
-            this.chkIsActiveUpdate.Size = new System.Drawing.Size(170, 20);
-            this.chkIsActiveUpdate.TabIndex = 7;
-            this.chkIsActiveUpdate.Text = "Is this employee Active?";
-            this.toolTipUpdate.SetToolTip(this.chkIsActiveUpdate, "Click on the box to select this option. Click it again to deselect it.");
-            this.chkIsActiveUpdate.UseVisualStyleBackColor = true;
             // 
             // lblPasswordUpdate
             // 
@@ -519,7 +491,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnUpdate.Location = new System.Drawing.Point(263, 409);
+            this.btnUpdate.Location = new System.Drawing.Point(262, 369);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(150, 41);
             this.btnUpdate.TabIndex = 0;
@@ -540,7 +512,7 @@
             this.tabPageDelete.Controls.Add(this.lblEmployeeIDDelete);
             this.tabPageDelete.Location = new System.Drawing.Point(4, 22);
             this.tabPageDelete.Name = "tabPageDelete";
-            this.tabPageDelete.Size = new System.Drawing.Size(794, 472);
+            this.tabPageDelete.Size = new System.Drawing.Size(794, 498);
             this.tabPageDelete.TabIndex = 2;
             this.tabPageDelete.Text = "Delete";
             // 
@@ -614,7 +586,7 @@
             this.tabPageView.Location = new System.Drawing.Point(4, 22);
             this.tabPageView.Name = "tabPageView";
             this.tabPageView.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageView.Size = new System.Drawing.Size(794, 472);
+            this.tabPageView.Size = new System.Drawing.Size(794, 498);
             this.tabPageView.TabIndex = 3;
             this.tabPageView.Text = "View All Employees";
             this.tabPageView.UseVisualStyleBackColor = true;
@@ -639,7 +611,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 490);
+            this.ClientSize = new System.Drawing.Size(797, 446);
             this.Controls.Add(this.tabControlMaintainEmployees);
             this.Name = "frmMaintainEmployees";
             this.Text = "Maintain employees";
@@ -667,7 +639,6 @@
         private System.Windows.Forms.TabControl tabControlMaintainEmployees;
         private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.Label lblTitleAdd;
-        private System.Windows.Forms.CheckBox chkActiveAdd;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.MaskedTextBox txtCellNumAdd;
         private System.Windows.Forms.TextBox txtPasswordAdd;
@@ -684,7 +655,6 @@
         private System.Windows.Forms.TextBox txtUsernameUpdate;
         private System.Windows.Forms.Label lblUsernameUpdate;
         private System.Windows.Forms.Label lblTitleUpdate;
-        private System.Windows.Forms.CheckBox chkIsActiveUpdate;
         private System.Windows.Forms.CheckBox chkIsAdminUpdate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.MaskedTextBox txtCellNumUpdate;

@@ -138,7 +138,6 @@ namespace MaintainEmployees
                 comm = new SqlCommand("Add_Employee", conn);
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
-                comm.Parameters.AddWithValue("@Is_Active", chkActiveAdd.Checked);
                 comm.Parameters.AddWithValue("@Employee_Name", name);
                 comm.Parameters.AddWithValue("@Employee_Surname", surname);
                 comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
@@ -161,7 +160,6 @@ namespace MaintainEmployees
                 txtUsernameAdd.Text = "";
                 txtPasswordAdd.Text = "";
                 txtCellNumAdd.Text = "";
-                chkActiveAdd.Checked = false;
                 chkIsAdminAdd.Checked = false;
 
                 //Sets focus to the first component.
@@ -251,7 +249,6 @@ namespace MaintainEmployees
                 comm = new SqlCommand("Update_Employee", conn);
                 comm.CommandType = CommandType.StoredProcedure;
                 comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminUpdate.Checked);
-                comm.Parameters.AddWithValue("@Is_Active", chkIsActiveUpdate.Checked);
                 comm.Parameters.AddWithValue("@Employee_Name", name);
                 comm.Parameters.AddWithValue("@Employee_Surname", surname);
                 comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
@@ -273,7 +270,6 @@ namespace MaintainEmployees
                 txtUsernameUpdate.Text = "";
                 txtPasswordUpdate.Text = "";
                 txtCellNumUpdate.Text = "";
-                chkIsActiveUpdate.Checked = false;
                 chkIsAdminUpdate.Checked = false;
 
                 //Sets the focus to the first component.
