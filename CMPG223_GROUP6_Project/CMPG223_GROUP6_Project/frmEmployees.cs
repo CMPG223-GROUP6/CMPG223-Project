@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MaintainEmployees
 {
@@ -78,31 +79,55 @@ namespace MaintainEmployees
             username = txtUsernameAdd.Text;
             password = txtPasswordAdd.Text;
 
-            //Validates the input.
+            //Validates the input and provides appropriate error messages.
             if (name == "")
             {
-                MessageBox.Show("Enter a name.");
+                errorProviderAdd.SetError(txtNameAdd, "Please enter a name.");
                 isError = true;
             }
-            else if (surname == "")
+            else
             {
-                MessageBox.Show("Enter a surname.");
+                errorProviderAdd.SetError(txtNameAdd, "");
+            }
+
+            if (surname == "")
+            {
+                errorProviderAdd.SetError(txtSurnameAdd, "Please enter a surname.");
                 isError = true;
             }
-            else if (cellNum == "")
+            else
             {
-                MessageBox.Show("Enter a cell number.");
+                errorProviderAdd.SetError(txtSurnameAdd, "");
+            }
+
+            if (cellNum == "")
+            {
+                errorProviderAdd.SetError(txtCellNumAdd, "Please enter a cellphone number.");
                 isError = true;
             }
-            else if (username == "")
+            else
             {
-                MessageBox.Show("Enter a username.");
+                errorProviderAdd.SetError(txtCellNumAdd, "");
+            }
+
+            if (username == "")
+            {
+                errorProviderAdd.SetError(txtUsernameAdd, "Please enter a username.");
                 isError = true;
             }
-            else if (password == "")
+            else
             {
-                MessageBox.Show("Enter a password.");
+                errorProviderAdd.SetError(txtUsernameAdd, "");
+            }
+
+            if (password == "")
+            {
+                errorProviderAdd.SetError(txtPasswordAdd, "Please enter a password.");
                 isError = true;
+            }
+            else
+            {
+                errorProviderAdd.SetError(txtPasswordAdd, "");
             }
 
             if (isError == false)
@@ -166,31 +191,55 @@ namespace MaintainEmployees
             username = txtUsernameUpdate.Text;
             password = txtPasswordUpdate.Text;
 
-            //Validates the input.
+            //Validates the input and provides appropriate error messages.
             if (name == "")
             {
-                MessageBox.Show("Enter a name.");
+                errorProviderUpdate.SetError(txtNameUpdate, "Please enter a name.");
                 isError = true;
             }
-            else if (surname == "")
+            else
             {
-                MessageBox.Show("Enter a surname.");
+                errorProviderUpdate.SetError(txtNameUpdate, "");
+            }
+
+            if (surname == "")
+            {
+                errorProviderUpdate.SetError(txtSurnameUpdate, "Please enter a surname.");
                 isError = true;
             }
-            else if (cellNum == "")
+            else
             {
-                MessageBox.Show("Enter a cell number.");
+                errorProviderUpdate.SetError(txtSurnameUpdate, "");
+            }
+
+            if (cellNum == "")
+            {
+                errorProviderUpdate.SetError(txtCellNumUpdate, "Please enter a cellphone number.");;
                 isError = true;
             }
-            else if (username == "")
+            else
             {
-                MessageBox.Show("Enter a username.");
+                errorProviderUpdate.SetError(txtCellNumUpdate, "");
+            }
+
+            if (username == "")
+            {
+                errorProviderUpdate.SetError(txtUsernameUpdate, "Please enter a username.");
                 isError = true;
             }
-            else if (password == "")
+            else
             {
-                MessageBox.Show("Enter a password.");
+                errorProviderUpdate.SetError(txtUsernameUpdate, "");
+            }
+
+            if (password == "")
+            {
+                errorProviderUpdate.SetError(txtPasswordUpdate, "Please enter a password.");
                 isError = true;
+            }
+            else
+            {
+                errorProviderUpdate.SetError(txtPasswordUpdate, "");
             }
 
 
