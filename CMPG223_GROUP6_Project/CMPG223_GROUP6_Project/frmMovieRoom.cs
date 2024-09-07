@@ -13,7 +13,6 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmMovieRoom : Form
     {
-        // Connection string for LocalDB database
         string connectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private bool isUpdating = false; // Track if the operation is an update or an add
         ToolTip toolTip;
@@ -137,9 +136,6 @@ namespace CMPG223_GROUP6_Project
                 // Refresh the data grid to hide inactive records
                 btnShow_Click(sender, e);
 
-                lbStatus.Text = "The movie room was hidden successfully!";
-                lbStatus.ForeColor = Color.Green;
-
                 conn.Close();
             }
             
@@ -225,8 +221,7 @@ namespace CMPG223_GROUP6_Project
                 errorProvider1.SetError(txtNumSeats, string.Empty);
             }
 
-            // Automatically set isActive
-            bool isActive = true;  // All new and updated movie rooms should be active by default
+            //bool isActive = true;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -235,58 +230,82 @@ namespace CMPG223_GROUP6_Project
                 // If it's an add operation, check for duplicates
                 if (!isUpdating)
                 {
-                    SqlCommand checkCommand = new SqlCommand("SELECT COUNT(1) FROM MOVIE_ROOM WHERE Movie_ID = @Movie_ID AND Room_Num = @Room_Num AND IsActive = 1", conn);
+                    SqlCommand checkCommand = new SqlCommand("Add_MovieRooms", conn);
+                    checkCommand.CommandType = CommandType.StoredProcedure;
+
+                    if (!int.TryParse(cmbMovieID.Text, out int movieID))
+                    {
+                        errorProvider1.SetError(cmbMovieID, "Invalid Movie ID.");
+                        return;
+                    }
+
                     checkCommand.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
                     checkCommand.Parameters.AddWithValue("@Room_Num", roomNum);
+                    checkCommand.Parameters.AddWithValue("@Num_Seats", numSeats);
+                    checkCommand.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
 
-                    int roomExists = (int)checkCommand.ExecuteScalar();
+                    checkCommand.ExecuteNonQuery();
+                    bool Is_Added = Convert.ToBoolean(checkCommand.Parameters["@Is_Added"].Value);
 
-                    if (roomExists > 0)
+                    if (!Is_Added)
                     {
-                        // Duplicate found, display error message
-                        lbStatus.Text = "This movie room already exists!";
-                        lbStatus.ForeColor = Color.Red;
-                        conn.Close();
-                        return;  // Exit, don't proceed with the insert
+                        errorProvider1.SetError(txtNumSeats, "The movie room already exists.");
+                        return;
+                    }
+                    else
+                    {
+                        lbStatus.Text = "A new movie room was added successfully!";
+                        lbStatus.ForeColor = Color.Green;
                     }
                 }
-
-                SqlCommand command;
-
-                // If it's an update operation
-                if (isUpdating)
+                else // Update operation
                 {
-                    // Update existing movie room
-                    command = new SqlCommand("Update_MovieRoom", conn);
+                    SqlCommand command = new SqlCommand("Update_MovieRoom", conn);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Room_ID", int.Parse(cmbRoomID.Text));  // Include Room ID for the update
+
+                    // Validate that Room_ID and Movie_ID are valid integers
+                    if (!int.TryParse(cmbRoomID.Text, out int roomID))
+                    {
+                        errorProvider1.SetError(cmbRoomID, "Invalid Room ID.");
+                        return;
+                    }
+
+                    if (!int.TryParse(cmbMovieID.Text, out int movieID))
+                    {
+                        errorProvider1.SetError(cmbMovieID, "Invalid Movie ID.");
+                        return;
+                    }
+
+                    // Use parsed integer values (roomNum, numSeats)
+                    command.Parameters.AddWithValue("@Room_ID", roomID);
+                    command.Parameters.AddWithValue("@Movie_ID", movieID);
+                    command.Parameters.AddWithValue("@Room_Num", roomNum);
+                    command.Parameters.AddWithValue("@Num_Seats", numSeats);
+
+                    command.ExecuteNonQuery();
+
+                    lbStatus.Text = "The movie room was updated successfully!";
+                    lbStatus.ForeColor = Color.Green;
                 }
-                else
-                {
-                    // Add a new movie room
-                    command = new SqlCommand("Add_MovieRoom", conn);
-                    command.CommandType = CommandType.StoredProcedure;
-                }
-
-                // Add the shared parameters for both Add and Update operations
-                command.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
-                command.Parameters.AddWithValue("@Room_Num", roomNum);
-                command.Parameters.AddWithValue("@Num_Seats", numSeats);
-                command.Parameters.AddWithValue("@IsActive", isActive);  // Set the room as active
-
-                command.ExecuteNonQuery();
-
-                // Refresh the data grid
-                btnShow_Click(sender, e);
-
-                // Display success message
-                lbStatus.Text = isUpdating ? "The movie room was updated successfully!" : "A new movie room was added successfully!";
-                lbStatus.ForeColor = Color.Green;
 
                 conn.Close();
             }
 
-            // Hide room details after the add/update operation
+            // Reload the DataGridView after the operation (for both add and update)
+            using (SqlConnection reloadConn = new SqlConnection(connectionString))
+            {
+                reloadConn.Open();
+                SqlCommand reloadCommand = new SqlCommand("Show_MovieRooms", reloadConn);
+                reloadCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                dt.Load(reloadCommand.ExecuteReader());
+                dataGridView1.DataSource = dt;
+
+                reloadConn.Close();
+            }
+
+            // Reset form and hide room details after the add/update operation
             ToggleRoomDetailsControls(false);
         }
         private bool ValidateRoomDetails()
@@ -321,9 +340,9 @@ namespace CMPG223_GROUP6_Project
 
             errorProvider1.Clear();
 
-            isUpdating = true;  // Set the mode to "update"
-            ToggleRoomDetailsControls(true, true);  // Show input fields for update
-            txtNumSeats.ReadOnly = true;  // Make number of seats read-only for updates
+            isUpdating = true; 
+            ToggleRoomDetailsControls(true, true);  
+            txtNumSeats.ReadOnly = true;  
 
             // Fill the input fields with the selected room's data
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
