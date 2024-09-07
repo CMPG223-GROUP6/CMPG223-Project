@@ -89,6 +89,12 @@
     <Compile Include="frmRequestReports.Designer.cs">
       <DependentUpon>frmRequestReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRoomSeat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoomSeat.Designer.cs">
+      <DependentUpon>frmRoomSeat.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTimeslot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRequestReports.resx">
       <DependentUpon>frmRequestReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRoomSeat.resx">
+      <DependentUpon>frmRoomSeat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimeslot.resx">
       <DependentUpon>frmTimeslot.cs</DependentUpon>

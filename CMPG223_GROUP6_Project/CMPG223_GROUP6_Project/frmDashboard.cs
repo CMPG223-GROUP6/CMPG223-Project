@@ -55,7 +55,10 @@ namespace CMPG223_GROUP6_Project
 
         private void btnRoomSeats_Click(object sender, EventArgs e)
         {
-            //REESE ADD
+            //Open the room seat maintain form
+            this.Close();
+            frmRoomSeat newFrmRoomSeat = new frmRoomSeat();
+            newFrmRoomSeat.Show();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
