@@ -279,27 +279,13 @@ namespace MaintainEmployees
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            //Gets the user's input.
-            int employeeID = int.Parse(cmbEmployeeIDDelete.SelectedValue.ToString());
-
-            conn.Open();
-
-            //SQL run stored procedure to delete the selected employee.
-            comm = new SqlCommand("Delete_Employee", conn);
-            comm.CommandType = CommandType.StoredProcedure;
-            comm.Parameters.AddWithValue("@Employee_ID", employeeID);
-            comm.ExecuteNonQuery();
-
-            MessageBox.Show("Employee " + employeeID + " was deleted!");
-
-            conn.Close();
-
-            //Displays the employees and populates the combobox with the employee IDs.
-            showEmployees();
-            populateComboBox();
-
-            //Sets the focus to the first component.
-            cmbEmployeeIDDelete.Focus();
+            try 
+            {
+                conn.Open();
+                comm = new SqlCommand("change_IsActive", conn);
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.AddWithValue(@Is_Active, 1);
+            }
         }
 
         private void btnBackUpdate_Click(object sender, EventArgs e)
