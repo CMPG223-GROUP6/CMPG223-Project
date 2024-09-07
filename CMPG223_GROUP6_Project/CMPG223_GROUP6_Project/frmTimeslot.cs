@@ -14,7 +14,7 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmTimeSlot : Form
     {
-        private const String ConnectionString = @"";
+        private const String ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlCommand command;
         SqlDataReader reader;
         SqlDataAdapter adapter;
@@ -56,7 +56,7 @@ namespace CMPG223_GROUP6_Project
                 using (SqlConnection con = new SqlConnection(ConnectionString))
                 {
                     con.Open();
-                    command = new SqlCommand("ShowIsActive", con);
+                    command = new SqlCommand("ShowIsActive_TimeSlot", con);
                     command.CommandType = CommandType.StoredProcedure;
 
                     DataTable dt = new DataTable();
@@ -107,7 +107,7 @@ namespace CMPG223_GROUP6_Project
                 using (SqlConnection con = new SqlConnection(ConnectionString))
                 {
                     con.Open();
-                    command = new SqlCommand("ShowIsActive", con);
+                    command = new SqlCommand("ShowIsActive_TimeSlot", con);
                     command.CommandType = CommandType.StoredProcedure;
 
                     DataTable dt = new DataTable();
@@ -133,7 +133,7 @@ namespace CMPG223_GROUP6_Project
                 using (SqlConnection con = new SqlConnection(ConnectionString))
                 {
                     con.Open();
-                    command = new SqlCommand("SHowTimeSlot", con);
+                    command = new SqlCommand("ShowIsActive_TimeSlot", con);
                     command.CommandType = CommandType.StoredProcedure;
 
                     DataTable dt = new DataTable();
