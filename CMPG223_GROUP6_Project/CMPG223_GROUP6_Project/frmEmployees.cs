@@ -356,6 +356,7 @@ namespace MaintainEmployees
             // Open the connection if it's not already open.
             if (conn.State != ConnectionState.Open)
             {
+<<<<<<< HEAD
                 conn.Open();
             }
             try
@@ -371,13 +372,32 @@ namespace MaintainEmployees
                 comm.Dispose();
 
                 if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
+=======
+                if (conn.State != ConnectionState.Open)
+>>>>>>> main
                 {
-                    errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
-                }
-                else
-                {
-                    errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
-                    MessageBox.Show("Employee ID deleted sucessfully!");
+                    conn.Open();
+                    comm = new SqlCommand("change_IsActive", conn);
+                    comm.CommandType = CommandType.StoredProcedure;
+                    comm.Parameters.AddWithValue("@Employee_ID", cmbEmployeeIDDelete.Text);
+
+
+                    adap = new SqlDataAdapter(comm);
+
+                    comm.ExecuteNonQuery();
+                    comm.Dispose();
+
+                    if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
+                    {
+                        errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
+                    }
+                    else
+                    {
+                        errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
+                        MessageBox.Show("Employee ID deleted sucessfully!");
+                    }
+
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -388,6 +408,7 @@ namespace MaintainEmployees
             {
                 conn.Close();
             }
+
         }
 
         private void btnBackUpdate_Click(object sender, EventArgs e)
