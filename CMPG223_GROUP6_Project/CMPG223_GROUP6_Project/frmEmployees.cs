@@ -17,7 +17,7 @@ namespace MaintainEmployees
 {
     public partial class frmMaintainEmployees : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=R_LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@"Data Source=R_LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         SqlCommand cmd;
         SqlDataAdapter adapter;
         DataSet ds;
@@ -33,8 +33,11 @@ namespace MaintainEmployees
             viewAllEmployees();
             LoadMovieRoomsComboBoxUpdate();
             LoadMovieRoomsComboBoxDelete();
-            cmbEmployeeIDUpdate.SelectedIndex = -1;
+            resetInputsUpdate();
+            resetInputsAdd();
+            resetInputsDelete();
             cmbEmployeeIDDelete.SelectedIndex = -1;
+            cmbEmployeeIDUpdate.SelectedIndex = -1;
         }
 
         private void tabPageAdd_Click(object sender, EventArgs e)
@@ -100,7 +103,6 @@ namespace MaintainEmployees
 
         public void resetInputsUpdate()
         {
-            cmbEmployeeIDUpdate.Text = string.Empty;
             cmbEmployeeIDUpdate.SelectedIndex = -1;
 
             txtNameUpdate.Text = string.Empty;
@@ -195,7 +197,13 @@ namespace MaintainEmployees
             finally
             {
                 con.Close();
+                resetInputsUpdate();
                 resetInputsAdd();
+                resetInputsDelete();
+                LoadMovieRoomsComboBoxUpdate();
+                LoadMovieRoomsComboBoxDelete();
+                cmbEmployeeIDDelete.SelectedIndex = -1;
+                cmbEmployeeIDUpdate.SelectedIndex = -1;
             }
 
         }
@@ -232,6 +240,8 @@ namespace MaintainEmployees
             finally
             {
                 con.Close();
+                cmbEmployeeIDDelete.SelectedIndex = -1;
+                cmbEmployeeIDUpdate.SelectedIndex = -1;
             }
         }
 
@@ -267,6 +277,8 @@ namespace MaintainEmployees
             finally
             {
                 con.Close();
+                cmbEmployeeIDDelete.SelectedIndex = -1;
+                cmbEmployeeIDUpdate.SelectedIndex = -1;
             }
         }
 
@@ -358,6 +370,12 @@ namespace MaintainEmployees
             {
                 con.Close();
                 resetInputsUpdate();
+                resetInputsAdd();
+                resetInputsDelete();
+                LoadMovieRoomsComboBoxUpdate();
+                LoadMovieRoomsComboBoxDelete();
+                cmbEmployeeIDDelete.SelectedIndex = -1;
+                cmbEmployeeIDUpdate.SelectedIndex = -1;
             }
         }
 
@@ -390,11 +408,33 @@ namespace MaintainEmployees
             finally
             {
                 con.Close();
+                resetInputsUpdate();
+                resetInputsAdd();
                 resetInputsDelete();
+                LoadMovieRoomsComboBoxUpdate();
+                LoadMovieRoomsComboBoxDelete();
+                cmbEmployeeIDDelete.SelectedIndex = -1;
+                cmbEmployeeIDUpdate.SelectedIndex = -1;
             }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
+
+        private void btnBackUpdate_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
+
+        private void btnBackDelete_Click(object sender, EventArgs e)
         {
             //Open dashboard form
             this.Close();

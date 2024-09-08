@@ -171,6 +171,7 @@
             this.txtCellNumAdd.Name = "txtCellNumAdd";
             this.txtCellNumAdd.Size = new System.Drawing.Size(132, 22);
             this.txtCellNumAdd.TabIndex = 7;
+            this.toolTipAdd.SetToolTip(this.txtCellNumAdd, "Enter a cellphone number.");
             // 
             // lblError
             // 
@@ -385,6 +386,7 @@
             this.btnBackUpdate.Text = "&Back to dashboard";
             this.toolTipUpdate.SetToolTip(this.btnBackUpdate, "Click on this to go back to the dashboard menu.");
             this.btnBackUpdate.UseVisualStyleBackColor = false;
+            this.btnBackUpdate.Click += new System.EventHandler(this.btnBackUpdate_Click);
             // 
             // pnlUpdate
             // 
@@ -629,6 +631,7 @@
             this.btnBackDelete.Text = "&Back to dashboard";
             this.toolTipDelete.SetToolTip(this.btnBackDelete, "Click on this to go back to the dashboard menu.");
             this.btnBackDelete.UseVisualStyleBackColor = false;
+            this.btnBackDelete.Click += new System.EventHandler(this.btnBackDelete_Click);
             // 
             // lblInstructionsDelete
             // 
