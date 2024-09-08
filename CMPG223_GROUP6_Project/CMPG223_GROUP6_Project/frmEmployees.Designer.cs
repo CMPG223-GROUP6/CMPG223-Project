@@ -34,12 +34,12 @@
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.lblInstructionsAdd = new System.Windows.Forms.Label();
             this.pnlAdd = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.lblNameAdd = new System.Windows.Forms.Label();
             this.lblSurnameAdd = new System.Windows.Forms.Label();
             this.lblCellNumAdd = new System.Windows.Forms.Label();
             this.lblUsernameAdd = new System.Windows.Forms.Label();
             this.lblPasswordAdd = new System.Windows.Forms.Label();
-            this.txtCellNumAdd = new System.Windows.Forms.MaskedTextBox();
             this.chkIsAdminAdd = new System.Windows.Forms.CheckBox();
             this.txtPasswordAdd = new System.Windows.Forms.TextBox();
             this.txtNameAdd = new System.Windows.Forms.TextBox();
@@ -75,14 +75,14 @@
             this.cmbEmployeeIDDelete = new System.Windows.Forms.ComboBox();
             this.lblEmployeeIDDelete = new System.Windows.Forms.Label();
             this.tabPageView = new System.Windows.Forms.TabPage();
-            this.dgvView = new System.Windows.Forms.DataGridView();
+            this.dgwDisplayEmployee = new System.Windows.Forms.DataGridView();
             this.toolTipAdd = new System.Windows.Forms.ToolTip(this.components);
             this.errorProviderAdd = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTipUpdate = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
             this.errorProviderUpdate = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDelete = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblError = new System.Windows.Forms.Label();
+            this.txtCellNumAdd = new System.Windows.Forms.TextBox();
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -90,7 +90,7 @@
             this.pnlUpdate.SuspendLayout();
             this.tabPageDelete.SuspendLayout();
             this.tabPageView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwDisplayEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDelete)).BeginInit();
@@ -103,7 +103,7 @@
             this.tabControlMaintainEmployees.Controls.Add(this.tabPageDelete);
             this.tabControlMaintainEmployees.Controls.Add(this.tabPageView);
             this.tabControlMaintainEmployees.Location = new System.Drawing.Point(-1, 0);
-            this.tabControlMaintainEmployees.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlMaintainEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlMaintainEmployees.Name = "tabControlMaintainEmployees";
             this.tabControlMaintainEmployees.SelectedIndex = 0;
             this.tabControlMaintainEmployees.Size = new System.Drawing.Size(1132, 645);
@@ -114,19 +114,19 @@
             this.tabPageAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tabPageAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageAdd.BackgroundImage")));
             this.tabPageAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabPageAdd.Controls.Add(this.lblError);
             this.tabPageAdd.Controls.Add(this.lblInstructionsAdd);
             this.tabPageAdd.Controls.Add(this.pnlAdd);
             this.tabPageAdd.Controls.Add(this.btnDashboard);
             this.tabPageAdd.Controls.Add(this.lblTitleAdd);
             this.tabPageAdd.Controls.Add(this.btnAdd);
             this.tabPageAdd.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAdd.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageAdd.Name = "tabPageAdd";
-            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageAdd.Size = new System.Drawing.Size(1124, 616);
             this.tabPageAdd.TabIndex = 0;
             this.tabPageAdd.Text = "Add";
+            this.tabPageAdd.Click += new System.EventHandler(this.tabPageAdd_Click);
             // 
             // lblInstructionsAdd
             // 
@@ -144,22 +144,33 @@
             // pnlAdd
             // 
             this.pnlAdd.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAdd.Controls.Add(this.txtCellNumAdd);
+            this.pnlAdd.Controls.Add(this.lblError);
             this.pnlAdd.Controls.Add(this.lblNameAdd);
             this.pnlAdd.Controls.Add(this.lblSurnameAdd);
             this.pnlAdd.Controls.Add(this.lblCellNumAdd);
             this.pnlAdd.Controls.Add(this.lblUsernameAdd);
             this.pnlAdd.Controls.Add(this.lblPasswordAdd);
-            this.pnlAdd.Controls.Add(this.txtCellNumAdd);
             this.pnlAdd.Controls.Add(this.chkIsAdminAdd);
             this.pnlAdd.Controls.Add(this.txtPasswordAdd);
             this.pnlAdd.Controls.Add(this.txtNameAdd);
             this.pnlAdd.Controls.Add(this.txtUsernameAdd);
             this.pnlAdd.Controls.Add(this.txtSurnameAdd);
             this.pnlAdd.Location = new System.Drawing.Point(373, 101);
-            this.pnlAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAdd.Name = "pnlAdd";
-            this.pnlAdd.Size = new System.Drawing.Size(376, 257);
+            this.pnlAdd.Size = new System.Drawing.Size(376, 277);
             this.pnlAdd.TabIndex = 16;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.Location = new System.Drawing.Point(3, 254);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(13, 16);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "x";
             // 
             // lblNameAdd
             // 
@@ -221,24 +232,13 @@
             this.lblPasswordAdd.TabIndex = 4;
             this.lblPasswordAdd.Text = "Password:";
             // 
-            // txtCellNumAdd
-            // 
-            this.txtCellNumAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtCellNumAdd.Location = new System.Drawing.Point(224, 92);
-            this.txtCellNumAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCellNumAdd.Mask = "9990000000";
-            this.txtCellNumAdd.Name = "txtCellNumAdd";
-            this.txtCellNumAdd.Size = new System.Drawing.Size(132, 26);
-            this.txtCellNumAdd.TabIndex = 2;
-            this.toolTipAdd.SetToolTip(this.txtCellNumAdd, "Enter a cellphone number.");
-            // 
             // chkIsAdminAdd
             // 
             this.chkIsAdminAdd.AutoSize = true;
             this.chkIsAdminAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkIsAdminAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chkIsAdminAdd.Location = new System.Drawing.Point(8, 222);
-            this.chkIsAdminAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsAdminAdd.Margin = new System.Windows.Forms.Padding(4);
             this.chkIsAdminAdd.Name = "chkIsAdminAdd";
             this.chkIsAdminAdd.Size = new System.Drawing.Size(289, 28);
             this.chkIsAdminAdd.TabIndex = 5;
@@ -250,7 +250,7 @@
             // 
             this.txtPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtPasswordAdd.Location = new System.Drawing.Point(224, 176);
-            this.txtPasswordAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPasswordAdd.Margin = new System.Windows.Forms.Padding(4);
             this.txtPasswordAdd.Name = "txtPasswordAdd";
             this.txtPasswordAdd.Size = new System.Drawing.Size(132, 26);
             this.txtPasswordAdd.TabIndex = 4;
@@ -261,7 +261,7 @@
             // 
             this.txtNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtNameAdd.Location = new System.Drawing.Point(224, 11);
-            this.txtNameAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNameAdd.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameAdd.Name = "txtNameAdd";
             this.txtNameAdd.Size = new System.Drawing.Size(132, 26);
             this.txtNameAdd.TabIndex = 0;
@@ -271,7 +271,7 @@
             // 
             this.txtUsernameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtUsernameAdd.Location = new System.Drawing.Point(224, 132);
-            this.txtUsernameAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsernameAdd.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsernameAdd.Name = "txtUsernameAdd";
             this.txtUsernameAdd.Size = new System.Drawing.Size(132, 26);
             this.txtUsernameAdd.TabIndex = 3;
@@ -281,7 +281,7 @@
             // 
             this.txtSurnameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtSurnameAdd.Location = new System.Drawing.Point(224, 52);
-            this.txtSurnameAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurnameAdd.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurnameAdd.Name = "txtSurnameAdd";
             this.txtSurnameAdd.Size = new System.Drawing.Size(132, 26);
             this.txtSurnameAdd.TabIndex = 1;
@@ -294,14 +294,13 @@
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDashboard.Location = new System.Drawing.Point(632, 433);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(283, 71);
             this.btnDashboard.TabIndex = 8;
             this.btnDashboard.Text = "&Back to dashboard";
             this.toolTipAdd.SetToolTip(this.btnDashboard, "Click on this to go back to the dashboard menu.");
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // lblTitleAdd
             // 
@@ -322,7 +321,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.Location = new System.Drawing.Point(264, 433);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(279, 71);
             this.btnAdd.TabIndex = 7;
@@ -343,13 +342,12 @@
             this.tabPageUpdate.Controls.Add(this.lblTitleUpdate);
             this.tabPageUpdate.Controls.Add(this.btnUpdate);
             this.tabPageUpdate.Location = new System.Drawing.Point(4, 25);
-            this.tabPageUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageUpdate.Name = "tabPageUpdate";
-            this.tabPageUpdate.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageUpdate.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageUpdate.Size = new System.Drawing.Size(1124, 616);
             this.tabPageUpdate.TabIndex = 1;
             this.tabPageUpdate.Text = "Update";
-            this.tabPageUpdate.Click += new System.EventHandler(this.tabPageUpdate_Click);
             // 
             // lblInstructionsUpdate
             // 
@@ -369,14 +367,13 @@
             this.btnBackUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnBackUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBackUpdate.Location = new System.Drawing.Point(609, 447);
-            this.btnBackUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBackUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackUpdate.Name = "btnBackUpdate";
             this.btnBackUpdate.Size = new System.Drawing.Size(267, 65);
             this.btnBackUpdate.TabIndex = 1;
             this.btnBackUpdate.Text = "&Back to dashboard";
             this.toolTipUpdate.SetToolTip(this.btnBackUpdate, "Click on this to go back to the dashboard menu.");
             this.btnBackUpdate.UseVisualStyleBackColor = false;
-            this.btnBackUpdate.Click += new System.EventHandler(this.btnBackUpdate_Click);
             // 
             // pnlUpdate
             // 
@@ -395,7 +392,7 @@
             this.pnlUpdate.Controls.Add(this.txtSurnameUpdate);
             this.pnlUpdate.Controls.Add(this.txtPasswordUpdate);
             this.pnlUpdate.Location = new System.Drawing.Point(211, 105);
-            this.pnlUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.pnlUpdate.Name = "pnlUpdate";
             this.pnlUpdate.Size = new System.Drawing.Size(712, 272);
             this.pnlUpdate.TabIndex = 16;
@@ -415,7 +412,7 @@
             // 
             this.txtUsernameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtUsernameUpdate.Location = new System.Drawing.Point(229, 199);
-            this.txtUsernameUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsernameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsernameUpdate.Name = "txtUsernameUpdate";
             this.txtUsernameUpdate.Size = new System.Drawing.Size(132, 26);
             this.txtUsernameUpdate.TabIndex = 4;
@@ -475,14 +472,13 @@
             this.lblPasswordUpdate.Size = new System.Drawing.Size(106, 24);
             this.lblPasswordUpdate.TabIndex = 4;
             this.lblPasswordUpdate.Text = "Password:";
-            this.lblPasswordUpdate.Click += new System.EventHandler(this.lblPasswordUpdate_Click);
             // 
             // chkIsAdminUpdate
             // 
             this.chkIsAdminUpdate.AutoSize = true;
             this.chkIsAdminUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.chkIsAdminUpdate.Location = new System.Drawing.Point(399, 112);
-            this.chkIsAdminUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsAdminUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.chkIsAdminUpdate.Name = "chkIsAdminUpdate";
             this.chkIsAdminUpdate.Size = new System.Drawing.Size(289, 28);
             this.chkIsAdminUpdate.TabIndex = 6;
@@ -495,7 +491,7 @@
             this.cmbEmployeeIDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbEmployeeIDUpdate.FormattingEnabled = true;
             this.cmbEmployeeIDUpdate.Location = new System.Drawing.Point(229, 12);
-            this.cmbEmployeeIDUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEmployeeIDUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEmployeeIDUpdate.Name = "cmbEmployeeIDUpdate";
             this.cmbEmployeeIDUpdate.Size = new System.Drawing.Size(132, 28);
             this.cmbEmployeeIDUpdate.TabIndex = 0;
@@ -505,7 +501,7 @@
             // 
             this.txtNameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtNameUpdate.Location = new System.Drawing.Point(229, 65);
-            this.txtNameUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtNameUpdate.Name = "txtNameUpdate";
             this.txtNameUpdate.Size = new System.Drawing.Size(132, 26);
             this.txtNameUpdate.TabIndex = 1;
@@ -515,7 +511,7 @@
             // 
             this.txtCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtCellNumUpdate.Location = new System.Drawing.Point(229, 153);
-            this.txtCellNumUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCellNumUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCellNumUpdate.Mask = "9990000000";
             this.txtCellNumUpdate.Name = "txtCellNumUpdate";
             this.txtCellNumUpdate.Size = new System.Drawing.Size(132, 26);
@@ -526,7 +522,7 @@
             // 
             this.txtSurnameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtSurnameUpdate.Location = new System.Drawing.Point(229, 111);
-            this.txtSurnameUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSurnameUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurnameUpdate.Name = "txtSurnameUpdate";
             this.txtSurnameUpdate.Size = new System.Drawing.Size(132, 26);
             this.txtSurnameUpdate.TabIndex = 2;
@@ -536,7 +532,7 @@
             // 
             this.txtPasswordUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtPasswordUpdate.Location = new System.Drawing.Point(229, 241);
-            this.txtPasswordUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPasswordUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPasswordUpdate.Name = "txtPasswordUpdate";
             this.txtPasswordUpdate.Size = new System.Drawing.Size(132, 26);
             this.txtPasswordUpdate.TabIndex = 5;
@@ -555,7 +551,6 @@
             this.lblTitleUpdate.Size = new System.Drawing.Size(404, 45);
             this.lblTitleUpdate.TabIndex = 13;
             this.lblTitleUpdate.Text = "Update employee details";
-            this.lblTitleUpdate.Click += new System.EventHandler(this.lblTitleUpdate_Click);
             // 
             // btnUpdate
             // 
@@ -563,7 +558,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnUpdate.Location = new System.Drawing.Point(285, 447);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(257, 65);
             this.btnUpdate.TabIndex = 0;
@@ -571,7 +566,6 @@
             this.toolTipUpdate.SetToolTip(this.btnUpdate, "Click on this button to update the selected employee record with the new details " +
         "you have entered.");
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // tabPageDelete
             // 
@@ -585,7 +579,7 @@
             this.tabPageDelete.Controls.Add(this.cmbEmployeeIDDelete);
             this.tabPageDelete.Controls.Add(this.lblEmployeeIDDelete);
             this.tabPageDelete.Location = new System.Drawing.Point(4, 25);
-            this.tabPageDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageDelete.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageDelete.Name = "tabPageDelete";
             this.tabPageDelete.Size = new System.Drawing.Size(1124, 616);
             this.tabPageDelete.TabIndex = 2;
@@ -597,14 +591,13 @@
             this.btnBackDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBackDelete.Location = new System.Drawing.Point(621, 463);
-            this.btnBackDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBackDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackDelete.Name = "btnBackDelete";
             this.btnBackDelete.Size = new System.Drawing.Size(244, 65);
             this.btnBackDelete.TabIndex = 2;
             this.btnBackDelete.Text = "&Back to dashboard";
             this.toolTipDelete.SetToolTip(this.btnBackDelete, "Click on this to go back to the dashboard menu.");
             this.btnBackDelete.UseVisualStyleBackColor = false;
-            this.btnBackDelete.Click += new System.EventHandler(this.btnBackDelete_Click);
             // 
             // lblInstructionsDelete
             // 
@@ -637,21 +630,20 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDelete.Location = new System.Drawing.Point(249, 463);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(255, 65);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "&Delete";
             this.toolTipDelete.SetToolTip(this.btnDelete, "Click on this to delete the selected employee\'s record.");
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // cmbEmployeeIDDelete
             // 
             this.cmbEmployeeIDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbEmployeeIDDelete.FormattingEnabled = true;
             this.cmbEmployeeIDDelete.Location = new System.Drawing.Point(597, 273);
-            this.cmbEmployeeIDDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEmployeeIDDelete.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEmployeeIDDelete.Name = "cmbEmployeeIDDelete";
             this.cmbEmployeeIDDelete.Size = new System.Drawing.Size(160, 28);
             this.cmbEmployeeIDDelete.TabIndex = 0;
@@ -671,25 +663,25 @@
             // 
             // tabPageView
             // 
-            this.tabPageView.Controls.Add(this.dgvView);
+            this.tabPageView.Controls.Add(this.dgwDisplayEmployee);
             this.tabPageView.Location = new System.Drawing.Point(4, 25);
-            this.tabPageView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageView.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageView.Name = "tabPageView";
-            this.tabPageView.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageView.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageView.Size = new System.Drawing.Size(1124, 616);
             this.tabPageView.TabIndex = 3;
             this.tabPageView.Text = "View All Employees";
             this.tabPageView.UseVisualStyleBackColor = true;
             // 
-            // dgvView
+            // dgwDisplayEmployee
             // 
-            this.dgvView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvView.Location = new System.Drawing.Point(-5, 0);
-            this.dgvView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvView.Name = "dgvView";
-            this.dgvView.RowHeadersWidth = 51;
-            this.dgvView.Size = new System.Drawing.Size(1127, 618);
-            this.dgvView.TabIndex = 0;
+            this.dgwDisplayEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwDisplayEmployee.Location = new System.Drawing.Point(-5, 0);
+            this.dgwDisplayEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.dgwDisplayEmployee.Name = "dgwDisplayEmployee";
+            this.dgwDisplayEmployee.RowHeadersWidth = 51;
+            this.dgwDisplayEmployee.Size = new System.Drawing.Size(1127, 618);
+            this.dgwDisplayEmployee.TabIndex = 0;
             // 
             // errorProviderAdd
             // 
@@ -703,14 +695,12 @@
             // 
             this.errorProviderDelete.ContainerControl = this;
             // 
-            // lblError
+            // txtCellNumAdd
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(756, 356);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(16, 20);
-            this.lblError.TabIndex = 6;
-            this.lblError.Text = "x";
+            this.txtCellNumAdd.Location = new System.Drawing.Point(224, 96);
+            this.txtCellNumAdd.Name = "txtCellNumAdd";
+            this.txtCellNumAdd.Size = new System.Drawing.Size(132, 22);
+            this.txtCellNumAdd.TabIndex = 7;
             // 
             // frmMaintainEmployees
             // 
@@ -718,7 +708,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 640);
             this.Controls.Add(this.tabControlMaintainEmployees);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMaintainEmployees";
             this.Text = "Maintain employees";
             this.Load += new System.EventHandler(this.frmMaintainEmployees_Load_1);
@@ -734,7 +724,7 @@
             this.tabPageDelete.ResumeLayout(false);
             this.tabPageDelete.PerformLayout();
             this.tabPageView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwDisplayEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDelete)).EndInit();
@@ -748,7 +738,6 @@
         private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.Label lblTitleAdd;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.MaskedTextBox txtCellNumAdd;
         private System.Windows.Forms.TextBox txtPasswordAdd;
         private System.Windows.Forms.TextBox txtUsernameAdd;
         private System.Windows.Forms.TextBox txtSurnameAdd;
@@ -781,7 +770,7 @@
         private System.Windows.Forms.ComboBox cmbEmployeeIDDelete;
         private System.Windows.Forms.Label lblEmployeeIDDelete;
         private System.Windows.Forms.TabPage tabPageView;
-        private System.Windows.Forms.DataGridView dgvView;
+        private System.Windows.Forms.DataGridView dgwDisplayEmployee;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel pnlAdd;
         private System.Windows.Forms.Label lblInstructionsAdd;
@@ -797,5 +786,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderUpdate;
         private System.Windows.Forms.ErrorProvider errorProviderDelete;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.TextBox txtCellNumAdd;
     }
 }

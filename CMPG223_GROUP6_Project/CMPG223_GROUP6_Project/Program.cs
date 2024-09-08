@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaintainEmployees;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace CMPG223_GROUP6_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMovies());*/
-            frmLogin LoginForm = new frmLogin();
+            frmMaintainEmployees LoginForm = new frmMaintainEmployees();
             LoginForm.Show();
             Application.Run();
         }

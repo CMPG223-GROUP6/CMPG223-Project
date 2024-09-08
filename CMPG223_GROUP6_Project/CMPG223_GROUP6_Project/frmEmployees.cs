@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -15,72 +16,62 @@ namespace MaintainEmployees
 {
     public partial class frmMaintainEmployees : Form
     {
-        string conString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private SqlConnection conn;
-        private SqlCommand comm;
-        private DataSet ds;
-        private SqlDataAdapter adap;
+        SqlConnection con = new SqlConnection(@"Data Source=R_LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlCommand cmd;
+        SqlDataAdapter adapter;
+        DataSet ds;
+        DataTable dt;
 
         public frmMaintainEmployees()
         {
             InitializeComponent();
-            conn = new SqlConnection(conString);
+
+        }
+        private void frmMaintainEmployees_Load_1(object sender, EventArgs e)
+        {
+            viewAllEmployees();
         }
 
-        private void showEmployees()
+        private void tabPageAdd_Click(object sender, EventArgs e)
         {
-            // Open the connection if it's not already open.
-            if (conn.State != ConnectionState.Open)
-            {
-                conn.Open();
-            }
-            try
-            {
-                //Sql run stored procedure to display employees.
-                comm = new SqlCommand("Show_Employees", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-
-                DataTable dt = new DataTable();
-                dt.Load(comm.ExecuteReader());
-                dgvView.DataSource = dt;
-            }
-            catch (Exception ex)
-            { 
-                lblError.Text = ex.Message;
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-
-            
         }
 
-        private void populateComboBox()
+        public void viewAllEmployees()
         {
-            // Open the connection if it's not already open.
-            if (conn.State != ConnectionState.Open)
-            {
-                conn.Open();
-            }
             try
             {
-                string sql;
+                // Open the connection if it's not already open.
+                if (con.State != ConnectionState.Open)
+                {
+                    con.Open();
+                }
 
-                //Populates the combobox with employee IDs.
-                DataSet ds = new DataSet();
-                sql = "SELECT DISTINCT Employee_ID FROM EMPLOYEE WHERE Is_Active = 1";
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                // Corrected SQL query (fixed the bracket for Is_Active column).
+                string sql = @"SELECT [Employee_ID], [Is_Admin], [Employee_Name], [Employee_Surname], 
+                              [Cellphone_Num], [Username], [Password] 
+                       FROM EMPLOYEE 
+                       WHERE [Is_Active] = 1"; // Corrected the closing bracket here
+
+                cmd = new SqlCommand(sql, con);
+                ds = new DataSet();
+                adapter = new SqlDataAdapter();
+
+                // Filling dataset with results from the SQL query.
+                adapter.SelectCommand = cmd;
                 adapter.Fill(ds, "EMPLOYEE");
 
-                cmbEmployeeIDDelete.DisplayMember = "Employee_ID";
-                cmbEmployeeIDDelete.ValueMember = "Employee_ID";
-                cmbEmployeeIDDelete.DataSource = ds.Tables["EMPLOYEE"];
+                // Displaying dataset.
+                dgwDisplayEmployee.DataMember = "EMPLOYEE";
+                dgwDisplayEmployee.DataSource = ds;
 
-                cmbEmployeeIDUpdate.DisplayMember = "Employee_ID";
-                cmbEmployeeIDUpdate.ValueMember = "Employee_ID";
-                cmbEmployeeIDUpdate.DataSource = ds.Tables["EMPLOYEE"];
+                // Renaming column names.
+                dgwDisplayEmployee.Columns["Employee_ID"].HeaderText = "Employee ID";
+                dgwDisplayEmployee.Columns["Is_Admin"].HeaderText = "Admin";
+                dgwDisplayEmployee.Columns["Employee_Name"].HeaderText = "First Name";
+                dgwDisplayEmployee.Columns["Employee_Surname"].HeaderText = "Surname";
+                dgwDisplayEmployee.Columns["Cellphone_Num"].HeaderText = "Cell Number";
+                dgwDisplayEmployee.Columns["Username"].HeaderText = "Username"; // Corrected "Usernamer" to "Username"
+                dgwDisplayEmployee.Columns["Password"].HeaderText = "Password";
             }
             catch (Exception ex)
             {
@@ -88,314 +79,91 @@ namespace MaintainEmployees
             }
             finally
             {
-                conn.Close();
+                con.Close();
             }
-
         }
 
-        private void frmMaintainEmployees_Load(object sender, EventArgs e)
+        public void resetInputs()
         {
-            //Displays the employees and populates the combobox with the employee IDs when the form loads.
-            populateComboBox();
-            showEmployees();
+            txtNameAdd.Text = string.Empty;
+            txtSurnameAdd.Text = string.Empty;
+            txtCellNumAdd.Text = string.Empty;
+            txtUsernameAdd.Text = string.Empty;
+            txtPasswordAdd.Text = string.Empty;
+            chkIsAdminAdd.Checked = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string name, surname, cellNum, username, password;
-            bool isError = false;
+            string pattern = @"^[a-zA-Z]+$";
+            int isAdmin = 0;
 
-            //Gets the user's input.
-            name = txtNameAdd.Text;
-            surname = txtSurnameAdd.Text;
-            cellNum = txtCellNumAdd.Text;
-            username = txtUsernameAdd.Text;
-            password = txtPasswordAdd.Text;
-
-            //Validates the input and provides appropriate error messages.
-            if (name == "")
+            // Check if textbox name is empty or contains invalid characters
+            if (string.IsNullOrEmpty(txtNameAdd.Text) || !Regex.IsMatch(txtNameAdd.Text, pattern))
             {
-                errorProviderAdd.SetError(txtNameAdd, "Please enter a name.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderAdd.SetError(txtNameAdd, "");
+                lblError.Text = "Please enter a valid name (letters only).";
+                return ;
             }
 
-            if (surname == "")
+            // Check if text box surname is empty or contains invalid characters
+            if (string.IsNullOrEmpty(txtSurnameAdd.Text) || !Regex.IsMatch(txtSurnameAdd.Text, pattern))
             {
-                errorProviderAdd.SetError(txtSurnameAdd, "Please enter a surname.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderAdd.SetError(txtSurnameAdd, "");
+                lblError.Text = "Please enter a valid surname (letters only).";
+                return ;
             }
 
-            if (cellNum == "")
+            if (txtCellNumAdd.TextLength != 10)
             {
-                errorProviderAdd.SetError(txtCellNumAdd, "Please enter a cellphone number.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderAdd.SetError(txtCellNumAdd, "");
+                lblError.Text = "A valid cellpone number must contain 10 numbers.";
+                return;
             }
 
-            if (username == "")
+            if (string.IsNullOrEmpty(txtCellNumAdd.Text) || !Regex.IsMatch(txtCellNumAdd.Text, pattern))
             {
-                errorProviderAdd.SetError(txtUsernameAdd, "Please enter a username.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderAdd.SetError(txtUsernameAdd, "");
+                lblError.Text = "Enter a valid cellphone number.";
+                return;
             }
 
-            if (password == "")
+            if (string.IsNullOrEmpty(txtUsernameAdd.Text))
             {
-                errorProviderAdd.SetError(txtPasswordAdd, "Please enter a password.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderAdd.SetError(txtPasswordAdd, "");
+                lblError.Text = "Enter a valid username.";
+                return;
             }
 
-            if (isError == false)
+            if (string.IsNullOrEmpty(txtPasswordAdd.Text))
             {
-                // Open the connection if it's not already open.
-                if (conn.State != ConnectionState.Open)
-                {
-                    conn.Open();
-                }
-                try
-                {
-
-                    using (SqlConnection conn = new SqlConnection(conString))
-                    {                      
-                        //SQL run stored procedure to add employees.
-                        comm = new SqlCommand("Add_Employee", conn);
-                        comm.CommandType = CommandType.StoredProcedure;
-                        comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminAdd.Checked);
-                        comm.Parameters.AddWithValue("@Employee_Name", name);
-                        comm.Parameters.AddWithValue("@Employee_Surname", surname);
-                        comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
-                        comm.Parameters.AddWithValue("@Username", username);
-                        comm.Parameters.AddWithValue("@Password", password);
-                        comm.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
-                        comm.ExecuteNonQuery();
-
-                        bool Is_Added = Convert.ToBoolean(comm.Parameters["@Is_Added"].Value);
-
-                        if (Is_Added == false)
-                        {
-                            errorProviderAdd.SetError(txtNameAdd, "Did not add because value already exists");
-                        }
-                        else
-                        {
-                            //Displays confirmation message to the user.
-                            MessageBox.Show("A new employee was added!");
-                        }
-
-                        //Displays the employees and populates the combobox with the employee IDs.
-                        showEmployees();
-                        populateComboBox();
-
-                        //Clears input.
-                        txtNameAdd.Text = "";
-                        txtSurnameAdd.Text = "";
-                        txtUsernameAdd.Text = "";
-                        txtPasswordAdd.Text = "";
-                        txtCellNumAdd.Text = "";
-                        chkIsAdminAdd.Checked = false;
-
-                        //Sets focus to the first component.
-                        txtNameAdd.Focus();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    lblError.Text = ex.Message;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
-            
-        }
-
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            //Open dashboard form.
-            this.Close();
-            frmDashboard AdministratorDashboard = new frmDashboard();
-            AdministratorDashboard.Show();
-        }
-
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-            string name, surname, cellNum, username, password;
-            bool isError = false;
-            int employeeID;
-
-            //Gets the user's input.
-            name = txtNameUpdate.Text;
-            surname = txtSurnameUpdate.Text;
-            employeeID = int.Parse(cmbEmployeeIDUpdate.SelectedValue.ToString());
-            cellNum = txtCellNumUpdate.Text;
-            username = txtUsernameUpdate.Text;
-            password = txtPasswordUpdate.Text;
-
-            //Validates the input and provides appropriate error messages.
-            if (name == "")
-            {
-                errorProviderUpdate.SetError(txtNameUpdate, "Please enter a name.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderUpdate.SetError(txtNameUpdate, "");
+                lblError.Text = "Enter a valid password.";
+                return;
             }
 
-            if (surname == "")
+            if (chkIsAdminAdd.Checked == true)
             {
-                errorProviderUpdate.SetError(txtSurnameUpdate, "Please enter a surname.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderUpdate.SetError(txtSurnameUpdate, "");
+                isAdmin = 1;
             }
 
-            if (cellNum == "")
-            {
-                errorProviderUpdate.SetError(txtCellNumUpdate, "Please enter a cellphone number.");;
-                isError = true;
-            }
-            else
-            {
-                errorProviderUpdate.SetError(txtCellNumUpdate, "");
-            }
-
-            if (username == "")
-            {
-                errorProviderUpdate.SetError(txtUsernameUpdate, "Please enter a username.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderUpdate.SetError(txtUsernameUpdate, "");
-            }
-
-            if (password == "")
-            {
-                errorProviderUpdate.SetError(txtPasswordUpdate, "Please enter a password.");
-                isError = true;
-            }
-            else
-            {
-                errorProviderUpdate.SetError(txtPasswordUpdate, "");
-            }
-
-
-            if (isError == false)
-            {
-                // Open the connection if it's not already open.
-                if (conn.State != ConnectionState.Open)
-                {
-                    conn.Open();
-                }
-                try
-                {
-
-                    //SQL run stored procedure to update the selected employee.
-                    comm = new SqlCommand("Update_Employee", conn);
-                    comm.CommandType = CommandType.StoredProcedure;
-                    comm.Parameters.AddWithValue("@Is_Admin", chkIsAdminUpdate.Checked);
-                    comm.Parameters.AddWithValue("@Employee_Name", name);
-                    comm.Parameters.AddWithValue("@Employee_Surname", surname);
-                    comm.Parameters.AddWithValue("@Cellphone_Num", cellNum);
-                    comm.Parameters.AddWithValue("@Username", username);
-                    comm.Parameters.AddWithValue("@Password", password);
-                    comm.Parameters.AddWithValue("@Employee_ID", employeeID);
-                    comm.ExecuteNonQuery();
-
-                    MessageBox.Show("Employee " + employeeID + " " + name + " " + surname + " has been successfully updated!");
-
-                    //Displays the employees.
-                    showEmployees();
-
-                    //Clears the input.
-                    txtNameUpdate.Text = "";
-                    txtSurnameUpdate.Text = "";
-                    txtUsernameUpdate.Text = "";
-                    txtPasswordUpdate.Text = "";
-                    txtCellNumUpdate.Text = "";
-                    chkIsAdminUpdate.Checked = false;
-
-                    //Sets the focus to the first component.
-                    cmbEmployeeIDUpdate.Focus();
-                }
-                catch (Exception ex)
-                {
-                    lblError.Text = ex.Message;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-            }
-        }
-
-        private void btnDelete_Click_1(object sender, EventArgs e)
-        {
-            // Open the connection if it's not already open.
-            if (conn.State != ConnectionState.Open)
-            {
-                conn.Open();
-            }
             try
             {
-                comm = new SqlCommand("change_IsActive", conn);
-                comm.CommandType = CommandType.StoredProcedure;
-                comm.Parameters.AddWithValue("@Employee_ID", Convert.ToInt32(cmbEmployeeIDDelete.Text));
-
-
-                adap = new SqlDataAdapter(comm);
-
-                comm.ExecuteNonQuery();
-                comm.Dispose();
-
-                if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
-
+                // Open the connection if it's not already open.
+                if (con.State != ConnectionState.Open)
                 {
-                    conn.Open();
-                    comm = new SqlCommand("change_IsActive", conn);
-                    comm.CommandType = CommandType.StoredProcedure;
-                    comm.Parameters.AddWithValue("@Employee_ID", cmbEmployeeIDDelete.Text);
-
-
-                    adap = new SqlDataAdapter(comm);
-
-                    comm.ExecuteNonQuery();
-                    comm.Dispose();
-
-                    if (string.IsNullOrEmpty(cmbEmployeeIDDelete.Text))
-                    {
-                        errorProviderDelete.SetError(cmbEmployeeIDDelete, "Please select an employee ID");
-                    }
-                    else
-                    {
-                        errorProviderDelete.SetError(cmbEmployeeIDDelete, string.Empty);
-                        MessageBox.Show("Employee ID deleted sucessfully!");
-                    }
-
-                    conn.Close();
+                    con.Open();
                 }
+
+                // Add new room seat record.
+                using (SqlCommand command = new SqlCommand("Add_Employee", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Is_Admin", isAdmin);
+                    command.Parameters.AddWithValue("@Employee_Name", txtNameAdd.Text);
+                    command.Parameters.AddWithValue("@Employee_Surname", txtSurnameAdd.Text);
+                    command.Parameters.AddWithValue("@Cellphone_Num", txtCellNumAdd.Text);
+                    command.Parameters.AddWithValue("@Username", txtUsernameAdd.Text);
+                    command.Parameters.AddWithValue("@Password", txtPasswordAdd.Text);
+                    command.ExecuteNonQuery();
+                }
+
+                viewAllEmployees();
+                MessageBox.Show("You have successfully added an new employee.", "Success Messsage", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -403,46 +171,13 @@ namespace MaintainEmployees
             }
             finally
             {
-                conn.Close();
+                con.Close();
+                resetInputs();
             }
 
         }
 
-        private void btnBackUpdate_Click(object sender, EventArgs e)
-        {
-            //Open dashboard form.
-            this.Close();
-            frmDashboard AdministratorDashboard = new frmDashboard();
-            AdministratorDashboard.Show();
-        }
 
-        private void btnBackDelete_Click(object sender, EventArgs e)
-        {
-            //Open dashboard form.
-            this.Close();
-            frmDashboard AdministratorDashboard = new frmDashboard();
-            AdministratorDashboard.Show();
-        }
-
-        private void lblTitleUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPasswordUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPageUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmMaintainEmployees_Load_1(object sender, EventArgs e)
-        {
-            showEmployees();
-        }
     }
 
 }
