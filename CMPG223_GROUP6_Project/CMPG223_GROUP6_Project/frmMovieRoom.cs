@@ -93,6 +93,8 @@ namespace CMPG223_GROUP6_Project
             lbSeats.Visible = isVisible;
             txtNumSeats.Visible = isVisible;
             btnMakeChanges.Visible = isVisible;
+            lbMovieName.Visible = isVisible;
+            txtMovieName.Visible = isVisible;
 
             lbRoomID.Visible = showRoomID;
             cmbRoomID.Visible = showRoomID;
@@ -139,8 +141,7 @@ namespace CMPG223_GROUP6_Project
                 btnShow_Click(sender, e);
 
                 conn.Close();
-            }
-            
+            }            
             ToggleRoomDetailsControls(false);
         }
 
@@ -158,6 +159,8 @@ namespace CMPG223_GROUP6_Project
                     DataTable dt = new DataTable();
                     dt.Load(command.ExecuteReader());
                     dataGridView1.DataSource = dt;
+
+                    dataGridView1.Columns["IsActive"].Visible = false;
 
                     lbStatus.Text = "Movie rooms loaded successfully!";
                     lbStatus.ForeColor = System.Drawing.Color.Green;
