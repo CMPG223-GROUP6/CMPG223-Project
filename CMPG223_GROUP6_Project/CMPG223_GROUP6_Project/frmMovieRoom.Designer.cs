@@ -50,6 +50,8 @@ namespace CMPG223_GROUP6_Project
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.txtMovieName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +84,7 @@ namespace CMPG223_GROUP6_Project
             this.lbRoomID.BackColor = System.Drawing.Color.Transparent;
             this.lbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRoomID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbRoomID.Location = new System.Drawing.Point(110, 363);
+            this.lbRoomID.Location = new System.Drawing.Point(110, 379);
             this.lbRoomID.Name = "lbRoomID";
             this.lbRoomID.Size = new System.Drawing.Size(68, 16);
             this.lbRoomID.TabIndex = 7;
@@ -94,7 +96,7 @@ namespace CMPG223_GROUP6_Project
             this.lbSeats.BackColor = System.Drawing.Color.Transparent;
             this.lbSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSeats.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbSeats.Location = new System.Drawing.Point(110, 335);
+            this.lbSeats.Location = new System.Drawing.Point(109, 356);
             this.lbSeats.Name = "lbSeats";
             this.lbSeats.Size = new System.Drawing.Size(123, 16);
             this.lbSeats.TabIndex = 6;
@@ -106,7 +108,7 @@ namespace CMPG223_GROUP6_Project
             this.lbNumber.BackColor = System.Drawing.Color.Transparent;
             this.lbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbNumber.Location = new System.Drawing.Point(110, 307);
+            this.lbNumber.Location = new System.Drawing.Point(109, 326);
             this.lbNumber.Name = "lbNumber";
             this.lbNumber.Size = new System.Drawing.Size(107, 16);
             this.lbNumber.TabIndex = 5;
@@ -118,7 +120,7 @@ namespace CMPG223_GROUP6_Project
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(110, 279);
+            this.lbID.Location = new System.Drawing.Point(109, 256);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(69, 16);
             this.lbID.TabIndex = 4;
@@ -126,14 +128,14 @@ namespace CMPG223_GROUP6_Project
             // 
             // txtNumSeats
             // 
-            this.txtNumSeats.Location = new System.Drawing.Point(246, 330);
+            this.txtNumSeats.Location = new System.Drawing.Point(246, 352);
             this.txtNumSeats.Name = "txtNumSeats";
             this.txtNumSeats.Size = new System.Drawing.Size(77, 20);
             this.txtNumSeats.TabIndex = 1;
             // 
             // txtRoomNum
             // 
-            this.txtRoomNum.Location = new System.Drawing.Point(246, 302);
+            this.txtRoomNum.Location = new System.Drawing.Point(246, 322);
             this.txtRoomNum.Name = "txtRoomNum";
             this.txtRoomNum.Size = new System.Drawing.Size(101, 20);
             this.txtRoomNum.TabIndex = 2;
@@ -206,7 +208,7 @@ namespace CMPG223_GROUP6_Project
             this.btnMakeChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMakeChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeChanges.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnMakeChanges.Location = new System.Drawing.Point(367, 336);
+            this.btnMakeChanges.Location = new System.Drawing.Point(374, 356);
             this.btnMakeChanges.Name = "btnMakeChanges";
             this.btnMakeChanges.Size = new System.Drawing.Size(125, 43);
             this.btnMakeChanges.TabIndex = 20;
@@ -217,15 +219,16 @@ namespace CMPG223_GROUP6_Project
             // cmbMovieID
             // 
             this.cmbMovieID.FormattingEnabled = true;
-            this.cmbMovieID.Location = new System.Drawing.Point(246, 272);
+            this.cmbMovieID.Location = new System.Drawing.Point(246, 255);
             this.cmbMovieID.Name = "cmbMovieID";
             this.cmbMovieID.Size = new System.Drawing.Size(101, 21);
             this.cmbMovieID.TabIndex = 21;
+            this.cmbMovieID.SelectedIndexChanged += new System.EventHandler(this.cmbMovieID_SelectedIndexChanged);
             // 
             // cmbRoomID
             // 
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(246, 358);
+            this.cmbRoomID.Location = new System.Drawing.Point(246, 378);
             this.cmbRoomID.Name = "cmbRoomID";
             this.cmbRoomID.Size = new System.Drawing.Size(101, 21);
             this.cmbRoomID.TabIndex = 22;
@@ -250,13 +253,32 @@ namespace CMPG223_GROUP6_Project
             this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDashboard.Location = new System.Drawing.Point(605, 336);
+            this.btnDashboard.Location = new System.Drawing.Point(602, 352);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(153, 43);
             this.btnDashboard.TabIndex = 24;
             this.btnDashboard.Text = "Back to dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // txtMovieName
+            // 
+            this.txtMovieName.Location = new System.Drawing.Point(246, 282);
+            this.txtMovieName.Name = "txtMovieName";
+            this.txtMovieName.Size = new System.Drawing.Size(100, 20);
+            this.txtMovieName.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(110, 282);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Movie Name";
             // 
             // frmMovieRoom
             // 
@@ -265,6 +287,8 @@ namespace CMPG223_GROUP6_Project
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtMovieName);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbRoomID);
@@ -283,7 +307,7 @@ namespace CMPG223_GROUP6_Project
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMovieRoom";
             this.Text = "frmMovieRoom";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -315,5 +339,7 @@ namespace CMPG223_GROUP6_Project
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMovieName;
     }
 }
