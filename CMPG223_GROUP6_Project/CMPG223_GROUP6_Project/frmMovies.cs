@@ -24,7 +24,7 @@ namespace CMPG223_GROUP6_Project
             errorProvider = new ErrorProvider();
             toolTip = new ToolTip();
 
-            // Set ToolTip properties (optional)
+            // Set ToolTip properties
             toolTip.AutoPopDelay = 5000;
             toolTip.InitialDelay = 1000;
             toolTip.ReshowDelay = 500;
@@ -38,7 +38,7 @@ namespace CMPG223_GROUP6_Project
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // Clear previous error messages
+            // Clear any previous error messages
             labelError.Text = "";
 
             if (!ValidateInputs())
@@ -52,7 +52,7 @@ namespace CMPG223_GROUP6_Project
                 {
                     conn.Open();
 
-                    // Check if the movie already exists
+                    // check if the movie exists
                     using (SqlCommand checkCommand = new SqlCommand("SELECT 1 FROM MOVIE WHERE Movie_Name = @Movie_Name AND Is_Active = 1", conn))
                     {
                         checkCommand.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
@@ -60,12 +60,12 @@ namespace CMPG223_GROUP6_Project
 
                         if (movieExists != null)
                         {
-                            labelError.Text = "Movie already exists."; // Show error if the movie exists
-                            return; // Exit if the movie exists
+                            labelError.Text = "Movie already exists."; // Error Handleing if the movie exists
+                            return;
                         }
                     }
 
-                    // If the movie does not exist, insert it
+                    // insert movie if it does not already exist
                     using (SqlCommand command = new SqlCommand("InsertMovie", conn))
                     {
                         command.CommandType = CommandType.StoredProcedure;
