@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellTicket));
             this.pnlInsert = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -42,10 +48,19 @@
             this.cmbTimeslot = new System.Windows.Forms.ComboBox();
             this.pnlDisplay = new System.Windows.Forms.Panel();
             this.dtgShowSeats = new System.Windows.Forms.DataGridView();
+            this.Ticket_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movie_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ticket_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblMovieSeats = new System.Windows.Forms.Label();
+            this.erpInput = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlInsert.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgShowSeats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpInput)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlInsert
@@ -157,6 +172,7 @@
             this.cmbSeat.Name = "cmbSeat";
             this.cmbSeat.Size = new System.Drawing.Size(160, 28);
             this.cmbSeat.TabIndex = 23;
+            this.cmbSeat.SelectedIndexChanged += new System.EventHandler(this.cmbSeat_SelectedIndexChanged);
             // 
             // cmbMovie
             // 
@@ -178,6 +194,7 @@
             this.cmbTimeslot.Name = "cmbTimeslot";
             this.cmbTimeslot.Size = new System.Drawing.Size(160, 28);
             this.cmbTimeslot.TabIndex = 21;
+            this.cmbTimeslot.SelectedIndexChanged += new System.EventHandler(this.cmbTimeslot_SelectedIndexChanged);
             // 
             // pnlDisplay
             // 
@@ -193,11 +210,96 @@
             // 
             // dtgShowSeats
             // 
+            this.dtgShowSeats.AllowUserToAddRows = false;
+            this.dtgShowSeats.AllowUserToDeleteRows = false;
+            this.dtgShowSeats.AllowUserToResizeColumns = false;
+            this.dtgShowSeats.AllowUserToResizeRows = false;
+            this.dtgShowSeats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgShowSeats.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgShowSeats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgShowSeats.Location = new System.Drawing.Point(12, 40);
+            this.dtgShowSeats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ticket_ID,
+            this.Employee_ID,
+            this.Employee_Name,
+            this.Movie_Name,
+            this.A_Date,
+            this.A_Time,
+            this.Ticket_Price});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgShowSeats.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgShowSeats.Location = new System.Drawing.Point(8, 40);
+            this.dtgShowSeats.MultiSelect = false;
             this.dtgShowSeats.Name = "dtgShowSeats";
+            this.dtgShowSeats.RowHeadersVisible = false;
+            this.dtgShowSeats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgShowSeats.Size = new System.Drawing.Size(440, 328);
-            this.dtgShowSeats.TabIndex = 12;
+            this.dtgShowSeats.TabIndex = 13;
+            // 
+            // Ticket_ID
+            // 
+            this.Ticket_ID.DataPropertyName = "Ticket_ID";
+            this.Ticket_ID.HeaderText = "Ticket number";
+            this.Ticket_ID.Name = "Ticket_ID";
+            // 
+            // Employee_ID
+            // 
+            this.Employee_ID.DataPropertyName = "Employee_ID";
+            this.Employee_ID.HeaderText = "Employee number";
+            this.Employee_ID.Name = "Employee_ID";
+            // 
+            // Employee_Name
+            // 
+            this.Employee_Name.DataPropertyName = "Employee_Name";
+            this.Employee_Name.HeaderText = "Employee name";
+            this.Employee_Name.Name = "Employee_Name";
+            // 
+            // Movie_Name
+            // 
+            this.Movie_Name.DataPropertyName = "Movie_Name";
+            this.Movie_Name.HeaderText = "Movie name";
+            this.Movie_Name.Name = "Movie_Name";
+            // 
+            // A_Date
+            // 
+            this.A_Date.DataPropertyName = "A_Date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.A_Date.DefaultCellStyle = dataGridViewCellStyle2;
+            this.A_Date.HeaderText = "Date";
+            this.A_Date.Name = "A_Date";
+            // 
+            // A_Time
+            // 
+            this.A_Time.DataPropertyName = "A_Time";
+            dataGridViewCellStyle3.Format = "t";
+            dataGridViewCellStyle3.NullValue = null;
+            this.A_Time.DefaultCellStyle = dataGridViewCellStyle3;
+            this.A_Time.HeaderText = "Timeslot";
+            this.A_Time.Name = "A_Time";
+            // 
+            // Ticket_Price
+            // 
+            this.Ticket_Price.DataPropertyName = "Ticket_Price";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Ticket_Price.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Ticket_Price.HeaderText = "Ticket_Price";
+            this.Ticket_Price.Name = "Ticket_Price";
             // 
             // lblMovieSeats
             // 
@@ -208,6 +310,10 @@
             this.lblMovieSeats.Size = new System.Drawing.Size(265, 20);
             this.lblMovieSeats.TabIndex = 11;
             this.lblMovieSeats.Text = "Seats available for cinema room";
+            // 
+            // erpInput
+            // 
+            this.erpInput.ContainerControl = this;
             // 
             // frmSellTicket
             // 
@@ -221,12 +327,14 @@
             this.DoubleBuffered = true;
             this.Name = "frmSellTicket";
             this.Text = "Sell a ticket form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSellTicket_FormClosed);
             this.Load += new System.EventHandler(this.frmSellTicket_Load);
             this.pnlInsert.ResumeLayout(false);
             this.pnlInsert.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
             this.pnlDisplay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgShowSeats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,9 +352,17 @@
         private System.Windows.Forms.ComboBox cmbMovie;
         private System.Windows.Forms.ComboBox cmbTimeslot;
         private System.Windows.Forms.Panel pnlDisplay;
-        private System.Windows.Forms.DataGridView dtgShowSeats;
         private System.Windows.Forms.Label lblMovieSeats;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.DataGridView dtgShowSeats;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Movie_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A_Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ticket_Price;
+        private System.Windows.Forms.ErrorProvider erpInput;
     }
 }
 
