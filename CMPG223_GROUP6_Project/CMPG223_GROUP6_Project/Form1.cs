@@ -29,8 +29,9 @@ namespace CMPG223_GROUP6_Project
         {
             try
             {
-                conn.Open();
                 ShowTickets();
+
+                conn.Open();
 
                 //Get timeslots
                 SqlCommand command = new SqlCommand("Get_Timeslots", conn);
@@ -46,7 +47,7 @@ namespace CMPG223_GROUP6_Project
                 //Get movies
                 command = new SqlCommand("Get_Movies", conn);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@All_Or_Restrict", false);
+                command.Parameters.AddWithValue("@All_Or_Specific", false);
 
                 //Display movies in drop down list
                 dt = new DataTable();
