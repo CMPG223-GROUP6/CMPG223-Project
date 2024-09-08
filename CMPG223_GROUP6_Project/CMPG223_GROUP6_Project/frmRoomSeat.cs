@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CMPG223_GROUP6_Project
 {
@@ -18,9 +19,23 @@ namespace CMPG223_GROUP6_Project
         SqlDataAdapter adapter;
         DataSet ds;
         DataTable dt;
+        private System.Windows.Forms.ToolTip toolTip;
+
         public frmRoomSeat()
         {
             InitializeComponent();
+
+            toolTip = new System.Windows.Forms.ToolTip();
+
+            // Set ToolTip properties (optional)
+            toolTip.AutoPopDelay = 5000;
+            toolTip.InitialDelay = 1000;
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+
+            // Add tooltips
+            AddTooltips();
+
         }
 
         private void frmRoomSeat_Load(object sender, EventArgs e)
@@ -317,6 +332,14 @@ namespace CMPG223_GROUP6_Project
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
+        }
+        private void AddTooltips()
+        {
+            toolTip.SetToolTip(rbAdd, "Select to add room seat.");
+            toolTip.SetToolTip(rbDelete, "Select to delete room seat.");
+            toolTip.SetToolTip(cbMovieRoom, "Select a movie room to add a seat to.");
+            toolTip.SetToolTip(cbSeatNumber, "Select seat number to add.");
+            toolTip.SetToolTip(btnAction, "Press button to perform action.");;
         }
     }
 }

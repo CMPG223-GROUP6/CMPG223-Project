@@ -253,5 +253,10 @@ namespace CMPG223_GROUP6_Project
             toolTip.SetToolTip(buttonDelete, "Click to delete the selected movie.");
             toolTip.SetToolTip(btnDashboard, "Click to go back to the dashboard.");
         }
+
+        private void frmMovies_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
