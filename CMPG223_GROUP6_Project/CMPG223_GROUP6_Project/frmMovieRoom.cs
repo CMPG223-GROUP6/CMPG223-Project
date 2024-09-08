@@ -53,7 +53,9 @@ namespace CMPG223_GROUP6_Project
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand command = new SqlCommand("SELECT Movie_ID FROM dbo.MOVIE", conn);
+
+                // Modify the query to only select movies where IsActive = 1 (true)
+                SqlCommand command = new SqlCommand("SELECT Movie_ID FROM dbo.MOVIE WHERE Is_Active = 1", conn);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -221,35 +223,41 @@ namespace CMPG223_GROUP6_Project
                 errorProvider1.SetError(txtNumSeats, string.Empty);
             }
 
-            //bool isActive = true;
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // If it's an add operation, check for duplicates
+                // Check if the room number already exists
+                SqlCommand checkRoomCommand = new SqlCommand("SELECT COUNT(*) FROM dbo.MOVIE_ROOM WHERE Room_Num = @Room_Num AND IsActive = 1", conn);
+                checkRoomCommand.Parameters.AddWithValue("@Room_Num", roomNum);
+                int roomCount = (int)checkRoomCommand.ExecuteScalar();
+
+                // If the room count is greater than zero and we're not updating the same room, show error
+                if (roomCount > 0 && !isUpdating)
+                {
+                    errorProvider1.SetError(txtRoomNum, "This room number is already assigned to an active movie room.");
+                    lbStatus.Text = "Room number already exists!";
+                    lbStatus.ForeColor = Color.Red;
+                    return;  // Stop the operation
+                }
+
                 if (!isUpdating)
                 {
-                    SqlCommand checkCommand = new SqlCommand("Add_MovieRoom", conn);
-                    checkCommand.CommandType = CommandType.StoredProcedure;
+                    // Add new room and set Is_Active to true
+                    SqlCommand addCommand = new SqlCommand("Add_MovieRoom", conn);
+                    addCommand.CommandType = CommandType.StoredProcedure;
 
-                    if (!int.TryParse(cmbMovieID.Text, out int movieID))
-                    {
-                        errorProvider1.SetError(cmbMovieID, "Invalid Movie ID.");
-                        return;
-                    }
+                    addCommand.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
+                    addCommand.Parameters.AddWithValue("@Room_Num", roomNum);
+                    addCommand.Parameters.AddWithValue("@Num_Seats", numSeats);
+                    addCommand.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
 
-                    checkCommand.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
-                    checkCommand.Parameters.AddWithValue("@Room_Num", roomNum);
-                    checkCommand.Parameters.AddWithValue("@Num_Seats", numSeats);
-                    checkCommand.Parameters.Add("@Is_Added", SqlDbType.Bit).Direction = ParameterDirection.ReturnValue;
-
-                    checkCommand.ExecuteNonQuery();
-                    bool Is_Added = Convert.ToBoolean(checkCommand.Parameters["@Is_Added"].Value);
+                    addCommand.ExecuteNonQuery();
+                    bool Is_Added = Convert.ToBoolean(addCommand.Parameters["@Is_Added"].Value);
 
                     if (!Is_Added)
                     {
-                        errorProvider1.SetError(txtNumSeats, "The movie room already exists.");
+                        errorProvider1.SetError(txtRoomNum, "The movie room already exists.");
                         return;
                     }
                     else
@@ -260,29 +268,21 @@ namespace CMPG223_GROUP6_Project
                 }
                 else // Update operation
                 {
-                    SqlCommand command = new SqlCommand("Update_MovieRoom", conn);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlCommand updateCommand = new SqlCommand("Update_MovieRoom", conn);
+                    updateCommand.CommandType = CommandType.StoredProcedure;
 
-                    // Validate that Room_ID and Movie_ID are valid integers
                     if (!int.TryParse(cmbRoomID.Text, out int roomID))
                     {
                         errorProvider1.SetError(cmbRoomID, "Invalid Room ID.");
                         return;
                     }
 
-                    if (!int.TryParse(cmbMovieID.Text, out int movieID))
-                    {
-                        errorProvider1.SetError(cmbMovieID, "Invalid Movie ID.");
-                        return;
-                    }
+                    updateCommand.Parameters.AddWithValue("@Room_ID", roomID);
+                    updateCommand.Parameters.AddWithValue("@Movie_ID", int.Parse(cmbMovieID.Text));
+                    updateCommand.Parameters.AddWithValue("@Room_Num", roomNum);
+                    updateCommand.Parameters.AddWithValue("@Num_Seats", numSeats);
 
-                    // Use parsed integer values (roomNum, numSeats)
-                    command.Parameters.AddWithValue("@Room_ID", roomID);
-                    command.Parameters.AddWithValue("@Movie_ID", movieID);
-                    command.Parameters.AddWithValue("@Room_Num", roomNum);
-                    command.Parameters.AddWithValue("@Num_Seats", numSeats);
-
-                    command.ExecuteNonQuery();
+                    updateCommand.ExecuteNonQuery();
 
                     lbStatus.Text = "The movie room was updated successfully!";
                     lbStatus.ForeColor = Color.Green;
@@ -350,6 +350,43 @@ namespace CMPG223_GROUP6_Project
             cmbMovieID.Text = selectedRow.Cells["Movie_ID"].Value.ToString();
             txtRoomNum.Text = selectedRow.Cells["Room_Num"].Value.ToString();
             txtNumSeats.Text = selectedRow.Cells["Num_Seats"].Value.ToString();
+        }
+
+        private void cmbMovieID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if a movie is selected
+            if (cmbMovieID.SelectedItem == null)
+            {
+                txtMovieName.Clear();
+                return;
+            }
+
+            // Get the selected Movie_ID
+            string selectedMovieID = cmbMovieID.SelectedItem.ToString();
+
+            // Retrieve the Movie_Name from the database based on the selected Movie_ID
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT Movie_Name FROM dbo.MOVIE WHERE Movie_ID = @Movie_ID", conn);
+                command.Parameters.AddWithValue("@Movie_ID", selectedMovieID);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // Set the Movie_Name in the txtMovieName TextBox
+                    txtMovieName.Text = reader["Movie_Name"].ToString();
+                }
+                else
+                {
+                    // Clear the textbox if no movie name is found
+                    txtMovieName.Clear();
+                }
+
+                reader.Close();
+                conn.Close();
+            }
         }
     }
 }
