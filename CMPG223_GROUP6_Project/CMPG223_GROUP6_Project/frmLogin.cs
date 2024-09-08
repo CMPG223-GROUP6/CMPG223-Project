@@ -87,8 +87,9 @@ namespace CMPG223_GROUP6_Project
 
                 if (dt.Rows.Count > 0)
                 {
-                    Is_Admin = bool.Parse(dt.Rows[0][0].ToString());
-                    Employee_Name = dt.Rows[0][1].ToString();
+                    int Employee_ID = int.Parse(dt.Rows[0][0].ToString());
+                    Is_Admin = bool.Parse(dt.Rows[0][1].ToString());
+                    Employee_Name = dt.Rows[0][2].ToString();
 
                     //Close frmLogin, save memory by closing instead of hiding the form
                     this.Close();
@@ -105,7 +106,7 @@ namespace CMPG223_GROUP6_Project
                         //Open the sell a ticket form
                         frmSellTicket SellTicketForm = new frmSellTicket();
                         //Transfer the connection and the administrator's name and surname
-                        SellTicketForm.fName = Employee_Name;
+                        SellTicketForm.fEmployee_ID = Employee_ID;
                         SellTicketForm.Show();
                     }
                 }

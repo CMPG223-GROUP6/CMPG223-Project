@@ -194,6 +194,7 @@ namespace CMPG223_GROUP6_Project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             //Open Login form
+            wasButton = true;
             this.Close();
             frmLogin LoginForm = new frmLogin();
             LoginForm.Show();
@@ -217,5 +218,6 @@ namespace CMPG223_GROUP6_Project
                 bValid = false;
             }
         }
+
     }
 }
