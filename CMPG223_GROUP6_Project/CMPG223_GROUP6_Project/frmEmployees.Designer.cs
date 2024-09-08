@@ -34,6 +34,7 @@
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.lblInstructionsAdd = new System.Windows.Forms.Label();
             this.pnlAdd = new System.Windows.Forms.Panel();
+            this.txtCellNumAdd = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
             this.lblNameAdd = new System.Windows.Forms.Label();
             this.lblSurnameAdd = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@
             this.lblInstructionsUpdate = new System.Windows.Forms.Label();
             this.btnBackUpdate = new System.Windows.Forms.Button();
             this.pnlUpdate = new System.Windows.Forms.Panel();
+            this.txtCellNumUpdate = new System.Windows.Forms.TextBox();
+            this.lblErrorUpdate = new System.Windows.Forms.Label();
             this.lblEmployeeIDUpdate = new System.Windows.Forms.Label();
             this.txtUsernameUpdate = new System.Windows.Forms.TextBox();
             this.lblNameUpdate = new System.Windows.Forms.Label();
@@ -62,7 +65,6 @@
             this.chkIsAdminUpdate = new System.Windows.Forms.CheckBox();
             this.cmbEmployeeIDUpdate = new System.Windows.Forms.ComboBox();
             this.txtNameUpdate = new System.Windows.Forms.TextBox();
-            this.txtCellNumUpdate = new System.Windows.Forms.MaskedTextBox();
             this.txtSurnameUpdate = new System.Windows.Forms.TextBox();
             this.txtPasswordUpdate = new System.Windows.Forms.TextBox();
             this.lblTitleUpdate = new System.Windows.Forms.Label();
@@ -82,7 +84,7 @@
             this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
             this.errorProviderUpdate = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDelete = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtCellNumAdd = new System.Windows.Forms.TextBox();
+            this.lblErrorDelete = new System.Windows.Forms.Label();
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -161,6 +163,14 @@
             this.pnlAdd.Name = "pnlAdd";
             this.pnlAdd.Size = new System.Drawing.Size(376, 277);
             this.pnlAdd.TabIndex = 16;
+            // 
+            // txtCellNumAdd
+            // 
+            this.txtCellNumAdd.Location = new System.Drawing.Point(224, 96);
+            this.txtCellNumAdd.MaxLength = 100;
+            this.txtCellNumAdd.Name = "txtCellNumAdd";
+            this.txtCellNumAdd.Size = new System.Drawing.Size(132, 22);
+            this.txtCellNumAdd.TabIndex = 7;
             // 
             // lblError
             // 
@@ -378,6 +388,8 @@
             // pnlUpdate
             // 
             this.pnlUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.pnlUpdate.Controls.Add(this.txtCellNumUpdate);
+            this.pnlUpdate.Controls.Add(this.lblErrorUpdate);
             this.pnlUpdate.Controls.Add(this.lblEmployeeIDUpdate);
             this.pnlUpdate.Controls.Add(this.txtUsernameUpdate);
             this.pnlUpdate.Controls.Add(this.lblNameUpdate);
@@ -388,7 +400,6 @@
             this.pnlUpdate.Controls.Add(this.chkIsAdminUpdate);
             this.pnlUpdate.Controls.Add(this.cmbEmployeeIDUpdate);
             this.pnlUpdate.Controls.Add(this.txtNameUpdate);
-            this.pnlUpdate.Controls.Add(this.txtCellNumUpdate);
             this.pnlUpdate.Controls.Add(this.txtSurnameUpdate);
             this.pnlUpdate.Controls.Add(this.txtPasswordUpdate);
             this.pnlUpdate.Location = new System.Drawing.Point(211, 105);
@@ -396,6 +407,25 @@
             this.pnlUpdate.Name = "pnlUpdate";
             this.pnlUpdate.Size = new System.Drawing.Size(712, 272);
             this.pnlUpdate.TabIndex = 16;
+            // 
+            // txtCellNumUpdate
+            // 
+            this.txtCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtCellNumUpdate.Location = new System.Drawing.Point(229, 156);
+            this.txtCellNumUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCellNumUpdate.Name = "txtCellNumUpdate";
+            this.txtCellNumUpdate.Size = new System.Drawing.Size(132, 26);
+            this.txtCellNumUpdate.TabIndex = 16;
+            this.toolTipUpdate.SetToolTip(this.txtCellNumUpdate, "Enter a surname.");
+            // 
+            // lblErrorUpdate
+            // 
+            this.lblErrorUpdate.AutoSize = true;
+            this.lblErrorUpdate.Location = new System.Drawing.Point(399, 250);
+            this.lblErrorUpdate.Name = "lblErrorUpdate";
+            this.lblErrorUpdate.Size = new System.Drawing.Size(15, 16);
+            this.lblErrorUpdate.TabIndex = 15;
+            this.lblErrorUpdate.Text = "X";
             // 
             // lblEmployeeIDUpdate
             // 
@@ -507,17 +537,6 @@
             this.txtNameUpdate.TabIndex = 1;
             this.toolTipUpdate.SetToolTip(this.txtNameUpdate, "Enter a name.");
             // 
-            // txtCellNumUpdate
-            // 
-            this.txtCellNumUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtCellNumUpdate.Location = new System.Drawing.Point(229, 153);
-            this.txtCellNumUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCellNumUpdate.Mask = "9990000000";
-            this.txtCellNumUpdate.Name = "txtCellNumUpdate";
-            this.txtCellNumUpdate.Size = new System.Drawing.Size(132, 26);
-            this.txtCellNumUpdate.TabIndex = 3;
-            this.toolTipUpdate.SetToolTip(this.txtCellNumUpdate, "Enter a cellphone number.");
-            // 
             // txtSurnameUpdate
             // 
             this.txtSurnameUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -566,12 +585,14 @@
             this.toolTipUpdate.SetToolTip(this.btnUpdate, "Click on this button to update the selected employee record with the new details " +
         "you have entered.");
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // tabPageDelete
             // 
-            this.tabPageDelete.BackColor = System.Drawing.Color.Pink;
+            this.tabPageDelete.BackColor = System.Drawing.Color.Transparent;
             this.tabPageDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageDelete.BackgroundImage")));
             this.tabPageDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageDelete.Controls.Add(this.lblErrorDelete);
             this.tabPageDelete.Controls.Add(this.btnBackDelete);
             this.tabPageDelete.Controls.Add(this.lblInstructionsDelete);
             this.tabPageDelete.Controls.Add(this.lblTitleDelete);
@@ -637,6 +658,7 @@
             this.btnDelete.Text = "&Delete";
             this.toolTipDelete.SetToolTip(this.btnDelete, "Click on this to delete the selected employee\'s record.");
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cmbEmployeeIDDelete
             // 
@@ -695,12 +717,14 @@
             // 
             this.errorProviderDelete.ContainerControl = this;
             // 
-            // txtCellNumAdd
+            // lblErrorDelete
             // 
-            this.txtCellNumAdd.Location = new System.Drawing.Point(224, 96);
-            this.txtCellNumAdd.Name = "txtCellNumAdd";
-            this.txtCellNumAdd.Size = new System.Drawing.Size(132, 22);
-            this.txtCellNumAdd.TabIndex = 7;
+            this.lblErrorDelete.AutoSize = true;
+            this.lblErrorDelete.Location = new System.Drawing.Point(500, 335);
+            this.lblErrorDelete.Name = "lblErrorDelete";
+            this.lblErrorDelete.Size = new System.Drawing.Size(15, 16);
+            this.lblErrorDelete.TabIndex = 5;
+            this.lblErrorDelete.Text = "X";
             // 
             // frmMaintainEmployees
             // 
@@ -754,7 +778,6 @@
         private System.Windows.Forms.Label lblTitleUpdate;
         private System.Windows.Forms.CheckBox chkIsAdminUpdate;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.MaskedTextBox txtCellNumUpdate;
         private System.Windows.Forms.TextBox txtPasswordUpdate;
         private System.Windows.Forms.TextBox txtSurnameUpdate;
         private System.Windows.Forms.TextBox txtNameUpdate;
@@ -787,5 +810,8 @@
         private System.Windows.Forms.ErrorProvider errorProviderDelete;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.TextBox txtCellNumAdd;
+        private System.Windows.Forms.Label lblErrorUpdate;
+        private System.Windows.Forms.TextBox txtCellNumUpdate;
+        private System.Windows.Forms.Label lblErrorDelete;
     }
 }
