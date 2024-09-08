@@ -75,23 +75,23 @@ namespace CMPG223_GROUP6_Project
                         command.ExecuteNonQuery();
                     }
 
-                    labelError.Text = "A new movie was added!"; // Display success message on label
-                    ShowMovies(); // Refresh the movie list
+                    labelError.Text = "A new movie was added!"; 
+                    ShowMovies(); // Refresh movie datagridview list
                 }
             }
             catch (Exception ex)
             {
-                labelError.Text = $"An error occurred: {ex.Message}"; // Display error on label
+                labelError.Text = $"An error occurred: {ex.Message}";
             }
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            labelError.Text = ""; // Clear previous error
+            labelError.Text = ""; // clear any previous errors
 
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                labelError.Text = "Please select a movie from the list to update.";
+                labelError.Text = "Please select a movie from the list to update";
                 return;
             }
 
@@ -105,6 +105,7 @@ namespace CMPG223_GROUP6_Project
 
             try
             {
+                //Update the movies
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
@@ -121,12 +122,12 @@ namespace CMPG223_GROUP6_Project
                     }
 
                     MessageBox.Show("Movie updated successfully!");
-                    ShowMovies(); // Refresh the DataGridView
+                    ShowMovies(); // Refresh movies DataGridView
                 }
             }
             catch (SqlException ex) when (ex.Number == 50000)
             {
-                labelError.Text = "A movie with the same name already exists.";
+                labelError.Text = "A movie with the same name already exists."; //handle duplicates of if movie with the same name already exists
             }
             catch (Exception ex)
             {
@@ -136,7 +137,7 @@ namespace CMPG223_GROUP6_Project
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            labelError.Text = ""; // Clear previous error
+            labelError.Text = ""; // Clear errors
 
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -160,8 +161,8 @@ namespace CMPG223_GROUP6_Project
                         command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Movie deleted successfully!");
-                    ShowMovies(); // Refresh DataGridView
+                    MessageBox.Show("Movie was deleted successfully!");
+                    ShowMovies(); // Refresh movies DataGridView
                 }
             }
             catch (Exception ex)
@@ -173,9 +174,9 @@ namespace CMPG223_GROUP6_Project
         private bool ValidateInputs()
         {
             bool isValid = true;
-            errorProvider.Clear(); // Clear previous errors
+            errorProvider.Clear(); // Clear errors
 
-            // Validate Movie Name
+            // Validate the Movie Name
             if (string.IsNullOrWhiteSpace(textBoxMovieName.Text))
             {
                 errorProvider.SetError(textBoxMovieName, "Movie name is required.");
@@ -183,7 +184,7 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider.SetError(textBoxMovieName, ""); // Clear error if valid
+                errorProvider.SetError(textBoxMovieName, ""); 
             }
 
             // Validate Movie Description
@@ -194,7 +195,7 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider.SetError(textBoxMovieDescription, ""); // Clear error if valid
+                errorProvider.SetError(textBoxMovieDescription, ""); 
             }
 
             // Validate Price
@@ -205,7 +206,7 @@ namespace CMPG223_GROUP6_Project
             }
             else
             {
-                errorProvider.SetError(textBoxPrice, ""); // Clear error if valid
+                errorProvider.SetError(textBoxPrice, ""); 
             }
 
             return isValid;
@@ -247,7 +248,7 @@ namespace CMPG223_GROUP6_Project
         {
             toolTip.SetToolTip(textBoxMovieName, "Enter the name of the movie.");
             toolTip.SetToolTip(textBoxMovieDescription, "Enter a description for the movie.");
-            toolTip.SetToolTip(textBoxPrice, "Enter the price of the movie. It must be a positive decimal number.");
+            toolTip.SetToolTip(textBoxPrice, "Enter the price of the movie, a positive decimal number.");
             toolTip.SetToolTip(buttonAdd, "Click to add a new movie.");
             toolTip.SetToolTip(buttonUpdate, "Click to update the selected movie.");
             toolTip.SetToolTip(buttonDelete, "Click to delete the selected movie.");
