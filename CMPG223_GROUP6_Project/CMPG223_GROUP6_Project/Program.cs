@@ -19,7 +19,7 @@ namespace CMPG223_GROUP6_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMovies());*/
-            frmMaintainEmployees LoginForm = new frmMaintainEmployees();
+            frmRoomSeat LoginForm = new frmRoomSeat();
             LoginForm.Show();
             Application.Run();
         }

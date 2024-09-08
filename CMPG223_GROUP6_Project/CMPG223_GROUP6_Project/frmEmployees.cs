@@ -393,6 +393,14 @@ namespace MaintainEmployees
                 resetInputsDelete();
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //Open dashboard form
+            this.Close();
+            frmDashboard AdministratorDashboard = new frmDashboard();
+            AdministratorDashboard.Show();
+        }
     }
 
 }

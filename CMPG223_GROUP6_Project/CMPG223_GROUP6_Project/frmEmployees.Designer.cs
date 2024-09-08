@@ -70,6 +70,7 @@
             this.lblTitleUpdate = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tabPageDelete = new System.Windows.Forms.TabPage();
+            this.lblErrorDelete = new System.Windows.Forms.Label();
             this.btnBackDelete = new System.Windows.Forms.Button();
             this.lblInstructionsDelete = new System.Windows.Forms.Label();
             this.lblTitleDelete = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@
             this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
             this.errorProviderUpdate = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDelete = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblErrorDelete = new System.Windows.Forms.Label();
             this.tabControlMaintainEmployees.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
             this.pnlAdd.SuspendLayout();
@@ -311,6 +311,7 @@
             this.btnDashboard.Text = "&Back to dashboard";
             this.toolTipAdd.SetToolTip(this.btnDashboard, "Click on this to go back to the dashboard menu.");
             this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // lblTitleAdd
             // 
@@ -606,6 +607,15 @@
             this.tabPageDelete.TabIndex = 2;
             this.tabPageDelete.Text = "Delete";
             // 
+            // lblErrorDelete
+            // 
+            this.lblErrorDelete.AutoSize = true;
+            this.lblErrorDelete.Location = new System.Drawing.Point(500, 335);
+            this.lblErrorDelete.Name = "lblErrorDelete";
+            this.lblErrorDelete.Size = new System.Drawing.Size(15, 16);
+            this.lblErrorDelete.TabIndex = 5;
+            this.lblErrorDelete.Text = "X";
+            // 
             // btnBackDelete
             // 
             this.btnBackDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -716,15 +726,6 @@
             // errorProviderDelete
             // 
             this.errorProviderDelete.ContainerControl = this;
-            // 
-            // lblErrorDelete
-            // 
-            this.lblErrorDelete.AutoSize = true;
-            this.lblErrorDelete.Location = new System.Drawing.Point(500, 335);
-            this.lblErrorDelete.Name = "lblErrorDelete";
-            this.lblErrorDelete.Size = new System.Drawing.Size(15, 16);
-            this.lblErrorDelete.TabIndex = 5;
-            this.lblErrorDelete.Text = "X";
             // 
             // frmMaintainEmployees
             // 

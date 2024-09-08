@@ -13,7 +13,7 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmRoomSeat : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@"Data Source=R_LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         SqlCommand cmd;
         SqlDataAdapter adapter;
         DataSet ds;
@@ -97,7 +97,7 @@ namespace CMPG223_GROUP6_Project
                 using (SqlCommand command = new SqlCommand("AddRoomSeat", con))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Room_ID", Convert.ToInt32(cbMovieRoom.SelectedValue));
+                    command.Parameters.AddWithValue("@Room_Num", Convert.ToInt32(cbMovieRoom.SelectedValue));
                     command.Parameters.AddWithValue("@Seat_Num", Convert.ToInt32(cbSeatNumber.SelectedItem));
                     command.ExecuteNonQuery();
                 }
@@ -126,24 +126,27 @@ namespace CMPG223_GROUP6_Project
                     con.Open();
                 }
 
-                string sql = @"SELECT [Seat_ID], [Room_ID], [Seat_Num] FROM ROOM_SEAT WHERE [Is_Active] = 1";
+                using (SqlCommand command = new SqlCommand("GetActiveRoomSeats", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
-                cmd = new SqlCommand(sql, con);
-                ds = new DataSet();
-                adapter = new SqlDataAdapter();
+                    // Create a data adapter to fill the dataset.
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataSet ds = new DataSet();
 
-                // Filling dataset with resluts from sql query.
-                adapter.SelectCommand = cmd;
-                adapter.Fill(ds, "ROOM_SEAT");
+                    // Fill the dataset with the results from the stored procedure.
+                    adapter.Fill(ds, "ROOM_SEAT");
 
-                // Displaying dataset.
-                dgwDisplayRoomSeats.DataMember = "ROOM_SEAT";
-                dgwDisplayRoomSeats.DataSource = ds;
+                    // Bind the DataGridView to the dataset.
+                    dgwDisplayRoomSeats.DataMember = "ROOM_SEAT";
+                    dgwDisplayRoomSeats.DataSource = ds;
 
-                // Renameing column names.
-                dgwDisplayRoomSeats.Columns["Seat_ID"].HeaderText = "Seat ID";
-                dgwDisplayRoomSeats.Columns["Room_ID"].HeaderText = "Room Number";
-                dgwDisplayRoomSeats.Columns["Seat_Num"].HeaderText = "Seat Number";
+                    // Rename columns.
+                    dgwDisplayRoomSeats.Columns["Seat_ID"].HeaderText = "Seat ID";
+                    dgwDisplayRoomSeats.Columns["Room_Num"].HeaderText = "Room Number";
+                    dgwDisplayRoomSeats.Columns["Seat_Num"].HeaderText = "Seat Number";
+                }
+
 
             }
             catch (Exception ex)
@@ -180,7 +183,7 @@ namespace CMPG223_GROUP6_Project
                 }
 
                 // Query to get existing movie rooms.
-                string sql = "SELECT Room_ID FROM MOVIE_ROOM";
+                string sql = "SELECT Room_Num FROM [MOVIE_ROOM] WHERE IsActive = 1";
 
                 cmd = new SqlCommand(sql, con);
                 adapter = new SqlDataAdapter(cmd);
@@ -190,8 +193,8 @@ namespace CMPG223_GROUP6_Project
                 adapter.Fill(dt);
 
                 // Bind the DataTable to the combobox.
-                cbMovieRoom.DisplayMember = "Room_ID";
-                cbMovieRoom.ValueMember = "Room_ID";
+                cbMovieRoom.DisplayMember = "Room_Num";
+                cbMovieRoom.ValueMember = "Room_Num";
                 cbMovieRoom.DataSource = dt;
             }
             catch (Exception ex)
@@ -236,12 +239,12 @@ namespace CMPG223_GROUP6_Project
                         con.Open();
                     }
 
-                    using (SqlCommand command = new SqlCommand("GetNumSeatsByMovieID", con))
+                    using (SqlCommand command = new SqlCommand("[GetNumSeatsByMovieID]", con))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
                         // Add the Movie_ID parameter.
-                        command.Parameters.AddWithValue("@Room_ID", cbMovieRoom.SelectedValue);
+                        command.Parameters.AddWithValue("@Room_Num", cbMovieRoom.SelectedValue);
 
                         // Execute the command and read the number of seats.
                         object totalNumSeats = command.ExecuteScalar();
@@ -251,10 +254,10 @@ namespace CMPG223_GROUP6_Project
 
                         for (int i = 1; i <= numSeats; i++)
                         {
-                            using (SqlCommand cmd = new SqlCommand("GetSeatByRoomIDAndSeatNum", con))
+                            using (SqlCommand cmd = new SqlCommand("GetSeatByRoomNumAndSeatNum", con))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@Room_ID", cbMovieRoom.SelectedValue);
+                                cmd.Parameters.AddWithValue("@Room_Num", cbMovieRoom.SelectedValue);
                                 cmd.Parameters.AddWithValue("@Seat_Num", i);
 
                                 // Execute the command and check if any seat number is returned.
