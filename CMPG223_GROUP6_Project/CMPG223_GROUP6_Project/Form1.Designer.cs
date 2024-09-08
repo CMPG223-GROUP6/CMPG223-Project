@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellTicket));
             this.pnlInsert = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.lblRoom = new System.Windows.Forms.Label();
             this.cmbRoom = new System.Windows.Forms.ComboBox();
             this.btnBookTicket = new System.Windows.Forms.Button();
@@ -41,7 +43,6 @@
             this.pnlDisplay = new System.Windows.Forms.Panel();
             this.dtgShowSeats = new System.Windows.Forms.DataGridView();
             this.lblMovieSeats = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.pnlInsert.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgShowSeats)).BeginInit();
@@ -49,6 +50,7 @@
             // 
             // pnlInsert
             // 
+            this.pnlInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlInsert.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlInsert.Controls.Add(this.btnLogout);
             this.pnlInsert.Controls.Add(this.lblRoom);
@@ -60,18 +62,32 @@
             this.pnlInsert.Controls.Add(this.cmbSeat);
             this.pnlInsert.Controls.Add(this.cmbMovie);
             this.pnlInsert.Controls.Add(this.cmbTimeslot);
-            this.pnlInsert.Location = new System.Drawing.Point(16, 16);
+            this.pnlInsert.Location = new System.Drawing.Point(78, 58);
             this.pnlInsert.Name = "pnlInsert";
             this.pnlInsert.Size = new System.Drawing.Size(184, 384);
             this.pnlInsert.TabIndex = 23;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Maroon;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnLogout.Location = new System.Drawing.Point(8, 344);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(160, 32);
+            this.btnLogout.TabIndex = 28;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblRoom.Location = new System.Drawing.Point(8, 152);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(52, 20);
+            this.lblRoom.Size = new System.Drawing.Size(56, 20);
             this.lblRoom.TabIndex = 29;
             this.lblRoom.Text = "Room";
             // 
@@ -88,42 +104,47 @@
             // 
             // btnBookTicket
             // 
-            this.btnBookTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookTicket.BackColor = System.Drawing.Color.Maroon;
+            this.btnBookTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookTicket.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnBookTicket.Location = new System.Drawing.Point(8, 304);
             this.btnBookTicket.Name = "btnBookTicket";
             this.btnBookTicket.Size = new System.Drawing.Size(160, 32);
             this.btnBookTicket.TabIndex = 27;
             this.btnBookTicket.Text = "Book ticket";
-            this.btnBookTicket.UseVisualStyleBackColor = true;
+            this.btnBookTicket.UseVisualStyleBackColor = false;
             this.btnBookTicket.Click += new System.EventHandler(this.btnBookTicket_Click);
             // 
             // lblSeat
             // 
             this.lblSeat.AutoSize = true;
-            this.lblSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblSeat.Location = new System.Drawing.Point(8, 224);
             this.lblSeat.Name = "lblSeat";
-            this.lblSeat.Size = new System.Drawing.Size(43, 20);
+            this.lblSeat.Size = new System.Drawing.Size(47, 20);
             this.lblSeat.TabIndex = 26;
             this.lblSeat.Text = "Seat";
             // 
             // lblMovie
             // 
             this.lblMovie.AutoSize = true;
-            this.lblMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblMovie.Location = new System.Drawing.Point(8, 80);
             this.lblMovie.Name = "lblMovie";
-            this.lblMovie.Size = new System.Drawing.Size(50, 20);
+            this.lblMovie.Size = new System.Drawing.Size(55, 20);
             this.lblMovie.TabIndex = 25;
             this.lblMovie.Text = "Movie";
             // 
             // lblTimeslot
             // 
             this.lblTimeslot.AutoSize = true;
-            this.lblTimeslot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeslot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeslot.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTimeslot.Location = new System.Drawing.Point(8, 8);
             this.lblTimeslot.Name = "lblTimeslot";
-            this.lblTimeslot.Size = new System.Drawing.Size(68, 20);
+            this.lblTimeslot.Size = new System.Drawing.Size(76, 20);
             this.lblTimeslot.TabIndex = 24;
             this.lblTimeslot.Text = "Timeslot";
             // 
@@ -160,10 +181,12 @@
             // 
             // pnlDisplay
             // 
+            this.pnlDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlDisplay.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDisplay.Controls.Add(this.dtgShowSeats);
             this.pnlDisplay.Controls.Add(this.lblMovieSeats);
-            this.pnlDisplay.Location = new System.Drawing.Point(216, 16);
+            this.pnlDisplay.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlDisplay.Location = new System.Drawing.Point(268, 58);
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(472, 384);
             this.pnlDisplay.TabIndex = 24;
@@ -171,7 +194,7 @@
             // dtgShowSeats
             // 
             this.dtgShowSeats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgShowSeats.Location = new System.Drawing.Point(16, 40);
+            this.dtgShowSeats.Location = new System.Drawing.Point(12, 40);
             this.dtgShowSeats.Name = "dtgShowSeats";
             this.dtgShowSeats.Size = new System.Drawing.Size(440, 328);
             this.dtgShowSeats.TabIndex = 12;
@@ -179,31 +202,23 @@
             // lblMovieSeats
             // 
             this.lblMovieSeats.AutoSize = true;
-            this.lblMovieSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovieSeats.Location = new System.Drawing.Point(8, 8);
+            this.lblMovieSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovieSeats.Location = new System.Drawing.Point(95, 8);
             this.lblMovieSeats.Name = "lblMovieSeats";
-            this.lblMovieSeats.Size = new System.Drawing.Size(234, 20);
+            this.lblMovieSeats.Size = new System.Drawing.Size(265, 20);
             this.lblMovieSeats.TabIndex = 11;
             this.lblMovieSeats.Text = "Seats available for cinema room";
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(8, 344);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(160, 32);
-            this.btnLogout.TabIndex = 28;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // frmSellTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 420);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(820, 496);
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlInsert);
+            this.DoubleBuffered = true;
             this.Name = "frmSellTicket";
             this.Text = "Sell a ticket form";
             this.Load += new System.EventHandler(this.frmSellTicket_Load);

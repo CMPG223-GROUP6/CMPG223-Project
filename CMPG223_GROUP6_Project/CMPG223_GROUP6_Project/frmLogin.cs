@@ -68,7 +68,7 @@ namespace CMPG223_GROUP6_Project
                 string Employee_Name = "";
 
                 //Open database connection to execute login stored procedure
-                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AlternativeDB.mdf;Integrated Security=True");
+                SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 conn.Open();
 
                 //Search for Administrator on system

@@ -55,7 +55,10 @@ namespace CMPG223_GROUP6_Project
 
         private void btnRoomSeats_Click(object sender, EventArgs e)
         {
-            //REESE ADD
+            //Open the room seat maintain form
+            this.Close();
+            frmRoomSeat newFrmRoomSeat = new frmRoomSeat();
+            newFrmRoomSeat.Show();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -101,5 +104,6 @@ namespace CMPG223_GROUP6_Project
             else if (lblWelcome.Width > pnlDashboard.Width)
                 lblWelcome.Location = new Point(0, this.Height / 2 - pnlDashboard.Height / 2 - 60);
         }
+
     }
 }

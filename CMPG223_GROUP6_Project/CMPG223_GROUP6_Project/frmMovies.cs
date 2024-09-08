@@ -16,16 +16,31 @@ namespace CMPG223_GROUP6_Project
         private const string ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private ErrorProvider errorProvider;
+        private ToolTip toolTip;
 
         public frmMovies()
         {
             InitializeComponent();
             errorProvider = new ErrorProvider();
+            toolTip = new ToolTip();
+
+            // Set ToolTip properties
+            toolTip.AutoPopDelay = 5000;
+            toolTip.InitialDelay = 1000;
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+
+            // Add tooltips
+            AddTooltips();
+            ShowMovies();
         }
+
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // Validate input for Movie Name, Description, and Price
+            // Clear any previous error messages
+            labelError.Text = "";
+
             if (!ValidateInputs())
             {
                 return;
@@ -37,7 +52,20 @@ namespace CMPG223_GROUP6_Project
                 {
                     conn.Open();
 
-                    // Add new movie
+                    // check if the movie exists
+                    using (SqlCommand checkCommand = new SqlCommand("SELECT 1 FROM MOVIE WHERE Movie_Name = @Movie_Name AND Is_Active = 1", conn))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
+                        var movieExists = checkCommand.ExecuteScalar();
+
+                        if (movieExists != null)
+                        {
+                            labelError.Text = "Movie already exists."; // Error Handleing if the movie exists
+                            return;
+                        }
+                    }
+
+                    // insert movie if it does not already exist
                     using (SqlCommand command = new SqlCommand("InsertMovie", conn))
                     {
                         command.CommandType = CommandType.StoredProcedure;
@@ -47,23 +75,23 @@ namespace CMPG223_GROUP6_Project
                         command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("A new movie was added!");
-
-                    // Refresh movie list
-                    ShowMovies();
+                    labelError.Text = "A new movie was added!"; // Display success message on label
+                    ShowMovies(); // Refresh the movie list
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}"; // Display error on label
             }
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            labelError.Text = ""; // Clear previous error
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a movie from the list to update.");
+                labelError.Text = "Please select a movie from the list to update.";
                 return;
             }
 
@@ -88,6 +116,7 @@ namespace CMPG223_GROUP6_Project
                         command.Parameters.AddWithValue("@Movie_Name", textBoxMovieName.Text);
                         command.Parameters.AddWithValue("@Movie_Description", textBoxMovieDescription.Text);
                         command.Parameters.AddWithValue("@Price", decimal.Parse(textBoxPrice.Text));
+
                         command.ExecuteNonQuery();
                     }
 
@@ -95,17 +124,23 @@ namespace CMPG223_GROUP6_Project
                     ShowMovies(); // Refresh the DataGridView
                 }
             }
+            catch (SqlException ex) when (ex.Number == 50000)
+            {
+                labelError.Text = "A movie with the same name already exists.";
+            }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}";
             }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            labelError.Text = ""; // Clear previous error
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a movie from the list to delete.");
+                labelError.Text = "Please select a movie from the list to delete.";
                 return;
             }
 
@@ -131,7 +166,7 @@ namespace CMPG223_GROUP6_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                labelError.Text = $"An error occurred: {ex.Message}";
             }
         }
 
@@ -200,27 +235,28 @@ namespace CMPG223_GROUP6_Project
             }
         }
 
-        private void textBoxMovieDescription_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxMovieName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmMovies_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
+        }
+
+        private void AddTooltips()
+        {
+            toolTip.SetToolTip(textBoxMovieName, "Enter the name of the movie.");
+            toolTip.SetToolTip(textBoxMovieDescription, "Enter a description for the movie.");
+            toolTip.SetToolTip(textBoxPrice, "Enter the price of the movie. It must be a positive decimal number.");
+            toolTip.SetToolTip(buttonAdd, "Click to add a new movie.");
+            toolTip.SetToolTip(buttonUpdate, "Click to update the selected movie.");
+            toolTip.SetToolTip(buttonDelete, "Click to delete the selected movie.");
+            toolTip.SetToolTip(btnDashboard, "Click to go back to the dashboard.");
+        }
+
+        private void frmMovies_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
