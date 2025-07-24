@@ -14,13 +14,15 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmTimeSlot : Form
     {
-        private const String ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private String ConnectionString = @System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString;
         SqlCommand command;
         SqlDataReader reader;
         SqlDataAdapter adapter;
         //DataSet dataSet;
         ToolTip tooltip;
         ErrorProvider errorProvider1 = new ErrorProvider();
+        private bool wasButton = false;
+
         public frmTimeSlot()
         {
             InitializeComponent();
@@ -347,11 +349,17 @@ namespace CMPG223_GROUP6_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
         }
 
+        private void frmTimeSlot_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
+        }
     }
 }
 

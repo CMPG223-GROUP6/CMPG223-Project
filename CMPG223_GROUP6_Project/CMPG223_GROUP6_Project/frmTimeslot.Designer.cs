@@ -276,6 +276,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "frmTimeSlot";
             this.Text = "frmTimeSlot";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTimeSlot_FormClosed);
             this.Load += new System.EventHandler(this.frmTimeSlot_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

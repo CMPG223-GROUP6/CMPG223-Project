@@ -21,6 +21,7 @@ namespace CMPG223_GROUP6_Project
 
         //Validate input variable (Used in 2 methods)
         bool bValidDates = true;
+        private bool wasButton = false;
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
@@ -135,7 +136,7 @@ namespace CMPG223_GROUP6_Project
                     grdReport.Columns["Total_Revenue"].Visible = true;
 
                 //Open database connection to execute report stored procedures
-                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AlternativeDB.mdf;Integrated Security=True");
+                SqlConnection conn = new SqlConnection(@System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString);
                 conn.Open();
 
                 //Get report choice
@@ -416,9 +417,16 @@ namespace CMPG223_GROUP6_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
+        }
+
+        private void frmRequestReports_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
         }
     }
 }

@@ -20,10 +20,12 @@ namespace CMPG223_GROUP6_Project
 
         //Declare field variables
         public string fName;
+        private bool wasButton = false;
 
         private void btnMaintainEmployees_Click(object sender, EventArgs e)
         {
             //Open maintain employee form
+            wasButton = true;
             this.Close();
             frmMaintainEmployees maintainEmployeesForm = new frmMaintainEmployees();
             maintainEmployeesForm.Show();           
@@ -32,6 +34,7 @@ namespace CMPG223_GROUP6_Project
         private void btnMaintainTimeslots_Click(object sender, EventArgs e)
         {
             //Open maintain timeslot form
+            wasButton = true;
             this.Close();
             frmTimeSlot maintainTimeslotsForm = new frmTimeSlot();
             maintainTimeslotsForm.Show();           
@@ -40,6 +43,7 @@ namespace CMPG223_GROUP6_Project
         private void btnMaintainMovies_Click(object sender, EventArgs e)
         {
             //Open maintain movies form
+            wasButton = true;
             this.Close();
             frmMovies maintainMoviesForm = new frmMovies();
             maintainMoviesForm.Show();
@@ -48,6 +52,7 @@ namespace CMPG223_GROUP6_Project
         private void btnMaintainMovieRooms_Click(object sender, EventArgs e)
         {
             //Open maintain movie rooms form
+            wasButton = true;
             this.Close();
             frmMovieRoom maintainMovieRoomsForm = new frmMovieRoom();
             maintainMovieRoomsForm.Show();
@@ -56,6 +61,7 @@ namespace CMPG223_GROUP6_Project
         private void btnRoomSeats_Click(object sender, EventArgs e)
         {
             //Open the room seat maintain form
+            wasButton = true;
             this.Close();
             frmRoomSeat newFrmRoomSeat = new frmRoomSeat();
             newFrmRoomSeat.Show();
@@ -64,6 +70,7 @@ namespace CMPG223_GROUP6_Project
         private void btnReports_Click(object sender, EventArgs e)
         {
             //Open request report form
+            wasButton = true;
             this.Close();
             frmRequestReports requestReportForm = new frmRequestReports();
             requestReportForm.Show();            
@@ -72,6 +79,7 @@ namespace CMPG223_GROUP6_Project
         private void btnLogout_Click(object sender, EventArgs e)
         {
             //Open Login form
+            wasButton = true;
             this.Close();
             frmLogin LoginForm = new frmLogin();
             LoginForm.Show();
@@ -81,22 +89,10 @@ namespace CMPG223_GROUP6_Project
         {
             //Welcome the administrator
             lblWelcome.Text = "Welcome" + fName + "!";
-
-            //Resize the form properly
-            if (lblWelcome.Width > this.Width)
-            {
-                this.Width = lblWelcome.Width;
-                this.MinimumSize = new Size(lblWelcome.Width, 530);
-            }
-            else
-            {
-                frmDashboard_Resize(sender, e);
-                this.MinimumSize = new Size(this.Width, 530);
-            }
         }
 
         private void frmDashboard_Resize(object sender, EventArgs e)
-        {
+        {                     
             //Resize the panel and the welcome label properly
             pnlDashboard.Location = new Point(this.Width / 2 - pnlDashboard.Width / 2, this.Height / 2 - pnlDashboard.Height / 2);
             if (this.Width > lblWelcome.Width)
@@ -105,5 +101,10 @@ namespace CMPG223_GROUP6_Project
                 lblWelcome.Location = new Point(0, this.Height / 2 - pnlDashboard.Height / 2 - 60);
         }
 
+        private void frmDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
+        }
     }
 }

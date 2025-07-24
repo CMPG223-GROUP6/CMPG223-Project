@@ -13,8 +13,9 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmMovieRoom : Form
     {
-        string connectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionString = @System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString;
         private bool isUpdating = false; // Track if the operation is an update or an add
+        private bool wasButton = false;
         ToolTip toolTip;
         
         public frmMovieRoom()
@@ -328,6 +329,7 @@ namespace CMPG223_GROUP6_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
@@ -390,6 +392,12 @@ namespace CMPG223_GROUP6_Project
                 reader.Close();
                 conn.Close();
             }
+        }
+
+        private void frmMovieRoom_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
         }
     }
 }

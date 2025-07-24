@@ -14,12 +14,13 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmRoomSeat : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString);
         SqlCommand cmd;
         SqlDataAdapter adapter;
         DataSet ds;
         DataTable dt;
         private System.Windows.Forms.ToolTip toolTip;
+        private bool wasButton = false;
 
         public frmRoomSeat()
         {
@@ -329,6 +330,7 @@ namespace CMPG223_GROUP6_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
@@ -340,6 +342,12 @@ namespace CMPG223_GROUP6_Project
             toolTip.SetToolTip(cbMovieRoom, "Select a movie room to add a seat to.");
             toolTip.SetToolTip(cbSeatNumber, "Select seat number to add.");
             toolTip.SetToolTip(btnAction, "Press button to perform action.");;
+        }
+
+        private void frmRoomSeat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
         }
     }
 }

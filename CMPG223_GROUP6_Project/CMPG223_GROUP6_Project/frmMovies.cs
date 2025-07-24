@@ -13,10 +13,11 @@ namespace CMPG223_GROUP6_Project
 {
     public partial class frmMovies : Form
     {
-        private const string ConnectionString = @"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string ConnectionString = @System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString;
 
         private ErrorProvider errorProvider;
         private ToolTip toolTip;
+        private bool wasButton = false;
 
         public frmMovies()
         {
@@ -239,6 +240,7 @@ namespace CMPG223_GROUP6_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
@@ -253,6 +255,12 @@ namespace CMPG223_GROUP6_Project
             toolTip.SetToolTip(buttonUpdate, "Click to update the selected movie.");
             toolTip.SetToolTip(buttonDelete, "Click to delete the selected movie.");
             toolTip.SetToolTip(btnDashboard, "Click to go back to the dashboard.");
+        }
+
+        private void frmMovies_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
         }
 
         private void frmMovies_Load(object sender, EventArgs e)

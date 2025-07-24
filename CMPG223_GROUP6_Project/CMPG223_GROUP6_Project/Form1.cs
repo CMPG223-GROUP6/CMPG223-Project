@@ -19,7 +19,7 @@ namespace CMPG223_GROUP6_Project
         }
 
         //Global connection
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection conn = new SqlConnection(@System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString);
         public string fName;
         public int fEmployee_ID;
         bool wasButton = false;

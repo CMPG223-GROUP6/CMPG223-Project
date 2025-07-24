@@ -137,6 +137,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frmLogin";
             this.Text = "Login form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.Resize += new System.EventHandler(this.frmLogin_Resize);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();

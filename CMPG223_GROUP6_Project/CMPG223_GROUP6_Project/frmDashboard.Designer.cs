@@ -187,6 +187,7 @@
             this.DoubleBuffered = true;
             this.Name = "frmDashboard";
             this.Text = "Dashboard form";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDashboard_FormClosed);
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.Resize += new System.EventHandler(this.frmDashboard_Resize);
             this.pnlDashboard.ResumeLayout(false);

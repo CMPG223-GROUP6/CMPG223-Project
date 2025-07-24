@@ -17,7 +17,7 @@ namespace MaintainEmployees
 {
     public partial class frmMaintainEmployees : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-TSOKQI0\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@System.Configuration.ConfigurationManager.ConnectionStrings["AppConnection"].ConnectionString);
 
         //SqlConnection con = new SqlConnection(@"Data Source=R_LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDB;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
@@ -25,6 +25,7 @@ namespace MaintainEmployees
         SqlDataAdapter adapter;
         DataSet ds;
         DataTable dt;
+        private bool wasButton = false;
 
         public frmMaintainEmployees()
         {
@@ -424,6 +425,7 @@ namespace MaintainEmployees
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             //Open dashboard form
+            wasButton = true;
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
@@ -443,6 +445,12 @@ namespace MaintainEmployees
             this.Close();
             frmDashboard AdministratorDashboard = new frmDashboard();
             AdministratorDashboard.Show();
+        }
+
+        private void frmMaintainEmployees_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!wasButton)
+                Environment.Exit(1);
         }
     }
 

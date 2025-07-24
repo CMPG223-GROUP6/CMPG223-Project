@@ -60,9 +60,10 @@ namespace CMPG223_GROUP6_Project
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(161, 491);
+            this.lbStatus.Location = new System.Drawing.Point(121, 399);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(0, 17);
+            this.lbStatus.Size = new System.Drawing.Size(0, 13);
             this.lbStatus.TabIndex = 19;
             // 
             // lbHeading
@@ -71,10 +72,9 @@ namespace CMPG223_GROUP6_Project
             this.lbHeading.BackColor = System.Drawing.Color.Black;
             this.lbHeading.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHeading.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbHeading.Location = new System.Drawing.Point(140, 11);
-            this.lbHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHeading.Location = new System.Drawing.Point(105, 9);
             this.lbHeading.Name = "lbHeading";
-            this.lbHeading.Size = new System.Drawing.Size(448, 45);
+            this.lbHeading.Size = new System.Drawing.Size(371, 37);
             this.lbHeading.TabIndex = 18;
             this.lbHeading.Text = "Movie Rooms Management";
             // 
@@ -84,10 +84,9 @@ namespace CMPG223_GROUP6_Project
             this.lbRoomID.BackColor = System.Drawing.Color.Transparent;
             this.lbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRoomID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbRoomID.Location = new System.Drawing.Point(147, 466);
-            this.lbRoomID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRoomID.Location = new System.Drawing.Point(110, 379);
             this.lbRoomID.Name = "lbRoomID";
-            this.lbRoomID.Size = new System.Drawing.Size(82, 20);
+            this.lbRoomID.Size = new System.Drawing.Size(67, 16);
             this.lbRoomID.TabIndex = 7;
             this.lbRoomID.Text = "Room ID";
             // 
@@ -97,10 +96,9 @@ namespace CMPG223_GROUP6_Project
             this.lbSeats.BackColor = System.Drawing.Color.Transparent;
             this.lbSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSeats.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbSeats.Location = new System.Drawing.Point(145, 438);
-            this.lbSeats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSeats.Location = new System.Drawing.Point(109, 356);
             this.lbSeats.Name = "lbSeats";
-            this.lbSeats.Size = new System.Drawing.Size(150, 20);
+            this.lbSeats.Size = new System.Drawing.Size(122, 16);
             this.lbSeats.TabIndex = 6;
             this.lbSeats.Text = "Number of Seats";
             // 
@@ -110,10 +108,9 @@ namespace CMPG223_GROUP6_Project
             this.lbNumber.BackColor = System.Drawing.Color.Transparent;
             this.lbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbNumber.Location = new System.Drawing.Point(145, 401);
-            this.lbNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNumber.Location = new System.Drawing.Point(109, 326);
             this.lbNumber.Name = "lbNumber";
-            this.lbNumber.Size = new System.Drawing.Size(128, 20);
+            this.lbNumber.Size = new System.Drawing.Size(106, 16);
             this.lbNumber.TabIndex = 5;
             this.lbNumber.Text = "Room Number";
             // 
@@ -123,39 +120,35 @@ namespace CMPG223_GROUP6_Project
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbID.Location = new System.Drawing.Point(145, 315);
-            this.lbID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbID.Location = new System.Drawing.Point(109, 256);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(83, 20);
+            this.lbID.Size = new System.Drawing.Size(68, 16);
             this.lbID.TabIndex = 4;
             this.lbID.Text = "Movie ID";
             // 
             // txtNumSeats
             // 
-            this.txtNumSeats.Location = new System.Drawing.Point(328, 433);
-            this.txtNumSeats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumSeats.Location = new System.Drawing.Point(246, 352);
             this.txtNumSeats.Name = "txtNumSeats";
-            this.txtNumSeats.Size = new System.Drawing.Size(101, 22);
+            this.txtNumSeats.Size = new System.Drawing.Size(77, 20);
             this.txtNumSeats.TabIndex = 1;
             // 
             // txtRoomNum
             // 
-            this.txtRoomNum.Location = new System.Drawing.Point(328, 396);
-            this.txtRoomNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoomNum.Location = new System.Drawing.Point(246, 322);
             this.txtRoomNum.Name = "txtRoomNum";
-            this.txtRoomNum.Size = new System.Drawing.Size(133, 22);
+            this.txtRoomNum.Size = new System.Drawing.Size(101, 20);
             this.txtRoomNum.TabIndex = 2;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Maroon;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(151, 71);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(113, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 235);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 191);
             this.dataGridView1.TabIndex = 16;
             // 
             // btnUpdate
@@ -163,10 +156,9 @@ namespace CMPG223_GROUP6_Project
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.Location = new System.Drawing.Point(43, 178);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(32, 145);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 46);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 37);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -177,10 +169,9 @@ namespace CMPG223_GROUP6_Project
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDelete.Location = new System.Drawing.Point(43, 231);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(32, 188);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 49);
+            this.btnDelete.Size = new System.Drawing.Size(75, 40);
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -191,10 +182,9 @@ namespace CMPG223_GROUP6_Project
             this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShow.Location = new System.Drawing.Point(43, 71);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShow.Location = new System.Drawing.Point(32, 58);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(100, 48);
+            this.btnShow.Size = new System.Drawing.Size(75, 39);
             this.btnShow.TabIndex = 13;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
@@ -205,10 +195,9 @@ namespace CMPG223_GROUP6_Project
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Location = new System.Drawing.Point(43, 127);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(32, 103);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 43);
+            this.btnAdd.Size = new System.Drawing.Size(75, 35);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -219,10 +208,9 @@ namespace CMPG223_GROUP6_Project
             this.btnMakeChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMakeChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMakeChanges.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnMakeChanges.Location = new System.Drawing.Point(499, 438);
-            this.btnMakeChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMakeChanges.Location = new System.Drawing.Point(374, 356);
             this.btnMakeChanges.Name = "btnMakeChanges";
-            this.btnMakeChanges.Size = new System.Drawing.Size(167, 53);
+            this.btnMakeChanges.Size = new System.Drawing.Size(125, 43);
             this.btnMakeChanges.TabIndex = 20;
             this.btnMakeChanges.Text = "Make Changes";
             this.btnMakeChanges.UseVisualStyleBackColor = false;
@@ -231,20 +219,18 @@ namespace CMPG223_GROUP6_Project
             // cmbMovieID
             // 
             this.cmbMovieID.FormattingEnabled = true;
-            this.cmbMovieID.Location = new System.Drawing.Point(328, 314);
-            this.cmbMovieID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMovieID.Location = new System.Drawing.Point(246, 255);
             this.cmbMovieID.Name = "cmbMovieID";
-            this.cmbMovieID.Size = new System.Drawing.Size(133, 24);
+            this.cmbMovieID.Size = new System.Drawing.Size(101, 21);
             this.cmbMovieID.TabIndex = 21;
             this.cmbMovieID.SelectedIndexChanged += new System.EventHandler(this.cmbMovieID_SelectedIndexChanged);
             // 
             // cmbRoomID
             // 
             this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(328, 465);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRoomID.Location = new System.Drawing.Point(246, 378);
             this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(133, 24);
+            this.cmbRoomID.Size = new System.Drawing.Size(101, 21);
             this.cmbRoomID.TabIndex = 22;
             // 
             // errorProvider1
@@ -255,10 +241,9 @@ namespace CMPG223_GROUP6_Project
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(763, 71);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(572, 58);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(272, 235);
+            this.pictureBox1.Size = new System.Drawing.Size(204, 191);
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
@@ -268,10 +253,9 @@ namespace CMPG223_GROUP6_Project
             this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDashboard.Location = new System.Drawing.Point(803, 433);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Location = new System.Drawing.Point(602, 352);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(204, 53);
+            this.btnDashboard.Size = new System.Drawing.Size(153, 43);
             this.btnDashboard.TabIndex = 24;
             this.btnDashboard.Text = "Back to dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -279,10 +263,9 @@ namespace CMPG223_GROUP6_Project
             // 
             // txtMovieName
             // 
-            this.txtMovieName.Location = new System.Drawing.Point(328, 347);
-            this.txtMovieName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMovieName.Location = new System.Drawing.Point(246, 282);
             this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.Size = new System.Drawing.Size(132, 22);
+            this.txtMovieName.Size = new System.Drawing.Size(100, 20);
             this.txtMovieName.TabIndex = 25;
             // 
             // lbMovieName
@@ -291,20 +274,19 @@ namespace CMPG223_GROUP6_Project
             this.lbMovieName.BackColor = System.Drawing.Color.Transparent;
             this.lbMovieName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMovieName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbMovieName.Location = new System.Drawing.Point(147, 347);
-            this.lbMovieName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMovieName.Location = new System.Drawing.Point(110, 282);
             this.lbMovieName.Name = "lbMovieName";
-            this.lbMovieName.Size = new System.Drawing.Size(112, 20);
+            this.lbMovieName.Size = new System.Drawing.Size(94, 16);
             this.lbMovieName.TabIndex = 26;
             this.lbMovieName.Text = "Movie Name";
             // 
             // frmMovieRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbMovieName);
             this.Controls.Add(this.txtMovieName);
             this.Controls.Add(this.btnDashboard);
@@ -325,9 +307,10 @@ namespace CMPG223_GROUP6_Project
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMovieRoom";
             this.Text = "frmMovieRoom";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMovieRoom_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
