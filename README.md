@@ -1,4 +1,4 @@
-# DREAMFLIX cinema project
+# DREAMFLIX Cinema
 ## To install the cinema application follow these steps:
 <details open>
    <summary><h3>Database setup</h3></summary>
