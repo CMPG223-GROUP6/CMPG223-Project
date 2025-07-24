@@ -88,7 +88,7 @@ namespace CMPG223_GROUP6_Project
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             //Welcome the administrator
-            lblWelcome.Text = "Welcome" + fName + "!";
+            lblWelcome.Text = "Welcome " + fName + "!";
         }
 
         private void frmDashboard_Resize(object sender, EventArgs e)
